@@ -1,0 +1,13 @@
+title: "selfdriven Finance"
+description: "selfdriven Finance"
+baseurl: ""
+url: ""
+defaults:
+  - scope:
+      path: "pages"
+      type: "pages"
+    values:
+      layout: default
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag

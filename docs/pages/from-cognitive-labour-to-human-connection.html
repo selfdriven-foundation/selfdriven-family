@@ -1,0 +1,1834 @@
+---
+layout: null
+title: "From Cognitive Labour to Human Connection · selfdriven.family"
+permalink: /from-cognitive-labour-to-human-connection/
+---
+
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>From Cognitive Labour to Human Connection · selfdriven.family</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Companion paper 1.1 to The Family as the Foundational Unit of Human Society: how abundant intelligence can return human energy to the family, and what has to change for that to happen.">
+<link rel="icon" type="image/png" href="/assets/img/selfdriven-you-logo-round-4colour-wheel.png">
+<link rel="shortcut icon" href="/assets/img/selfdriven-you-logo-round-4colour-blend.png">
+<link rel="apple-touch-icon" href="/assets/img/selfdriven-you-logo-round-4colour-blend.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* page reset, matching the main selfdriven.family page */
+:root { box-sizing: border-box; padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+body { margin: 0; padding: 0; }
+img { max-width: 100%; }
+
+/* Layout: selfdriven.you dark 4Cs — glow-lit hero, then the paper moving outward from the person to the commons. Shared with the companion paper page. Single dark look by design. */
+:root {
+  --bg: #09090f;
+  --surface: #111118;
+  --surface2: #18181f;
+  --border: rgba(255,255,255,0.08);
+  --border2: rgba(255,255,255,0.14);
+  --text: #f0eeff;
+  --soft: #a9a5c2;
+  --muted: #7e7a9a;
+  --muted2: #3d3a55;
+
+  --curious: #f5c842;
+  --caring: #ff5f7e;
+  --constructive: #00e5a0;
+  --chill: #7b6cff;
+  --chill-bright: #9b8fff;
+  --curious-dim: rgba(245,200,66,0.13);
+  --caring-dim: rgba(255,95,126,0.13);
+  --constructive-dim: rgba(0,229,160,0.13);
+  --chill-dim: rgba(123,108,255,0.13);
+
+  --accent: #ff5f7e;
+  --accent-dim: rgba(255,95,126,0.13);
+  --accent-line: rgba(255,95,126,0.28);
+  --on-accent: #09090f;
+  --nav-bg: rgba(9,9,15,0.72);
+  --scrim: rgba(9,9,15,0.55);
+
+  --pill: 999px;
+  --radius: 22px;
+  --display: 'Bricolage Grotesque', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font: 'DM Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+  --nav-h: 68px;
+  --gutter-l: max(clamp(16px, 4vw, 40px), env(safe-area-inset-left, 0px));
+  --gutter-r: max(clamp(16px, 4vw, 40px), env(safe-area-inset-right, 0px));
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; background: var(--bg); }
+body {
+  background: var(--bg); color: var(--text);
+  font-family: var(--font); font-size: 16.5px; line-height: 1.6;
+  -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+  cursor: none;
+}
+a, button, summary, [tabindex] { cursor: none; }
+a { color: inherit; }
+::selection { background: rgba(255,95,126,.32); color: var(--text); }
+:focus-visible { outline: 2px solid var(--curious); outline-offset: 3px; border-radius: 8px; }
+.ic { width: 20px; height: 20px; flex: none; }
+.ic-sm { width: 16px; height: 16px; flex: none; }
+
+/* ---------- custom cursor ---------- */
+.cursor-dot  { position: fixed; top: -100px; left: -100px; width: 8px; height: 8px; border-radius: 50%; background: var(--curious); pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); transition: transform .12s ease, background .2s; }
+.cursor-ring { position: fixed; top: -100px; left: -100px; width: 34px; height: 34px; border-radius: 50%; border: 1.5px solid rgba(240,238,255,.3); pointer-events: none; z-index: 9998; transform: translate(-50%,-50%); transition: transform .18s ease, width .2s, height .2s, border-color .2s; }
+@media (hover: none) { body, a, button, summary, [tabindex] { cursor: auto; } .cursor-dot, .cursor-ring { display: none; } }
+
+.wrap { max-width: 1160px; margin: 0 auto; padding-left: var(--gutter-l); padding-right: var(--gutter-r); position: relative; z-index: 1; }
+.narrow { max-width: 64ch; }
+
+/* ---------- type ---------- */
+h1, h2, h3 { margin: 0; color: var(--text); font-family: var(--display); text-wrap: balance; }
+h2.title { font-size: clamp(32px, 4.6vw, 56px); font-weight: 800; letter-spacing: -0.04em; line-height: 1.02; }
+h3 { font-size: 20px; font-weight: 700; letter-spacing: -0.03em; line-height: 1.25; }
+p { margin: 0; }
+.eyebrow { display: inline-flex; align-items: center; gap: 10px; font-family: var(--mono); font-size: 11.5px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+.sec-ref { font-family: var(--mono); font-weight: 700; letter-spacing: 0.02em; text-decoration: none; padding: 4px 10px; border-radius: var(--pill); background: var(--accent-dim); color: var(--accent); border: 1px solid var(--accent-line); transition: transform .2s; }
+.sec-ref:hover { transform: translateY(-2px) rotate(-1.5deg); }
+.lede { font-size: clamp(17px, 1.6vw, 19.5px); color: var(--soft); line-height: 1.65; }
+.body { color: var(--soft); line-height: 1.75; }
+.note { font-size: 14px; color: var(--muted); line-height: 1.7; }
+.src { font-family: var(--mono); font-size: 11.5px; color: var(--muted); }
+.label-sm { display: block; font-family: var(--mono); font-size: 11px; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; }
+.hl { color: var(--accent); }
+.sec { position: relative; padding-block: clamp(72px, 10vw, 128px); scroll-margin-top: var(--nav-h); }
+.sec-head { display: grid; gap: 18px; margin-bottom: clamp(36px, 5vw, 60px); }
+.stack { display: grid; gap: 16px; }
+
+/* ---------- scroll reveal (visible at rest; animates in where scroll timelines exist) ---------- */
+@keyframes rv { from { transform: translateY(18px); } to { transform: none; } }
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal { animation: rv cubic-bezier(.34,1.56,.64,1) both; animation-timeline: view(); animation-range: entry 0% entry 45%; }
+    .reveal:nth-child(2) { animation-range: entry 5% entry 50%; }
+    .reveal:nth-child(3) { animation-range: entry 10% entry 55%; }
+    .reveal:nth-child(4) { animation-range: entry 15% entry 60%; }
+  }
+}
+
+/* ---------- glow blobs ---------- */
+.glow { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 0; }
+.gblob { position: absolute; border-radius: 50%; filter: blur(95px); opacity: .5; }
+.gb1 { width: 520px; height: 520px; background: var(--curious); top: -150px; left: -160px; animation: gb 15s ease-in-out infinite; }
+.gb2 { width: 440px; height: 440px; background: var(--caring); top: 40px; right: -130px; animation: gb 19s ease-in-out infinite reverse; }
+.gb3 { width: 360px; height: 360px; background: var(--constructive); bottom: -60px; left: 18%; animation: gb 23s ease-in-out infinite 3s; }
+.gb4 { width: 320px; height: 320px; background: var(--chill); bottom: 20px; right: 12%; animation: gb 17s ease-in-out infinite 8s; }
+@keyframes gb { 0%,100% { transform: translate(0,0) scale(1); } 40% { transform: translate(34px,-26px) scale(1.08); } 70% { transform: translate(-22px,30px) scale(.93); } }
+.glow-soft .gblob { opacity: .16; }
+.glow-soft { -webkit-mask-image: linear-gradient(to bottom, transparent, #000 22%, #000 70%, transparent); mask-image: linear-gradient(to bottom, transparent, #000 22%, #000 70%, transparent); }
+
+/* ---------- buttons & pills ---------- */
+.btn { display: inline-flex; align-items: center; gap: 10px; justify-content: center; padding: 13px 24px; border-radius: var(--pill); font-family: var(--display); font-size: 15px; font-weight: 600; text-decoration: none; border: 1.5px solid transparent; white-space: nowrap; transition: transform .2s, box-shadow .2s, border-color .2s, color .2s; }
+.btn:hover { transform: translateY(-4px) rotate(-1.5deg); box-shadow: 0 14px 36px rgba(0,0,0,.5); }
+.btn-primary { background: var(--accent); color: var(--on-accent); }
+.btn-ghost { background: rgba(240,238,255,.06); color: var(--text); border-color: var(--border2); }
+.btn-ghost:hover { border-color: rgba(240,238,255,.3); }
+
+.mode-pill { display: inline-flex; align-items: center; gap: 8px; padding: 11px 20px; border-radius: var(--pill); font-family: var(--display); font-size: 14px; font-weight: 600; text-decoration: none; border: 1.5px solid transparent; transition: transform .2s, box-shadow .2s; }
+.mode-pill:hover { transform: translateY(-4px) rotate(-1.5deg); box-shadow: 0 14px 36px rgba(0,0,0,.5); }
+.mode-pill svg { width: 16px; height: 16px; }
+.mp-c { background: var(--curious-dim); color: var(--curious); border-color: rgba(245,200,66,.28); }
+.mp-k { background: var(--caring-dim); color: var(--caring); border-color: rgba(255,95,126,.28); }
+.mp-b { background: var(--constructive-dim); color: var(--constructive); border-color: rgba(0,229,160,.28); }
+.mp-l { background: var(--chill-dim); color: var(--chill-bright); border-color: rgba(123,108,255,.28); }
+
+.hero-pill { display: inline-flex; align-items: center; gap: 8px; background: var(--scrim); border: 1px solid rgba(255,255,255,.22); border-radius: var(--pill); padding: 8px 18px; font-size: 12px; font-weight: 500; color: rgba(240,238,255,.7); letter-spacing: .08em; text-transform: uppercase; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); justify-self: start; }
+.hero-pill .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--constructive); animation: pulse 2s infinite; }
+@keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(0,229,160,.55); } 70% { box-shadow: 0 0 0 9px rgba(0,229,160,0); } 100% { box-shadow: 0 0 0 0 rgba(0,229,160,0); } }
+
+/* ---------- nav ---------- */
+.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 50; padding-top: env(safe-area-inset-top, 0px); background: var(--nav-bg); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); border-bottom: 1px solid var(--border); }
+.nav .wrap { display: flex; align-items: center; gap: 28px; height: var(--nav-h); }
+.brand { display: inline-flex; align-items: center; gap: 11px; text-decoration: none; font-family: var(--display); font-weight: 700; font-size: 18px; letter-spacing: -0.03em; color: var(--text); white-space: nowrap; }
+.brand em { font-style: normal; color: var(--caring); }
+.mark { width: 28px; height: 28px; border-radius: 50%; flex: none; background: conic-gradient(var(--curious) 0 25%, var(--caring) 0 50%, var(--constructive) 0 75%, var(--chill) 0 100%); -webkit-mask: radial-gradient(circle, transparent 7px, #000 7.5px); mask: radial-gradient(circle, transparent 7px, #000 7.5px); }
+.nav-links { display: flex; gap: 2px; margin: 0 0 0 auto; list-style: none; padding: 0; }
+.nav-links a { display: block; padding: 8px 12px; border-radius: var(--pill); font-size: 14px; font-weight: 500; color: var(--muted); text-decoration: none; transition: color .2s, background .2s; }
+.nav-links a:hover { color: var(--text); background: rgba(255,255,255,.05); }
+.nav .btn { padding: 10px 18px; font-size: 14px; }
+.nav .btn .sm { display: none; }
+@media (max-width: 980px) { .nav-links { display: none; } .nav .btn { margin-left: auto; } }
+@media (max-width: 520px) { .nav .btn .lg { display: none; } .nav .btn .sm { display: inline; } }
+
+/* ---------- hero ---------- */
+.hero { position: relative; overflow: hidden; padding-top: calc(var(--nav-h) + clamp(44px, 7vw, 96px)); padding-bottom: clamp(56px, 8vw, 96px); }
+.hero::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 180px; background: linear-gradient(to bottom, transparent, var(--bg)); z-index: 0; pointer-events: none; }
+.hero-grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: clamp(32px, 5vw, 64px); align-items: center; }
+.hero-copy { display: grid; gap: 26px; min-width: 0; }
+.hero h1 { font-size: clamp(46px, 6.8vw, 92px); font-weight: 800; letter-spacing: -0.045em; line-height: 0.94; }
+.hero h1 span { display: block; }
+.hero h1 em { font-style: normal; color: var(--caring); }
+.hero .lede { max-width: 54ch; color: rgba(240,238,255,.78); }
+.hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; }
+.jump-row { position: relative; display: flex; flex-wrap: wrap; gap: 10px; }
+.jump-row::before { content: ''; position: absolute; inset: -30px -10%; background: radial-gradient(ellipse at center, var(--scrim), transparent 72%); z-index: -1; pointer-events: none; }
+.meta-row { display: flex; flex-wrap: wrap; gap: 6px 16px; font-family: var(--mono); font-size: 12px; color: var(--muted); }
+.meta-row span { display: inline-flex; align-items: center; gap: 8px; }
+.meta-row span + span::before { content: ""; width: 4px; height: 4px; border-radius: 50%; background: var(--muted2); }
+.rings-fig { margin: 0; display: grid; gap: 14px; justify-items: center; min-width: 0; }
+.rings { width: 100%; max-width: 500px; height: auto; display: block; }
+.rings-fig figcaption { font-size: 13.5px; color: var(--soft); text-align: center; max-width: 40ch; line-height: 1.6; }
+.rings .r { transform-box: fill-box; transform-origin: center; animation: ringIn 1s cubic-bezier(.34,1.56,.64,1) both; }
+.rings .r1 { animation-delay: 0s; } .rings .r2 { animation-delay: .14s; } .rings .r3 { animation-delay: .28s; } .rings .r4 { animation-delay: .42s; }
+.rings .lbl { font-family: var(--mono); font-size: 11px; font-weight: 700; letter-spacing: 0.14em; fill: rgba(240,238,255,.62); }
+.rings .lbl-2 { fill: var(--caring); }
+.rings .lbl-c { font-family: var(--mono); font-size: 11px; font-weight: 700; letter-spacing: 0.14em; fill: var(--on-accent); }
+@keyframes ringIn { from { transform: scale(.82); opacity: .25; } to { transform: scale(1); opacity: 1; } }
+@media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; } .rings { max-width: 420px; } }
+.status { margin-top: clamp(44px, 5vw, 64px); display: flex; gap: 14px; align-items: flex-start; padding: 18px 22px; border: 1px dashed var(--border2); border-radius: 18px; background: var(--scrim); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); color: var(--soft); font-size: 14.5px; line-height: 1.65; }
+.status .ic { color: var(--curious); margin-top: 2px; }
+.status strong { color: var(--text); font-weight: 600; }
+
+/* ---------- definition ---------- */
+.definition { font-family: var(--display); font-size: clamp(24px, 3vw, 38px); font-weight: 700; letter-spacing: -0.03em; line-height: 1.18; color: var(--text); margin: 0; max-width: 28ch; text-wrap: balance; }
+.definition b { color: var(--caring); font-weight: 700; }
+.def-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(32px, 5vw, 72px); margin-top: clamp(36px, 4vw, 56px); align-items: start; }
+@media (max-width: 860px) { .def-grid { grid-template-columns: 1fr; } }
+.layers { list-style: none; padding: 0; margin: 0; display: grid; }
+.layers li { display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 16px; padding: 18px 0; border-top: 1px solid var(--border); }
+.layers li:last-child { border-bottom: 1px solid var(--border); }
+.layers svg { width: 36px; height: 36px; }
+.layers h3 { font-size: 17px; margin-bottom: 3px; }
+.layers p { color: var(--soft); font-size: 15px; line-height: 1.6; }
+.g-ring { fill: none; stroke: var(--border2); stroke-width: 1.5; }
+.g-on { fill: var(--caring-dim); stroke: var(--caring); stroke-width: 2; }
+.g-dot { fill: var(--caring); }
+.g-house { fill: none; stroke: var(--caring); stroke-width: 2; stroke-linejoin: round; }
+
+.data-panel { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: clamp(22px, 3vw, 32px); display: grid; gap: 22px; min-width: 0; }
+.big-n { font-family: var(--display); font-size: clamp(38px, 4.4vw, 52px); font-weight: 800; letter-spacing: -0.045em; line-height: 1; color: var(--text); font-variant-numeric: tabular-nums; }
+.big-n small { font-family: var(--font); font-size: 0.36em; font-weight: 500; letter-spacing: 0; color: var(--soft); margin-left: 8px; }
+.bar { display: flex; gap: 3px; height: 18px; border-radius: 6px; overflow: hidden; }
+.bar span { display: block; height: 100%; }
+.legend { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.legend li { display: grid; grid-template-columns: 12px minmax(0, 1fr) auto; gap: 12px; align-items: center; font-size: 14.5px; color: var(--soft); }
+.legend i { width: 12px; height: 12px; border-radius: 3px; display: block; }
+.legend b { font-family: var(--mono); font-weight: 500; font-size: 13px; color: var(--text); font-variant-numeric: tabular-nums; }
+.duo { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; padding-top: 22px; border-top: 1px solid var(--border); }
+.duo p { font-size: 14px; color: var(--soft); margin-top: 6px; line-height: 1.5; }
+.duo strong { color: var(--text); font-weight: 600; }
+
+/* ---------- functions ---------- */
+.functions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(28px, 3.5vw, 44px) clamp(32px, 5vw, 72px); }
+.functions article { display: grid; gap: 10px; align-content: start; }
+.functions .fx { display: inline-flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 11.5px; color: var(--muted); letter-spacing: 0.06em; text-transform: uppercase; }
+.functions .fx::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--caring); }
+.functions p { color: var(--soft); line-height: 1.75; font-size: 15.5px; }
+.functions .wide { grid-column: 1 / -1; max-width: calc(50% - clamp(16px, 2.5vw, 36px)); }
+@media (max-width: 760px) { .functions { grid-template-columns: 1fr; } .functions .wide { max-width: none; } }
+.claim { margin-top: clamp(40px, 4.5vw, 56px); font-family: var(--display); font-size: clamp(21px, 2.3vw, 27px); font-weight: 700; letter-spacing: -0.03em; line-height: 1.3; max-width: 40ch; color: var(--text); text-wrap: balance; }
+.claim em { font-style: normal; color: var(--caring); }
+
+/* ---------- rights band ---------- */
+.band { background: var(--surface); border-block: 1px solid var(--border); overflow: hidden; }
+.band .glow .gblob { opacity: .14; }
+.affirm { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.affirm article { border: 1px solid var(--border); background: rgba(9,9,15,.55); border-radius: var(--radius); padding: 24px; display: grid; gap: 10px; align-content: start; transition: border-color .2s, transform .2s; }
+.affirm article:hover { border-color: var(--accent-line); transform: translateY(-3px); }
+.affirm .n { font-family: var(--mono); font-size: 12px; color: var(--caring); }
+.affirm p { color: var(--soft); font-size: 15px; line-height: 1.65; }
+@media (max-width: 900px) { .affirm { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 600px) { .affirm { grid-template-columns: 1fr; } }
+.cites { display: flex; flex-wrap: wrap; gap: 8px; }
+.cite { font-family: var(--mono); font-size: 12px; padding: 6px 12px; border-radius: var(--pill); border: 1px solid var(--border2); color: var(--soft); background: rgba(9,9,15,.4); }
+
+/* ---------- shift ---------- */
+.shift { display: grid; border-top: 1px solid var(--border); }
+.shift-row { display: grid; grid-template-columns: minmax(0, 1fr) 48px minmax(0, 1fr); align-items: center; gap: 16px; padding: 20px 0; border-bottom: 1px solid var(--border); }
+.shift-row.head { padding: 12px 0; }
+.shift-row.head span { font-family: var(--mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.shift-row.head span:last-child { color: var(--constructive); }
+.shift .from { color: var(--muted); font-size: 16px; text-decoration: line-through; text-decoration-color: var(--muted2); text-decoration-thickness: 1.5px; }
+.shift .to { font-family: var(--display); color: var(--text); font-size: 18px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.35; }
+.shift .arr { color: var(--constructive); display: grid; place-items: center; }
+@media (max-width: 680px) {
+  .shift-row { grid-template-columns: 1fr; gap: 6px; }
+  .shift-row.head, .shift .arr { display: none; }
+}
+
+/* ---------- modes ---------- */
+.modes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.mode { position: relative; background: var(--surface); border: 1px solid var(--border); border-radius: 26px; padding: clamp(24px, 3vw, 34px); display: grid; gap: 16px; align-content: start; overflow: hidden; scroll-margin-top: calc(var(--nav-h) + 24px); transition: transform .25s, border-color .25s; }
+.mode::after { content: ""; position: absolute; width: 260px; height: 260px; border-radius: 50%; top: -120px; right: -100px; background: var(--mc); filter: blur(80px); opacity: .16; pointer-events: none; transition: opacity .3s; }
+.mode:hover { transform: translateY(-4px); border-color: var(--mline); }
+.mode:hover::after { opacity: .28; }
+.mode .row { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.mode .chip { width: 52px; height: 52px; border-radius: 16px; display: grid; place-items: center; background: var(--md); color: var(--mc); border: 1.5px solid var(--mline); }
+.mode .chip svg { width: 24px; height: 24px; }
+.mode .ess { font-family: var(--mono); font-size: 12px; color: var(--mc); letter-spacing: .06em; }
+.mode .name { font-family: var(--display); font-size: clamp(30px, 3.4vw, 40px); font-weight: 800; letter-spacing: -0.04em; line-height: 1; color: var(--mc); }
+.mode h3 { font-size: 22px; }
+.mode p { color: var(--soft); font-size: 15.5px; line-height: 1.7; }
+.task { display: grid; gap: 6px; padding: 16px 18px; border-radius: 16px; background: rgba(9,9,15,.6); border: 1px solid var(--border); }
+.task span { font-family: var(--mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--mc); }
+.task p { color: var(--text); font-size: 15px; }
+.m-c { --mc: var(--curious); --md: var(--curious-dim); --mline: rgba(245,200,66,.28); }
+.m-k { --mc: var(--caring); --md: var(--caring-dim); --mline: rgba(255,95,126,.28); }
+.m-b { --mc: var(--constructive); --md: var(--constructive-dim); --mline: rgba(0,229,160,.28); }
+.m-l { --mc: var(--chill-bright); --md: var(--chill-dim); --mline: rgba(123,108,255,.28); }
+@media (max-width: 760px) { .modes { grid-template-columns: 1fr; } }
+.aside-line { margin-top: 28px; font-size: 15.5px; color: var(--soft); max-width: 66ch; line-height: 1.7; }
+.aside-line strong { color: var(--text); font-weight: 600; }
+
+/* ---------- cycle ---------- */
+.cycle-grid { display: grid; grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr); gap: clamp(32px, 5vw, 72px); align-items: center; }
+@media (max-width: 880px) { .cycle-grid { grid-template-columns: 1fr; } }
+.cycle-svg { width: 100%; max-width: 460px; height: auto; display: block; margin: 0 auto; }
+.cycle-svg .track { fill: none; stroke: var(--border2); stroke-width: 2; }
+.cycle-svg .chev { fill: none; stroke: var(--muted); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.cycle-svg .pill rect { fill: var(--surface); stroke: var(--caring); stroke-width: 1.5; transition: fill .2s; }
+.cycle-svg .pill text { font-family: var(--display); font-size: 14.5px; font-weight: 600; fill: var(--text); transition: fill .2s; }
+.cycle-svg .pill .num { font-family: var(--mono); font-size: 11px; font-weight: 500; fill: var(--caring); }
+.cycle-svg .pill.on rect { fill: var(--caring); }
+.cycle-svg .pill.on text, .cycle-svg .pill.on .num { fill: var(--on-accent); }
+.cycle-svg .ctr1 { font-family: var(--display); font-size: 17px; font-weight: 700; fill: var(--text); letter-spacing: -0.02em; }
+.cycle-svg .ctr2 { font-family: var(--mono); font-size: 10.5px; fill: var(--muted); letter-spacing: 0.1em; }
+.cycle-svg .traveller { fill: var(--curious); }
+.steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
+.steps li { display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 14px; padding: 14px 16px; border-radius: 16px; border: 1px solid transparent; transition: background .2s, border-color .2s; }
+.steps li:hover, .steps li:focus-within, .steps li.on { background: var(--surface); border-color: var(--border); }
+.steps .n { font-family: var(--mono); font-size: 12px; color: var(--caring); padding-top: 4px; }
+.steps h3 { font-size: 17px; margin-bottom: 2px; }
+.steps p { color: var(--soft); font-size: 15px; line-height: 1.6; }
+.cycle-notes { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: clamp(32px, 4vw, 48px); }
+.cycle-notes > div { padding: 24px; border-radius: var(--radius); border: 1px solid var(--border); background: var(--surface); display: grid; gap: 10px; align-content: start; }
+.cycle-notes h3 { font-size: 17px; }
+.cycle-notes p { color: var(--soft); font-size: 14.5px; line-height: 1.65; }
+.chain { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; color: var(--text); margin-top: 4px; }
+.chain span.n { padding: 5px 11px; border-radius: var(--pill); background: var(--caring-dim); border: 1px solid var(--accent-line); }
+.chain .ic-sm { color: var(--muted); }
+@media (max-width: 700px) { .cycle-notes { grid-template-columns: 1fr; } }
+
+/* ---------- intelligence ---------- */
+.principle { font-family: var(--display); font-size: clamp(27px, 3.6vw, 46px); font-weight: 800; letter-spacing: -0.04em; line-height: 1.08; max-width: 24ch; margin: 18px 0 0; color: var(--text); text-wrap: balance; }
+.principle em { font-style: normal; color: var(--chill-bright); }
+.int-grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: clamp(32px, 5vw, 72px); margin-top: clamp(32px, 4vw, 48px); align-items: start; }
+@media (max-width: 860px) { .int-grid { grid-template-columns: 1fr; } }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; margin: 0; padding: 0; }
+.chips li { padding: 9px 15px; border-radius: var(--pill); border: 1px solid var(--border2); font-size: 14px; color: var(--soft); background: rgba(255,255,255,.02); }
+.tests { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.tests div { padding: 16px 18px; border-radius: 16px; background: var(--chill-dim); border: 1px solid rgba(123,108,255,.28); }
+.tests b { display: block; font-family: var(--display); font-size: 17px; font-weight: 700; letter-spacing: -0.02em; color: var(--text); }
+.tests span { font-size: 13.5px; color: var(--soft); }
+
+/* ---------- capabilities ---------- */
+.proposal-tag { display: inline-flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 12px; color: var(--soft); padding: 7px 14px; border-radius: var(--pill); border: 1px dashed var(--border2); justify-self: start; }
+.proposal-tag .ic-sm { color: var(--curious); }
+.caps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.cap { position: relative; border: 1px solid var(--border); border-radius: var(--radius); padding: 26px 24px; display: grid; gap: 12px; align-content: start; overflow: hidden; background: var(--surface); transition: border-color .25s, transform .25s; }
+.cap:hover { border-color: var(--accent-line); transform: translateY(-4px) rotate(-.4deg); }
+.cap .top { display: flex; align-items: center; justify-content: space-between; }
+.cap .icw { width: 44px; height: 44px; border-radius: 14px; background: var(--caring-dim); color: var(--caring); border: 1.5px solid var(--accent-line); display: grid; place-items: center; }
+.cap .k { font-family: var(--mono); font-size: 12px; color: var(--muted); }
+.cap p { color: var(--soft); font-size: 15px; line-height: 1.65; }
+@media (max-width: 960px) { .caps { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 600px) { .caps { grid-template-columns: 1fr; } }
+
+/* ---------- principles ---------- */
+.principles { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: clamp(32px, 5vw, 72px); }
+.principles li { display: grid; grid-template-columns: 40px minmax(0, 1fr); gap: 14px; padding: 20px 0; border-top: 1px solid var(--border); }
+.principles .n { font-family: var(--mono); font-size: 13px; font-weight: 500; color: var(--constructive); padding-top: 3px; }
+.principles h3 { font-size: 17px; margin-bottom: 4px; }
+.principles p { color: var(--soft); font-size: 15px; line-height: 1.65; }
+@media (max-width: 760px) { .principles { grid-template-columns: 1fr; } }
+
+/* ---------- failure ---------- */
+.fails { display: grid; border-top: 1px solid var(--border); }
+.fail { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 24px; padding: 22px 0; border-bottom: 1px solid var(--border); align-items: baseline; }
+.fail .a { font-size: clamp(17px, 1.8vw, 21px); font-weight: 500; color: var(--muted); text-decoration: line-through; text-decoration-color: var(--caring); text-decoration-thickness: 2px; }
+.fail .v { font-family: var(--display); font-size: clamp(18px, 1.9vw, 23px); font-weight: 700; letter-spacing: -0.025em; color: var(--text); line-height: 1.3; }
+@media (max-width: 680px) { .fail { grid-template-columns: 1fr; gap: 6px; } }
+
+/* ---------- policy / communities ---------- */
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 5vw, 72px); }
+.two-col > div { display: grid; gap: 14px; align-content: start; }
+.two-col h3 { font-size: clamp(22px, 2.2vw, 26px); letter-spacing: -0.035em; }
+.two-col strong { color: var(--text); font-weight: 600; }
+@media (max-width: 800px) { .two-col { grid-template-columns: 1fr; } }
+.pull { position: relative; overflow: hidden; margin: clamp(40px, 5vw, 64px) 0 0; padding: clamp(28px, 4vw, 48px); border-radius: 26px; background: var(--surface); border: 1px solid var(--border); display: grid; gap: 14px; }
+.pull::before { content: ""; position: absolute; width: 380px; height: 380px; border-radius: 50%; right: -120px; bottom: -200px; background: var(--constructive); filter: blur(90px); opacity: .14; }
+.pull > * { position: relative; }
+.pull blockquote { margin: 0; font-family: var(--display); font-size: clamp(23px, 2.9vw, 34px); font-weight: 700; letter-spacing: -0.035em; line-height: 1.2; color: var(--text); max-width: 34ch; text-wrap: balance; }
+
+/* ---------- pilot ---------- */
+.phases { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.phase { display: grid; gap: 10px; align-content: start; position: relative; padding-top: 60px; }
+.phase .badge { position: absolute; top: 0; left: 0; width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; font-family: var(--display); font-weight: 800; font-size: 18px; background: var(--surface); color: var(--text); border: 1.5px solid var(--border2); z-index: 1; }
+.phase:nth-child(2) .badge { border-color: var(--constructive); color: var(--constructive); }
+.phase::before { content: ""; position: absolute; top: 21px; left: 44px; right: -16px; height: 2px; background: var(--border2); }
+.phase:last-child::before { display: none; }
+.phase .wk { font-family: var(--mono); font-size: 12px; color: var(--curious); }
+.phase p { color: var(--soft); font-size: 14.5px; line-height: 1.6; }
+.phase .tagline { font-family: var(--mono); font-size: 11px; color: var(--constructive); }
+@media (max-width: 860px) {
+  .phases { grid-template-columns: 1fr; gap: 0; }
+  .phase { padding: 0 0 28px 64px; }
+  .phase::before { top: 44px; bottom: 0; left: 21px; right: auto; width: 2px; height: auto; }
+}
+.table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; border: 1px solid var(--border); border-radius: 18px; background: var(--surface); }
+table { width: 100%; border-collapse: collapse; font-size: 14.5px; min-width: 560px; }
+th, td { text-align: left; padding: 14px 18px; vertical-align: top; border-bottom: 1px solid var(--border); }
+th { font-family: var(--mono); font-size: 11px; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); background: var(--surface2); }
+tr:last-child td { border-bottom: 0; }
+td:first-child { font-weight: 600; color: var(--text); white-space: nowrap; }
+td { color: var(--soft); line-height: 1.55; }
+.pilot-block { margin-top: clamp(44px, 5vw, 64px); display: grid; gap: 18px; }
+.pilot-block > h3 { font-size: 22px; }
+.hyps { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.hyps li { display: grid; grid-template-columns: 52px minmax(0, 1fr); gap: 14px; align-items: start; padding: 16px 18px; border-radius: 16px; border: 1px solid var(--border); background: var(--surface); }
+.hyps code { font-family: var(--mono); font-size: 13px; font-weight: 700; color: var(--chill-bright); padding: 3px 0; }
+.hyps p { color: var(--soft); font-size: 15px; line-height: 1.6; }
+.hyps li.fail-crit { background: var(--caring-dim); border-color: var(--accent-line); }
+.hyps li.fail-crit code { color: var(--caring); }
+.hyps li.fail-crit p { color: var(--text); font-weight: 500; }
+.hyps .tag { display: inline-block; font-family: var(--mono); font-size: 11px; color: var(--caring); margin-bottom: 4px; letter-spacing: .08em; text-transform: uppercase; }
+
+/* ---------- charter ---------- */
+.charter-sec { overflow: hidden; }
+.charter-wrap { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: clamp(32px, 5vw, 72px); align-items: start; }
+@media (max-width: 860px) { .charter-wrap { grid-template-columns: 1fr; } }
+.charter-side { display: grid; gap: 18px; position: sticky; top: calc(var(--nav-h) + 32px); }
+@media (max-width: 860px) { .charter-side { position: static; } }
+.charter { list-style: none; margin: 0; padding: 0; display: grid; }
+.charter li { padding: 22px 0; border-top: 1px solid var(--border); display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 16px; align-items: baseline; }
+.charter li:last-child { border-bottom: 1px solid var(--border); }
+.charter b { font-family: var(--display); font-size: clamp(23px, 2.5vw, 30px); font-weight: 800; letter-spacing: -0.035em; line-height: 1.12; color: var(--text); }
+.charter span { grid-column: 1; color: var(--soft); font-size: 16px; line-height: 1.6; }
+.charter .mtag { grid-column: 2; grid-row: 1; justify-self: end; font-style: normal; display: inline-flex; align-items: center; gap: 6px; font-family: var(--mono); font-size: 11px; letter-spacing: .06em; padding: 4px 10px; border-radius: var(--pill); white-space: nowrap; }
+.charter .mtag svg { width: 13px; height: 13px; }
+.mt-c { background: var(--curious-dim); color: var(--curious); border: 1px solid rgba(245,200,66,.28); }
+.mt-k { background: var(--caring-dim); color: var(--caring); border: 1px solid rgba(255,95,126,.28); }
+.mt-b { background: var(--constructive-dim); color: var(--constructive); border: 1px solid rgba(0,229,160,.28); }
+.mt-l { background: var(--chill-dim); color: var(--chill-bright); border: 1px solid rgba(123,108,255,.28); }
+.copy-btn[data-done="1"] { border-color: var(--constructive); color: var(--constructive); }
+
+/* ---------- conclusion ---------- */
+.closing-sec { overflow: hidden; }
+.closing { display: grid; gap: 28px; }
+.closing p.big { font-family: var(--display); font-size: clamp(30px, 4.6vw, 60px); font-weight: 800; letter-spacing: -0.045em; line-height: 1.02; max-width: 22ch; color: var(--text); text-wrap: balance; }
+.closing p.big em { font-style: normal; color: var(--caring); }
+.five { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; margin: 0; }
+.five li { padding: 10px 18px; border-radius: var(--pill); background: rgba(255,255,255,.05); border: 1px solid var(--border2); color: var(--text); font-family: var(--display); font-weight: 600; font-size: 15px; }
+
+/* ---------- references ---------- */
+.refs { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; counter-reset: r; }
+.refs li { display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 10px; font-size: 14.5px; color: var(--soft); line-height: 1.6; counter-increment: r; }
+.refs li::before { content: "[" counter(r) "]"; font-family: var(--mono); font-size: 12px; color: var(--caring); padding-top: 2px; }
+.refs a { color: var(--text); word-break: break-word; text-decoration-color: var(--muted2); text-underline-offset: 3px; }
+.refs a:hover { color: var(--curious); }
+.ref-grid { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 0.8fr); gap: clamp(32px, 5vw, 72px); align-items: start; }
+@media (max-width: 860px) { .ref-grid { grid-template-columns: 1fr; } }
+.scope { padding: 24px; border-radius: var(--radius); border: 1px dashed var(--border2); display: grid; gap: 10px; align-content: start; }
+.scope p { font-size: 14px; color: var(--soft); line-height: 1.7; }
+
+/* ---------- footer ---------- */
+footer { border-top: 1px solid var(--border); padding-block: 44px calc(44px + env(safe-area-inset-bottom, 0px)); }
+footer .wrap { display: flex; flex-wrap: wrap; gap: 20px 40px; align-items: center; justify-content: space-between; }
+footer nav { display: flex; flex-wrap: wrap; gap: 8px; }
+footer nav a { display: inline-flex; align-items: center; gap: 6px; padding: 9px 16px; border-radius: var(--pill); border: 1px solid var(--border2); font-size: 14px; font-weight: 500; color: var(--soft); text-decoration: none; transition: transform .2s, color .2s, border-color .2s; }
+footer nav a:hover { color: var(--text); border-color: rgba(240,238,255,.3); transform: translateY(-3px) rotate(-1.5deg); }
+footer .fine { font-family: var(--mono); font-size: 12px; color: var(--muted); width: 100%; }
+
+/* ---------- paper view ---------- */
+.paper-top { position: relative; overflow: hidden; padding-top: calc(var(--nav-h) + clamp(36px, 5vw, 72px)); padding-bottom: clamp(36px, 4vw, 56px); border-bottom: 1px solid var(--border); }
+.paper-top .glow .gblob { opacity: .2; }
+.back { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 500; color: var(--soft); text-decoration: none; margin-bottom: 26px; padding: 8px 14px 8px 10px; border-radius: var(--pill); border: 1px solid var(--border2); background: var(--scrim); }
+.back:hover { color: var(--text); }
+.paper-top h1 { font-size: clamp(36px, 5.6vw, 72px); font-weight: 800; letter-spacing: -0.045em; line-height: 0.98; margin-top: 18px; max-width: 16ch; }
+.paper-meta { display: grid; grid-template-columns: repeat(4, minmax(0, auto)); justify-content: start; gap: 12px 40px; margin: 28px 0 0; }
+.paper-meta dt { font-family: var(--mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.paper-meta dd { margin: 4px 0 0; font-size: 14.5px; color: var(--text); font-weight: 500; }
+@media (max-width: 760px) { .paper-meta { grid-template-columns: 1fr 1fr; } }
+.core { margin: 30px 0 0; padding: 22px 26px; border-radius: 18px; background: var(--scrim); border: 1px solid var(--accent-line); max-width: 72ch; font-size: 16.5px; line-height: 1.7; color: var(--text); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+.core b { color: var(--caring); }
+.paper-layout { display: grid; grid-template-columns: 250px minmax(0, 1fr); gap: clamp(32px, 5vw, 72px); padding-block: clamp(32px, 5vw, 56px) clamp(64px, 8vw, 104px); }
+@media (max-width: 900px) { .paper-layout { grid-template-columns: 1fr; } }
+.toc { position: sticky; top: calc(var(--nav-h) + env(safe-area-inset-top, 0px) + 24px); max-height: calc(100vh - var(--nav-h) - 48px); overflow: auto; }
+@media (max-width: 900px) { .toc { position: static; max-height: none; border: 1px solid var(--border2); border-radius: 18px; padding: 4px 16px; background: var(--surface); } }
+.toc summary { font-family: var(--mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); padding: 12px 0; list-style: none; display: flex; align-items: center; justify-content: space-between; }
+.toc summary::-webkit-details-marker { display: none; }
+.toc ol { list-style: none; margin: 0 0 12px; padding: 0; display: grid; gap: 2px; }
+.toc a { display: block; padding: 7px 11px; border-radius: 12px; font-size: 13.5px; line-height: 1.4; color: var(--muted); text-decoration: none; transition: background .2s, color .2s; }
+.toc a:hover { background: var(--surface); color: var(--text); }
+.toc a.on { color: var(--caring); background: var(--caring-dim); }
+.prose { max-width: 70ch; min-width: 0; color: #c9c6dc; font-size: 17px; line-height: 1.8; }
+.prose > * + * { margin-top: 1.05em; }
+.prose h2 { font-size: clamp(25px, 2.8vw, 32px); font-weight: 800; letter-spacing: -0.035em; line-height: 1.12; margin-top: 2.3em; scroll-margin-top: calc(var(--nav-h) + 24px); }
+.prose h2:first-child { margin-top: 0; }
+.prose h3 { font-size: 20px; margin-top: 1.9em; scroll-margin-top: calc(var(--nav-h) + 24px); }
+.prose strong { color: var(--text); font-weight: 600; }
+.prose a { color: var(--curious); text-underline-offset: 3px; word-break: break-word; }
+.prose ul, .prose ol { padding-left: 1.3em; }
+.prose li + li { margin-top: .45em; }
+.prose li::marker { color: var(--caring); }
+.prose blockquote { margin-left: 0; margin-right: 0; padding: 18px 24px; border-radius: 0 18px 18px 0; border-left: 3px solid var(--caring); background: var(--caring-dim); color: var(--text); }
+.prose blockquote p + p { margin-top: .8em; }
+.prose hr { border: 0; border-top: 1px solid var(--border); margin: 2.4em 0; }
+.prose .table-scroll { margin-top: 1.4em; }
+.prose table { font-size: 14.5px; line-height: 1.55; }
+.prose td:first-child { white-space: normal; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .cycle-svg .traveller { display: none; }
+}
+
+[hidden] { display: none !important; }
+
+/* ---------- nav: sub-page marker ---------- */
+.nav-sub { display: inline-flex; align-items: center; gap: 8px; margin-left: -14px; padding: 6px 12px; border-radius: var(--pill); border: 1px solid var(--accent-line); background: var(--accent-dim); color: var(--caring); font-family: var(--mono); font-size: 11.5px; letter-spacing: .06em; text-decoration: none; white-space: nowrap; transition: transform .2s; }
+.nav-sub:hover { transform: translateY(-2px) rotate(-1.5deg); }
+@media (max-width: 640px) { .nav-sub { display: none; } }
+
+.nav-sub.on { background: var(--caring); color: var(--on-accent); border-color: var(--caring); }
+
+/* ---------- hero ---------- */
+.hero-fd h1 { font-size: clamp(40px, 5.6vw, 78px); line-height: .96; }
+.hero-fd h1 em { font-style: normal; color: var(--caring); }
+.hero-fd .subtitle { font-family: var(--display); font-size: clamp(19px, 1.9vw, 23px); font-weight: 600; letter-spacing: -0.02em; line-height: 1.3; color: var(--text); max-width: 32ch; text-wrap: balance; }
+.hero-copy .back { justify-self: start; margin: 0; }
+.hero-fd .hero-grid { align-items: start; }
+.meta-row a { color: var(--soft); text-underline-offset: 3px; text-decoration-color: var(--muted2); }
+.meta-row a:hover { color: var(--text); }
+
+/* ---------- the time ledger ---------- */
+.ledger { position: relative; margin: 0; display: grid; gap: 16px; padding: clamp(20px, 2.6vw, 30px); border-radius: 26px; background: rgba(17,17,24,.88); border: 1px solid var(--border2); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); min-width: 0; box-shadow: 0 30px 80px rgba(0,0,0,.45); }
+.ledger-head { display: grid; gap: 6px; }
+.ledger-head .label-sm { margin: 0; }
+.ledger-title { font-size: clamp(21px, 2.1vw, 25px); font-weight: 800; letter-spacing: -0.035em; line-height: 1.15; }
+.lrows { list-style: none; margin: 0; padding: 0; display: grid; }
+.lrow, .ltotal { display: grid; grid-template-columns: 36px minmax(0, 1fr) auto; gap: 12px; align-items: center; padding: 11px 0; border-top: 1px solid var(--border); }
+.lsym { width: 36px; height: 36px; border-radius: 11px; display: grid; place-items: center; font-family: var(--mono); font-weight: 700; font-size: 15px; background: var(--k-dim); color: var(--k); border: 1.5px solid var(--k-line); }
+.k-s { --k: var(--constructive); --k-dim: var(--constructive-dim); --k-line: rgba(0,229,160,.34); }
+.k-r { --k: var(--caring); --k-dim: var(--caring-dim); --k-line: rgba(255,95,126,.34); }
+.k-v { --k: var(--curious); --k-dim: var(--curious-dim); --k-line: rgba(245,200,66,.34); }
+.k-d { --k: var(--chill-bright); --k-dim: var(--chill-dim); --k-line: rgba(123,108,255,.34); }
+.k-g { --k: var(--on-accent); --k-dim: var(--constructive); --k-line: var(--constructive); }
+.lname { display: grid; gap: 1px; min-width: 0; }
+.lname b { font-family: var(--display); font-size: 16px; font-weight: 700; letter-spacing: -0.02em; color: var(--text); }
+.lname small { font-size: 12.5px; color: var(--muted); line-height: 1.35; }
+.stepper { display: inline-flex; align-items: center; gap: 2px; }
+.stepper button { width: 32px; height: 32px; padding: 0; border-radius: 50%; border: 1px solid var(--border2); background: rgba(240,238,255,.05); color: var(--text); font: 600 17px/1 var(--font); display: grid; place-items: center; transition: background .2s, border-color .2s, transform .15s, opacity .2s; }
+.stepper button svg { width: 14px; height: 14px; }
+.stepper button:hover:not(:disabled) { border-color: var(--k); background: var(--k-dim); color: var(--k); }
+.stepper button:active:not(:disabled) { transform: scale(.9); }
+.stepper button:disabled { opacity: .3; }
+.stepper output { min-width: 60px; text-align: center; font-family: var(--display); font-weight: 700; font-size: 19px; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; color: var(--text); }
+.ltotal { border-top: 3px double var(--border2); padding-top: 14px; }
+.ltotal .gval { font-family: var(--display); font-size: clamp(32px, 3.4vw, 42px); font-weight: 800; letter-spacing: -0.045em; line-height: 1; font-variant-numeric: tabular-nums; color: var(--constructive); text-align: right; min-width: 96px; transition: color .25s; }
+.ltotal .gval[data-sign="neg"] { color: var(--caring); }
+.ltotal .gval[data-sign="zero"] { color: var(--muted); }
+.lbars { display: grid; gap: 7px; }
+.lbar { display: grid; grid-template-columns: 60px minmax(0, 1fr); gap: 10px; align-items: center; font-family: var(--mono); font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.ltrack { position: relative; display: flex; gap: 2px; height: 14px; }
+.ltrack span { display: block; height: 100%; border-radius: 3px; flex: 0 1 auto; min-width: 0; transition: flex-basis .4s cubic-bezier(.34,1.56,.64,1); }
+.seg-s { background: var(--constructive); }
+.seg-r { background: var(--caring); }
+.seg-v { background: var(--curious); }
+.seg-d { background: var(--chill); }
+.seg-g { background: transparent; border: 1.5px dashed var(--constructive); }
+.ltrack .lmark { position: absolute; top: -5px; bottom: -5px; width: 2px; margin-left: -1px; border-radius: 1px; background: var(--text); transition: left .4s; }
+.lnote { font-size: 14px; color: var(--soft); line-height: 1.55; min-height: 4.65em; }
+.lnote strong { color: var(--text); font-weight: 600; }
+.lfoot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 16px; padding-top: 14px; border-top: 1px solid var(--border); }
+.lfoot code { font-family: var(--mono); font-size: 13px; color: var(--text); letter-spacing: .02em; }
+.reset-btn { display: inline-flex; align-items: center; gap: 6px; padding: 7px 14px; border-radius: var(--pill); border: 1px solid var(--border2); background: transparent; color: var(--soft); font: 500 13px/1 var(--font); transition: color .2s, border-color .2s, opacity .2s; }
+.reset-btn:hover:not(:disabled) { color: var(--text); border-color: rgba(240,238,255,.3); }
+.reset-btn:disabled { opacity: .4; }
+.ledger-cap { font-size: 13px; color: var(--muted); line-height: 1.55; }
+
+/* ---------- inversion ---------- */
+.inv-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(32px, 5vw, 72px); align-items: start; }
+@media (max-width: 860px) { .inv-grid { grid-template-columns: 1fr; } }
+.residue { position: relative; overflow: hidden; display: grid; gap: 16px; padding: clamp(22px, 3vw, 32px); border-radius: var(--radius); background: var(--surface); border: 1px solid var(--border); }
+.residue::before { content: ""; position: absolute; width: 280px; height: 280px; border-radius: 50%; right: -110px; bottom: -150px; background: var(--chill); filter: blur(80px); opacity: .18; pointer-events: none; }
+.residue > * { position: relative; }
+.residue .label-sm { margin: 0; }
+.residue h3 { font-size: clamp(20px, 2.1vw, 24px); letter-spacing: -0.03em; }
+.residue .chips li { border-style: dashed; }
+
+/* ---------- evidence stats ---------- */
+.stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-block: 1px solid var(--border); margin-bottom: clamp(44px, 5vw, 64px); }
+.stat { display: grid; gap: 10px; align-content: start; padding: 26px 24px 26px 0; }
+.stat + .stat { padding-left: 24px; border-left: 1px solid var(--border); }
+.stat p { color: var(--soft); font-size: 15px; line-height: 1.6; }
+.stat .big-n.dim { color: var(--muted); }
+@media (max-width: 860px) {
+  .stats { grid-template-columns: 1fr; }
+  .stat { padding-right: 0; }
+  .stat + .stat { padding-left: 0; border-left: 0; border-top: 1px solid var(--border); }
+}
+
+/* ---------- three routes ---------- */
+.routes { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.route { display: grid; gap: 10px; align-content: start; padding: 24px; border-radius: var(--radius); border: 1px solid var(--border); background: var(--surface); }
+.route .rn { font-family: var(--mono); font-size: 12px; color: var(--muted); }
+.route p { color: var(--soft); font-size: 15px; line-height: 1.65; }
+.route .rt { justify-self: start; font-family: var(--mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; padding: 4px 10px; border-radius: var(--pill); border: 1px solid var(--border2); color: var(--muted); }
+.route.on { background: var(--constructive-dim); border-color: rgba(0,229,160,.32); }
+.route.on .rt, .route.on .rn { color: var(--constructive); border-color: rgba(0,229,160,.32); }
+@media (max-width: 860px) { .routes { grid-template-columns: 1fr; } }
+
+/* ---------- energy ---------- */
+.resources { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: clamp(24px, 4vw, 48px); }
+.resources li { display: grid; grid-template-columns: 40px minmax(0, 1fr); gap: 14px; padding: 22px 0; border-top: 1px solid var(--border); }
+.resources .ico { width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center; background: var(--caring-dim); color: var(--caring); border: 1.5px solid var(--accent-line); }
+.resources h3 { font-size: 17px; margin-bottom: 3px; }
+.resources p { color: var(--soft); font-size: 15px; line-height: 1.6; }
+@media (max-width: 900px) { .resources { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 600px) { .resources { grid-template-columns: 1fr; } }
+.cases { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: clamp(36px, 4vw, 52px); }
+.case { display: grid; gap: 12px; align-content: start; padding: 22px; border-radius: var(--radius); background: var(--surface); border: 1px solid var(--border); }
+.case .who { display: flex; align-items: center; justify-content: space-between; gap: 10px; font-family: var(--mono); font-size: 11.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.case .sign { font-weight: 700; font-size: 11px; padding: 3px 9px; border-radius: var(--pill); letter-spacing: .06em; white-space: nowrap; }
+.sign-up { color: var(--constructive); background: var(--constructive-dim); }
+.sign-down { color: var(--caring); background: var(--caring-dim); }
+.case p { color: var(--text); font-family: var(--display); font-size: 18px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.35; }
+@media (max-width: 860px) { .cases { grid-template-columns: 1fr; } }
+
+/* ---------- hypothesis + causal chain ---------- */
+.hypo { margin: 0; font-family: var(--display); font-size: clamp(22px, 2.7vw, 32px); font-weight: 700; letter-spacing: -0.03em; line-height: 1.25; color: var(--text); max-width: 38ch; text-wrap: pretty; }
+.hypo mark { background: var(--curious-dim); color: var(--curious); padding: 0 .18em; border-radius: 6px; }
+.chain-wrap { margin-block: clamp(36px, 4vw, 52px) 20px; display: grid; gap: 12px; }
+.chain-wrap .label-sm { margin: 0; }
+.links { list-style: none; margin: 0; padding: 0; display: grid; border-top: 1px solid var(--border); }
+.links li { display: grid; grid-template-columns: 40px minmax(0, 1.05fr) minmax(0, 1fr) minmax(0, 1fr); gap: 18px; padding: 20px 0; border-bottom: 1px solid var(--border); align-items: start; }
+.links .n { font-family: var(--mono); font-size: 12px; color: var(--caring); padding-top: 4px; }
+.links h3 { font-size: 17px; display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; }
+.links h3 .ic-sm { color: var(--muted); }
+.links .brk, .links .fix { display: grid; gap: 4px; font-size: 15px; line-height: 1.55; color: var(--soft); }
+.links .brk span, .links .fix span { font-family: var(--mono); font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase; }
+.links .brk span { color: var(--caring); }
+.links .fix span { color: var(--constructive); }
+@media (max-width: 820px) {
+  .links li { grid-template-columns: 30px minmax(0, 1fr); gap: 10px 12px; }
+  .links .brk, .links .fix { grid-column: 2; }
+}
+.qshift { display: grid; gap: 12px; margin-top: clamp(40px, 5vw, 56px); padding: clamp(24px, 3vw, 40px); border-radius: 26px; background: var(--surface); border: 1px solid var(--border); position: relative; overflow: hidden; }
+.qshift::before { content: ""; position: absolute; width: 360px; height: 360px; border-radius: 50%; left: -140px; bottom: -220px; background: var(--curious); filter: blur(90px); opacity: .12; pointer-events: none; }
+.qshift > * { position: relative; }
+.qshift .label-sm { margin: 0; }
+.qshift .from { font-size: clamp(17px, 1.8vw, 20px); color: var(--muted); text-decoration: line-through; text-decoration-color: var(--caring); text-decoration-thickness: 2px; }
+.qshift .to { font-family: var(--display); font-size: clamp(23px, 2.9vw, 34px); font-weight: 800; letter-spacing: -0.035em; line-height: 1.15; color: var(--text); max-width: 30ch; text-wrap: balance; }
+.fxf { margin-top: clamp(36px, 4vw, 52px); display: grid; gap: 14px; }
+.fxf .label-sm { margin: 0; }
+.fx-formula { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.fx-formula .fname { font-family: var(--display); font-size: clamp(19px, 2vw, 23px); font-weight: 700; letter-spacing: -0.025em; color: var(--text); margin-right: 4px; }
+.fx-formula .paren { font-family: var(--mono); font-size: 22px; color: var(--muted); }
+.fx-formula .chip { padding: 7px 13px; border-radius: var(--pill); border: 1px solid var(--border2); color: var(--text); font-size: 14px; background: rgba(255,255,255,.03); }
+
+/* ---------- evidence: time use ---------- */
+.ev-grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: clamp(24px, 4vw, 48px); align-items: start; }
+@media (max-width: 900px) { .ev-grid { grid-template-columns: 1fr; } }
+.tus { margin: 0; display: grid; gap: 22px; }
+.tus-title { display: grid; gap: 6px; }
+.tus-title h3 { font-size: 20px; }
+.tus-title p { font-size: 13.5px; color: var(--muted); }
+.tus-group { display: grid; gap: 10px; }
+.tus-group .gh { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 12px; align-items: baseline; }
+.tus-group .gh .label-sm { margin: 0; }
+.tus-group .gh span.gap { font-family: var(--mono); font-size: 11.5px; color: var(--soft); }
+.tus-row, .tus-axis { display: grid; grid-template-columns: 112px minmax(0, 1fr) 96px; gap: 14px; align-items: center; }
+.tus-k { font-size: 14.5px; color: var(--soft); }
+.tus-track { position: relative; height: 24px; background-image: linear-gradient(to right, var(--border2) 1px, transparent 1px); background-size: 25% 100%; border-right: 1px solid var(--border2); }
+.tus-bar { position: absolute; left: 0; top: 4px; bottom: 4px; border-radius: 0 5px 5px 0; }
+.tus-bar.g1 { background: var(--curious); }
+.tus-bar.g2 { background: var(--constructive); }
+.tus-row b { font-family: var(--mono); font-weight: 500; font-size: 13px; color: var(--text); font-variant-numeric: tabular-nums; text-align: right; white-space: nowrap; }
+.tus-axis .ticks { position: relative; height: 16px; }
+.tus-axis i { position: absolute; top: 0; white-space: nowrap; transform: translateX(-50%); font-style: normal; font-family: var(--mono); font-size: 11px; color: var(--muted); }
+.tus-axis i:first-child { transform: none; }
+.tus-axis i:last-child { transform: translateX(-100%); }
+@media (max-width: 560px) {
+  .tus-row { grid-template-columns: minmax(0, 1fr) auto; row-gap: 6px; }
+  .tus-row .tus-track { grid-column: 1 / -1; grid-row: 2; }
+  .tus-axis { grid-template-columns: minmax(0, 1fr); }
+  .tus-axis > span:first-child, .tus-axis > span:last-child { display: none; }
+}
+.ow { display: grid; gap: 14px; }
+.ow article { display: grid; gap: 10px; align-content: start; padding: 22px; border-radius: var(--radius); border: 1px solid var(--border); background: var(--surface); }
+.ow .tag { justify-self: start; font-family: var(--mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; padding: 4px 10px; border-radius: var(--pill); }
+.ow .t-op { color: var(--constructive); background: var(--constructive-dim); }
+.ow .t-warn { color: var(--caring); background: var(--caring-dim); }
+.ow h3 { font-size: 19px; }
+.ow p { color: var(--soft); font-size: 15px; line-height: 1.6; }
+
+/* ---------- infrastructure ---------- */
+.caps.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (max-width: 960px) { .caps.three { grid-template-columns: 1fr; } }
+.cap .need { display: grid; gap: 8px; padding: 14px 16px; border-radius: 14px; background: rgba(9,9,15,.6); border: 1px solid var(--border); }
+.cap .need span { font-family: var(--mono); font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--caring); }
+.cap .need p { color: var(--text); font-size: 14px; }
+.rejects { margin-top: clamp(32px, 4vw, 44px); display: grid; gap: 12px; }
+.rejects .label-sm { margin: 0; }
+.rejects ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.rejects li { display: inline-flex; align-items: center; gap: 8px; padding: 9px 15px; border-radius: var(--pill); border: 1px solid var(--accent-line); background: var(--caring-dim); color: var(--text); font-size: 14px; }
+.rejects li .ic-sm { color: var(--caring); width: 14px; height: 14px; }
+.flow-block { margin-top: clamp(44px, 5vw, 64px); display: grid; gap: 18px; }
+.flow-block > h3 { font-size: 22px; }
+.flow { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; counter-reset: f; }
+.flow li { display: grid; grid-template-columns: 38px minmax(0, 1fr); gap: 14px; padding: 18px; border-radius: 18px; border: 1px solid var(--border); background: var(--surface); }
+.flow .fn { width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center; font-family: var(--mono); font-size: 13px; font-weight: 700; color: var(--caring); border: 1.5px solid var(--accent-line); background: var(--caring-dim); }
+.flow h4 { margin: 0 0 3px; font-family: var(--display); font-size: 16.5px; font-weight: 700; letter-spacing: -0.02em; color: var(--text); }
+.flow p { color: var(--soft); font-size: 14.5px; line-height: 1.6; }
+.flow li.last { background: var(--constructive-dim); border-color: rgba(0,229,160,.32); }
+.flow li.last .fn { color: var(--constructive); border-color: rgba(0,229,160,.4); background: transparent; }
+.dest { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+.dest span { font-family: var(--mono); font-size: 11px; padding: 3px 9px; border-radius: var(--pill); border: 1px solid var(--border2); color: var(--soft); }
+@media (max-width: 960px) { .flow { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 600px) { .flow { grid-template-columns: 1fr; } }
+
+/* ---------- futures ---------- */
+.futures { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.future { position: relative; overflow: hidden; display: grid; grid-template-rows: auto auto 1fr auto; gap: 12px; padding: 26px 24px; border-radius: 26px; border: 1px solid var(--border); background: var(--surface); transition: transform .25s, border-color .25s; }
+.future:hover { transform: translateY(-4px); }
+.future .badge { width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; font-family: var(--display); font-weight: 800; font-size: 18px; color: var(--text); border: 1.5px solid var(--border2); }
+.future h3 { font-size: 22px; }
+.future p { color: var(--soft); font-size: 15px; line-height: 1.65; }
+.future .for { padding-top: 14px; border-top: 1px solid var(--border); font-size: 15px; color: var(--text); font-weight: 500; }
+.future .for b { display: block; font-family: var(--mono); font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); font-weight: 500; margin-bottom: 4px; }
+.future.a .badge { color: var(--caring); border-color: var(--accent-line); }
+.future.b .badge { color: var(--curious); border-color: rgba(245,200,66,.34); }
+.future.c { background: var(--constructive-dim); border-color: rgba(0,229,160,.32); }
+.future.c .badge { color: var(--on-accent); background: var(--constructive); border-color: var(--constructive); }
+.future.c::after { content: ""; position: absolute; width: 260px; height: 260px; border-radius: 50%; top: -130px; right: -110px; background: var(--constructive); filter: blur(80px); opacity: .18; pointer-events: none; }
+@media (max-width: 900px) { .futures { grid-template-columns: 1fr; } }
+
+/* ---------- preconditions ---------- */
+.preconds { list-style: none; margin: 0; padding: 0; display: grid; border-top: 1px solid var(--border); }
+.preconds li { display: grid; grid-template-columns: minmax(0, .75fr) minmax(0, 1.25fr); gap: 24px; padding: 24px 0; border-bottom: 1px solid var(--border); align-items: baseline; }
+.preconds h3 { font-size: clamp(19px, 2vw, 23px); letter-spacing: -0.03em; }
+.preconds p { color: var(--soft); font-size: 15.5px; line-height: 1.7; }
+.preconds p strong { color: var(--text); font-weight: 600; }
+@media (max-width: 760px) { .preconds li { grid-template-columns: 1fr; gap: 8px; } }
+
+/* ---------- pilot ---------- */
+.weeks { display: grid; gap: 8px; margin-bottom: clamp(32px, 4vw, 44px); }
+.weeks .label-sm { margin: 0 0 4px; }
+.weeks-strip { display: grid; grid-template-columns: 4fr 8fr 4fr; }
+.weeks-strip span { height: 44px; display: flex; align-items: center; gap: 8px; padding: 0 14px; font-family: var(--mono); font-size: 12px; color: var(--on-accent); white-space: nowrap; overflow: hidden; border-right: 3px solid var(--bg); }
+.weeks-strip span:first-child { border-radius: 12px 0 0 12px; }
+.weeks-strip span:last-child { border-radius: 0 12px 12px 0; border-right: 0; }
+.weeks-strip b { font-weight: 700; }
+.weeks-strip em { font-style: normal; font-weight: 500; overflow: hidden; text-overflow: ellipsis; }
+.ws1 { background: var(--curious); }
+.ws2 { background: var(--constructive); }
+.ws3 { background: var(--chill-bright); }
+.weeks-axis { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); font-family: var(--mono); font-size: 11px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.weeks-axis span { border-left: 1px solid var(--border2); padding: 5px 0 0 6px; }
+.weeks-axis span:last-child { display: flex; justify-content: space-between; border-right: 1px solid var(--border2); padding-right: 6px; }
+@media (max-width: 520px) { .weeks-strip em { display: none; } }
+.phases.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.phases.three .phase:nth-child(1) .badge { border-color: var(--curious); color: var(--curious); }
+.phases.three .phase:nth-child(3) .badge { border-color: var(--chill-bright); color: var(--chill-bright); }
+@media (max-width: 860px) { .phases.three { grid-template-columns: 1fr; } }
+
+/* ---------- companion paper view ---------- */
+.paper-top .paper-sub { margin-top: 14px; font-family: var(--display); font-size: clamp(19px, 2vw, 24px); font-weight: 600; color: var(--soft); letter-spacing: -0.02em; line-height: 1.3; max-width: 40ch; text-wrap: balance; }
+.paper-meta a { color: var(--text); text-underline-offset: 3px; text-decoration-color: var(--muted2); }
+.paper-meta a:hover { color: var(--curious); }
+.core.qual { border-style: dashed; border-color: var(--border2); font-size: 15px; color: var(--soft); margin-top: 14px; }
+.core.qual b { color: var(--curious); }
+.prose p.ref { font-size: 15px; line-height: 1.65; }
+.prose p.ref + p.ref { margin-top: .7em; }
+.prose a.cite-link { color: var(--caring); text-decoration: none; font-family: var(--mono); font-size: .82em; letter-spacing: .02em; }
+.prose a.cite-link:hover { text-decoration: underline; }
+.prose code { font-family: var(--mono); font-size: .9em; }
+</style>
+</head>
+<body>
+<!-- selfdriven.you mode icons + Lucide icons -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="ic-telescope" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="17" cy="13" r="3"/><path d="M3 7l5.5 2.5"/><path d="M3 7l2-4 14.5 6.5-2 4"/><path d="M8.5 9.5L6 20h5l1.5-4"/><path d="M17 16v4"/></symbol>
+  <symbol id="ic-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></symbol>
+  <symbol id="ic-hammer" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 12-8.5 8.5c-.83.83-2.17.83-3 0 0 0 0 0 0 0a2.12 2.12 0 0 1 0-3L12 9"/><path d="M17.64 15 22 10.64"/><path d="m20.91 11.7-1.25-1.25c-.6-.6-.93-1.4-.93-2.25v-.86L16.01 4.6a5.56 5.56 0 0 0-3.94-1.64H9l.92.82A6.18 6.18 0 0 1 12 8.4v1.56l2 2h2.47l2.26 1.91"/></symbol>
+  <symbol id="ic-waves" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 18c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/></symbol>
+  <symbol id="ic-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+  <symbol id="ic-arrow-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></symbol>
+  <symbol id="ic-arrow-up-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></symbol>
+  <symbol id="ic-file-text" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></symbol>
+  <symbol id="ic-info" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></symbol>
+  <symbol id="ic-compass" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></symbol>
+  <symbol id="ic-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></symbol>
+  <symbol id="ic-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></symbol>
+  <symbol id="ic-sprout" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 20h10"/><path d="M10 20c5.5-2.5.8-6.4 3-10"/><path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z"/><path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z"/></symbol>
+  <symbol id="ic-lifebuoy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24"/><path d="m14.83 9.17 4.24-4.24"/><path d="m14.83 14.83 4.24 4.24"/><path d="m9.17 14.83-4.24 4.24"/><circle cx="12" cy="12" r="4"/></symbol>
+  <symbol id="ic-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol>
+  <symbol id="ic-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></symbol>
+  <symbol id="ic-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="ic-chevron-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></symbol>
+  <symbol id="ic-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></symbol>
+  <symbol id="ic-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></symbol>
+  <symbol id="ic-battery" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="10" x="2" y="7" rx="2" ry="2"/><line x1="22" x2="22" y1="11" y2="13"/><line x1="6" x2="6" y1="11" y2="13"/><line x1="10" x2="10" y1="11" y2="13"/></symbol>
+  <symbol id="ic-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></symbol>
+  <symbol id="ic-shield-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><path d="m9 12 2 2 4-4"/></symbol>
+  <symbol id="ic-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></symbol>
+  <symbol id="ic-bot" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></symbol>
+  <symbol id="ic-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol>
+  <symbol id="ic-minus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/></symbol>
+  <symbol id="ic-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></symbol>
+  <symbol id="ic-rotate" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></symbol>
+</svg>
+
+<div class="cursor-dot" id="cdot" aria-hidden="true"></div>
+<div class="cursor-ring" id="cring" aria-hidden="true"></div>
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="selfdriven.family home"><span class="mark" aria-hidden="true"></span><span>selfdriven<em>.family</em></span></a>
+    <a class="nav-sub on" href="#top">Companion 1.1</a>
+    <ul class="nav-links">
+      <li><a href="#fd-inversion">Inversion</a></li>
+      <li><a href="#fd-energy">Energy</a></li>
+      <li><a href="#fd-hypothesis">Hypothesis</a></li>
+      <li><a href="#fd-evidence">Evidence</a></li>
+      <li><a href="#fd-modes">4Cs</a></li>
+      <li><a href="#fd-futures">Futures</a></li>
+      <li><a href="#fd-pilot">Pilot</a></li>
+    </ul>
+    <a class="btn btn-primary" href="#paper"><svg class="ic-sm"><use href="#ic-file-text"/></svg><span class="lg">Read the paper</span><span class="sm">Paper</span></a>
+  </div>
+</header>
+
+<!-- ======================= OVERVIEW ======================= -->
+<main id="fd">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero hero-fd" id="fd-top">
+    <div class="glow" aria-hidden="true"><div class="gblob gb1"></div><div class="gblob gb2"></div><div class="gblob gb3"></div><div class="gblob gb4"></div></div>
+    <div class="wrap">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <a class="back" href="/"><svg class="ic-sm"><use href="#ic-arrow-left"/></svg>selfdriven.family</a>
+          <span class="hero-pill"><span class="dot"></span>Companion paper 1.1 · v1.0</span>
+          <h1>From cognitive labour to <em>human connection.</em></h1>
+          <p class="subtitle">How abundant intelligence can return human energy to the family.</p>
+          <p class="lede">As autonomous intelligence takes on more of the cognitive labour that has filled working life, society can choose to return that capacity to its foundational relationships. The goal is more human presence, care, freedom and mutual development, not just more output per person.</p>
+          <div class="hero-ctas">
+            <a class="btn btn-primary" href="#paper">Read the paper<svg class="ic-sm"><use href="#ic-arrow-right"/></svg></a>
+            <a class="btn btn-ghost" href="#fd-hypothesis">The Family Dividend Hypothesis</a>
+          </div>
+          <div class="meta-row" aria-label="Paper details"><span>Version 1.0</span><span>29 October 2026</span><span>Companion to <a href="/#paper">The Family as the Foundational Unit of Human Society</a></span></div>
+        </div>
+
+        <figure class="ledger" id="ledger" aria-labelledby="ledgerTitle">
+          <div class="ledger-head">
+            <span class="label-sm">Time ledger · one person · one week</span>
+            <h2 class="ledger-title" id="ledgerTitle">Where the saved hours actually go</h2>
+          </div>
+          <ul class="lrows">
+            <li class="lrow k-s">
+              <span class="lsym" aria-hidden="true">S</span>
+              <span class="lname"><b>Saved</b><small>task effort AI takes on</small></span>
+              <span class="stepper"><button type="button" id="lg-S-dec" aria-label="Fewer hours saved"><svg><use href="#ic-minus"/></svg></button><output id="lg-S" aria-label="Hours saved">+5 h</output><button type="button" id="lg-S-inc" aria-label="More hours saved"><svg><use href="#ic-plus"/></svg></button></span>
+            </li>
+            <li class="lrow k-r">
+              <span class="lsym" aria-hidden="true">R</span>
+              <span class="lname"><b>Reclaimed</b><small>by employers or self-imposed extra output</small></span>
+              <span class="stepper"><button type="button" id="lg-R-dec" aria-label="Fewer hours reclaimed"><svg><use href="#ic-minus"/></svg></button><output id="lg-R" aria-label="Hours reclaimed">−3 h</output><button type="button" id="lg-R-inc" aria-label="More hours reclaimed"><svg><use href="#ic-plus"/></svg></button></span>
+            </li>
+            <li class="lrow k-v">
+              <span class="lsym" aria-hidden="true">V</span>
+              <span class="lname"><b>Review</b><small>verification and AI coordination</small></span>
+              <span class="stepper"><button type="button" id="lg-V-dec" aria-label="Fewer review hours"><svg><use href="#ic-minus"/></svg></button><output id="lg-V" aria-label="Review hours">−1 h</output><button type="button" id="lg-V-inc" aria-label="More review hours"><svg><use href="#ic-plus"/></svg></button></span>
+            </li>
+            <li class="lrow k-d">
+              <span class="lsym" aria-hidden="true">D</span>
+              <span class="lname"><b>Disruption</b><small>hours lost to transition</small></span>
+              <span class="stepper"><button type="button" id="lg-D-dec" aria-label="Fewer disruption hours" disabled><svg><use href="#ic-minus"/></svg></button><output id="lg-D" aria-label="Disruption hours">0 h</output><button type="button" id="lg-D-inc" aria-label="More disruption hours"><svg><use href="#ic-plus"/></svg></button></span>
+            </li>
+          </ul>
+          <div class="ltotal k-g">
+            <span class="lsym" aria-hidden="true">G</span>
+            <span class="lname"><b>Net discretionary time</b><small>what is left for the person to choose</small></span>
+            <output class="gval" id="lg-G" data-sign="pos">1 h</output>
+          </div>
+          <div class="lbars" aria-hidden="true">
+            <div class="lbar"><span>Saved</span><span class="ltrack"><span class="seg-s" id="seg-s" style="flex-basis:100%"></span></span></div>
+            <div class="lbar"><span>Went to</span><span class="ltrack" id="spentTrack"><span class="seg-r" id="seg-r" style="flex-basis:60%"></span><span class="seg-v" id="seg-v" style="flex-basis:20%"></span><span class="seg-d" id="seg-d" style="flex-basis:0%" hidden></span><span class="seg-g" id="seg-g" style="flex-basis:20%"></span><i class="lmark" id="lgMark" hidden></i></span></div>
+          </div>
+          <p class="lnote" id="lgNote" aria-live="polite">Most of the apparent saving was absorbed before it reached the person. <strong>This is the paper's hypothetical example: five hours saved, one hour returned.</strong></p>
+          <div class="lfoot">
+            <code>G = S − R − V − D</code>
+            <button type="button" class="reset-btn" id="lgReset" disabled><svg class="ic-sm"><use href="#ic-rotate"/></svg>Paper's example</button>
+          </div>
+          <figcaption class="ledger-cap">An illustrative accounting identity from §4.2, not a validated economic model. Even a positive G does not guarantee a family benefit.</figcaption>
+        </figure>
+      </div>
+
+      <div class="status" role="note">
+        <svg class="ic"><use href="#ic-info"/></svg>
+        <p><strong>A future scenario, not a description of today.</strong> That AI will perform most economically useful cognitive tasks is a scenario. Evidence so far shows meaningful but uneven task-level gains. It does not show a general reduction in paid work or an automatic increase in family time [1–5].</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ §1 INVERSION ============ -->
+  <section class="sec" id="fd-inversion">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow"><a class="sec-ref" href="#fdp-s1">§1</a>The historical inversion</span>
+        <h2 class="title">Life organised around work.</h2>
+        <p class="lede narrow">Modern economic arrangements often place the job, the firm and the institutional schedule at the centre. Human time goes to paid activity first, and relationships are arranged around the residual windows.</p>
+      </div>
+      <div class="inv-grid">
+        <div class="stack">
+          <p class="body">This is an analytical claim about how many systems are organised. Employment is not inherently degrading, and family relationships are not always healthy. Work can provide purpose, income, friendship, competence and dignity.</p>
+          <p class="body">The problem is the presumption that <strong style="color:var(--text);font-weight:600">economic demand has first claim on human attention</strong>, while the social work that sustains people is treated as secondary. If intelligence stops being the scarce resource behind routine cognitive tasks, the assumptions behind that allocation deserve review.</p>
+        </div>
+        <aside class="residue reveal" aria-label="The mental residue of work">
+          <span class="label-sm">The mental residue of work</span>
+          <h3>You can leave the workplace without leaving its cognitive demands.</h3>
+          <ul class="chips">
+            <li>Unfinished decisions</li>
+            <li>Alerts</li>
+            <li>Planning</li>
+            <li>Context-switching</li>
+            <li>Anticipatory anxiety</li>
+          </ul>
+          <p class="body" style="font-size:15px">Family time competes with work <strong style="color:var(--text);font-weight:600">hours</strong>, and with the <strong style="color:var(--text);font-weight:600">residue</strong> those hours leave behind.</p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ §2 WHAT CHANGES ============ -->
+  <section class="sec" id="fd-changes">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow"><a class="sec-ref" href="#fdp-s2">§2</a>What changes when AI can do cognitive work?</span>
+        <h2 class="title">A direction of change, not a fixed end state.</h2>
+        <p class="lede narrow">Interpreting, writing, scheduling, forecasting, analysing, coding, reporting, searching, documenting and coordinating. AI already supports or automates parts of this work, with sharp differences in reliability, cost, accountability and suitability.</p>
+      </div>
+      <div class="stats">
+        <div class="stat reveal">
+          <div class="big-n">1 in 4</div>
+          <p>workers were in occupations with some potential exposure to generative AI. Most affected work is more likely to be transformed than eliminated.</p>
+          <span class="src">ILO, 2025 [2]</span>
+        </div>
+        <div class="stat reveal">
+          <div class="big-n">≈2 h<small>a week</small></div>
+          <p>less time on email among treated workers who used an integrated generative AI tool, alongside less work outside normal hours. 66 firms, 7,137 knowledge workers.</p>
+          <span class="src">Dillon et al., NBER [4]</span>
+        </div>
+        <div class="stat reveal">
+          <div class="big-n dim">Not yet</div>
+          <p>Reported time savings had not produced broad measured gains in earnings or working hours. Productivity gains were real but uneven.</p>
+          <span class="src">ILO synthesis, June 2026 [1]</span>
+        </div>
+      </div>
+      <span class="label-sm">Three possibilities to keep separate</span>
+      <ol class="routes">
+        <li class="route reveal"><span class="rn">1</span><h3>Task automation</h3><p>A defined unit of cognitive labour needs less human effort.</p><span class="rt">A mechanism</span></li>
+        <li class="route reveal"><span class="rn">2</span><h3>Work transformation</h3><p>People supervise, validate and orchestrate more output, sometimes doing just as much work.</p><span class="rt">A mechanism</span></li>
+        <li class="route on reveal"><span class="rn">3</span><h3>Social time liberation</h3><p>People can actually decide to work less, recover more or spend time with others, without unacceptable losses of security or agency.</p><span class="rt">The opportunity</span></li>
+      </ol>
+      <p class="aside-line">Only the third directly delivers the opportunity at the heart of this paper. <strong>The first two are possible mechanisms, not proof that the third has occurred.</strong></p>
+    </div>
+  </section>
+
+  <!-- ============ §3 ENERGY ============ -->
+  <section class="sec" id="fd-energy">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow"><a class="sec-ref" href="#fdp-s3">§3</a>Human energy is more than a number of hours</span>
+        <h2 class="title">One hour of AI work is not one hour of family time.</h2>
+        <p class="lede narrow">Human experience does not behave like a simple exchange. A family dividend can arrive through any of six resources.</p>
+      </div>
+      <ul class="resources">
+        <li class="reveal"><span class="ico"><svg class="ic"><use href="#ic-clock"/></svg></span><div><h3>Time</h3><p>Hours free of obligatory employment and administration.</p></div></li>
+        <li class="reveal"><span class="ico"><svg class="ic"><use href="#ic-eye"/></svg></span><div><h3>Attention</h3><p>Capacity to listen, notice and remain mentally present.</p></div></li>
+        <li class="reveal"><span class="ico"><svg class="ic"><use href="#ic-heart"/></svg></span><div><h3>Emotional availability</h3><p>Capacity for patience, responsiveness, affection and repair.</p></div></li>
+        <li class="reveal"><span class="ico"><svg class="ic"><use href="#ic-battery"/></svg></span><div><h3>Physical capacity</h3><p>Freedom from excessive fatigue and unsustainable schedules.</p></div></li>
+        <li class="reveal"><span class="ico"><svg class="ic"><use href="#ic-compass"/></svg></span><div><h3>Agency</h3><p>The real ability to choose whether and how to use the capacity.</p></div></li>
+        <li class="reveal"><span class="ico"><svg class="ic"><use href="#ic-shield"/></svg></span><div><h3>Economic security</h3><p>Enough stability that free time is not overwhelmed by financial anxiety.</p></div></li>
+      </ul>
+      <div class="cases">
+        <article class="case reveal"><div class="who">A caregiver<span class="sign sign-up">Gains calm</span></div><p>Spends fewer minutes on medical paperwork, and gains a disproportionate amount of calm.</p></article>
+        <article class="case reveal"><div class="who">A parent<span class="sign sign-up">Gains presence</span></div><p>Finishes work at the same time, but is no longer distracted by unresolved professional admin.</p></article>
+        <article class="case reveal"><div class="who">A displaced worker<span class="sign sign-down">Loses security</span></div><p>Gains nominal free hours while losing the security required to enjoy them.</p></article>
+      </div>
+      <p class="claim reveal">The relevant outcome is not simply time at home. It is <em>freely chosen, safe and meaningful capacity for relationship.</em></p>
+    </div>
+  </section>
+
+  <!-- ============ §4 HYPOTHESIS ============ -->
+  <section class="sec band" id="fd-hypothesis">
+    <div class="glow" aria-hidden="true"><div class="gblob gb1"></div><div class="gblob gb3"></div></div>
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow"><a class="sec-ref" href="#fdp-s4">§4</a>The Family Dividend Hypothesis</span>
+        <blockquote class="hypo reveal">As AI reduces the human cognitive effort required for productive activity, family wellbeing can improve <mark>if</mark> the gains are converted into protected time, lower cognitive burden, secure livelihoods and fairly shared care, and <mark>if</mark> individuals retain the freedom to decide how to live.</blockquote>
+        <p class="body narrow">The hypothesis is conditional because an improvement in task efficiency can follow several competing routes.</p>
+      </div>
+
+      <div class="chain-wrap">
+        <span class="label-sm">The causal model</span>
+        <div class="chain" aria-label="Causal model">
+          <span class="n">AI capability</span><svg class="ic-sm"><use href="#ic-arrow-right"/></svg><span class="n">Reduced task effort</span><svg class="ic-sm"><use href="#ic-arrow-right"/></svg><span class="n">Distribution of gains</span><svg class="ic-sm"><use href="#ic-arrow-right"/></svg><span class="n">Time and energy</span><svg class="ic-sm"><use href="#ic-arrow-right"/></svg><span class="n">Freely chosen participation</span><svg class="ic-sm"><use href="#ic-arrow-right"/></svg><span class="n">Relational wellbeing</span>
+        </div>
+      </div>
+      <ol class="links" aria-label="Where each link in the chain can break, and the design response">
+        <li class="reveal"><span class="n">01</span><h3>AI capability<svg class="ic-sm"><use href="#ic-arrow-right"/></svg>useful savings</h3><div class="brk"><span>Can break on</span>Errors, oversight, unsuitable tasks</div><div class="fix"><span>Design response</span>Verify results; use bounded automation</div></li>
+        <li class="reveal"><span class="n">02</span><h3>Savings<svg class="ic-sm"><use href="#ic-arrow-right"/></svg>available capacity</h3><div class="brk"><span>Can break on</span>Higher output quotas and workload creep</div><div class="fix"><span>Design response</span>Establish workload and availability limits</div></li>
+        <li class="reveal"><span class="n">03</span><h3>Capacity<svg class="ic-sm"><use href="#ic-arrow-right"/></svg>freedom to choose</h3><div class="brk"><span>Can break on</span>Income insecurity, coercion, unequal bargaining power</div><div class="fix"><span>Design response</span>Protect livelihoods and worker agency</div></li>
+        <li class="reveal"><span class="n">04</span><h3>Freedom<svg class="ic-sm"><use href="#ic-arrow-right"/></svg>family participation</h3><div class="brk"><span>Can break on</span>Unfair care allocation, conflict, unmet needs</div><div class="fix"><span>Design response</span>Distribute care fairly and support caregivers</div></li>
+        <li class="reveal"><span class="n">05</span><h3>Participation<svg class="ic-sm"><use href="#ic-arrow-right"/></svg>wellbeing</h3><div class="brk"><span>Can break on</span>Surveillance, unsafe relationships, poor-quality time</div><div class="fix"><span>Design response</span>Prioritise consent, safety and relational quality</div></li>
+      </ol>
+
+      <div class="qshift reveal">
+        <span class="label-sm">The central question changes</span>
+        <p class="from">How much work can AI do?</p>
+        <p class="to">Who receives the liberated capacity, in what form, and with what control?</p>
+      </div>
+
+      <div class="fxf">
+        <span class="label-sm">A more complete outcome · §4.2</span>
+        <div class="fx-formula" role="img" aria-label="Family dividend is a function of net discretionary time, cognitive recovery, security, equity, relationship quality and personal choice">
+          <span class="fname">Family dividend = f</span><span class="paren">(</span>
+          <span class="chip">net discretionary time</span><span class="chip">cognitive recovery</span><span class="chip">security</span><span class="chip">equity</span><span class="chip">relationship quality</span><span class="chip">personal choice</span>
+          <span class="paren">)</span>
+        </div>
+        <p class="note narrow">The function f is deliberately unspecified. The pilot would investigate its empirical shape instead of treating it as a known formula. Net discretionary time, G, is the <a href="#fd-top" style="color:var(--soft)">ledger at the top of this page</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ §5 EVIDENCE ============ -->
+  <section class="sec" id="fd-evidence">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow"><a class="sec-ref" href="#fdp-s5">§5</a>The present evidence</span>
+        <h2 class="title">Opportunity and warning.</h2>
+        <p class="lede narrow">The constraint is already material. Australia's 2024 Time Use Survey, published in December 2025, shows how much unpaid work people who do it carry each day.</p>
+      </div>
+      <div class="ev-grid">
+        <figure class="tus data-panel reveal">
+          <div class="tus-title">
+            <h3>Unpaid work, average per day</h3>
+            <p>Among people participating in unpaid work. Participant averages, not every person, and not an estimate of time available to redistribute.</p>
+          </div>
+          <div class="tus-group">
+            <div class="gh"><span class="label-sm">All participants</span><span class="gap">gap 1 h 1 min</span></div>
+            <div class="tus-row"><span class="tus-k">Women</span><span class="tus-track"><span class="tus-bar g1" style="width:61.04%"></span></span><b>4 h 53 min</b></div>
+            <div class="tus-row"><span class="tus-k">Men</span><span class="tus-track"><span class="tus-bar g1" style="width:48.33%"></span></span><b>3 h 52 min</b></div>
+          </div>
+          <div class="tus-group">
+            <div class="gh"><span class="label-sm">Parents of children under 15</span><span class="gap">gap 2 h 27 min</span></div>
+            <div class="tus-row"><span class="tus-k">Female parents</span><span class="tus-track"><span class="tus-bar g2" style="width:93.54%"></span></span><b>7 h 29 min</b></div>
+            <div class="tus-row"><span class="tus-k">Male parents</span><span class="tus-track"><span class="tus-bar g2" style="width:62.92%"></span></span><b>5 h 2 min</b></div>
+          </div>
+          <div class="tus-axis" aria-hidden="true"><span></span><span class="ticks"><i style="left:0">0</i><i style="left:25%">2</i><i style="left:50%">4</i><i style="left:75%">6</i><i style="left:100%">8 h</i></span><span></span></div>
+          <p class="note">Survey-method changes limit direct comparison with earlier cycles. <span class="src">ABS, How Australians use their time, 2024 [3]</span></p>
+        </figure>
+        <div class="ow">
+          <article class="reveal">
+            <span class="tag t-op">Opportunity</span>
+            <div class="big-n">7.4 h<small>a month</small></div>
+            <p>Average perceived saving reported by employed EU respondents who used AI. A useful early indicator, not a verified reduction in contracted hours.</p>
+            <span class="src">European Commission, 2026 [5]</span>
+          </article>
+          <article class="reveal">
+            <span class="tag t-warn">Warning</span>
+            <h3>AI tended to intensify work.</h3>
+            <p>In an eight-month study at one technology company, employees broadened tasks, worked faster and extended activity into more of the day. One company cannot establish a universal pattern, but it challenges the assumption that efficiency creates leisure.</p>
+            <span class="src">Ranganathan &amp; Ye, 2026 [6]</span>
+          </article>
+        </div>
+      </div>
+      <p class="claim reveal">Automation can release cognitive effort, but <em>the social destination of that effort remains unsettled.</em></p>
+      <p class="aside-line">The family cannot be imagined as an unlimited reservoir for unpaid labour. <strong>A family dividend that merely shifts more unpaid obligations onto women or other already-overloaded members is not a dividend at all.</strong> <span class="src">ILO [7]</span></p>
+    </div>
+  </section>
+
+  <!-- ============ §6 SHIFT ============ -->
+  <section class="sec" id="fd-shift">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow"><a class="sec-ref" href="#fdp-s6">§6</a>From the institution-first economy</span>
+        <h2 class="title">Towards a relationship-first society.</h2>
+        <p class="lede narrow">The proposed transition does not abolish work, government, markets or public services. It changes their priority and architecture.</p>
+      </div>
+      <div class="shift" role="table" aria-label="A work-centred allocation compared with a relationship-centred allocation">
+        <div class="shift-row head" role="row"><span role="columnheader">A work-centred allocation</span><span aria-hidden="true"></span><span role="columnheader">A relationship-centred allocation</span></div>
+        <div class="shift-row reveal" role="row"><span class="from" role="cell">AI is used mainly to increase institutional throughput</span><span class="arr" aria-hidden="true"><svg class="ic"><use href="#ic-arrow-right"/></svg></span><span class="to" role="cell">AI also reduces the human effort needed to sustain useful services</span></div>
+        <div class="shift-row reveal" role="row"><span class="from" role="cell">Working hours remain the default measure of contribution</span><span class="arr" aria-hidden="true"><svg class="ic"><use href="#ic-arrow-right"/></svg></span><span class="to" role="cell">Paid work, care, learning and community contribution are all recognised</span></div>
+        <div class="shift-row reveal" role="row"><span class="from" role="cell">Family life fits around organisational availability</span><span class="arr" aria-hidden="true"><svg class="ic"><use href="#ic-arrow-right"/></svg></span><span class="to" role="cell">Organisations account for the need for care and reciprocal relationships</span></div>
+        <div class="shift-row reveal" role="row"><span class="from" role="cell">Workers are rewarded for permanent availability</span><span class="arr" aria-hidden="true"><svg class="ic"><use href="#ic-arrow-right"/></svg></span><span class="to" role="cell">People can protect periods of non-availability</span></div>
+        <div class="shift-row reveal" role="row"><span class="from" role="cell">Families outsource every coordination difficulty</span><span class="arr" aria-hidden="true"><svg class="ic"><use href="#ic-arrow-right"/></svg></span><span class="to" role="cell">Families can obtain tools and support to self-actuate where they choose</span></div>
+        <div class="shift-row reveal" role="row"><span class="from" role="cell">Success is measured predominantly through output and income</span><span class="arr" aria-hidden="true"><svg class="ic"><use href="#ic-arrow-right"/></svg></span><span class="to" role="cell">Success includes security, agency, relationships, resilience and wellbeing</span></div>
+      </div>
+      <p class="aside-line">A relationship-centred society still depends on high-quality schools, health systems, public safety, disability services, transport and professional care. Its proposal is that these systems <strong>serve human relationships</strong>, instead of demanding that relationships permanently adapt to institutional convenience.</p>
+      <p class="aside-line" style="margin-top:12px">The benefit is not confined to parenting. <strong>No person should be required to have children or conform to a conventional household to share in the gains of abundant intelligence.</strong></p>
+    </div>
+  </section>
+
+  <!-- ============ §7 WHAT RETURNS ============ -->
+  <section class="sec" id="fd-returns">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow"><a class="sec-ref" href="#fdp-s7">§7</a>What human energy could return to the family?</span>
+        <h2 class="title">Five places recovered capacity can go.</h2>
+      </div>
+      <div class="functions">
+        <article class="reveal">
+          <span class="fx">Presence</span>
+          <h3>Presence rather than mere proximity</h3>
+          <p>Being physically at home is not the same as being available. Less administrative load may make room for conversation, conflict repair, play and noticing the needs of others. The hoped-for result is presence, not surveillance of how every free minute is spent.</p>
+        </article>
+        <article class="reveal">
+          <span class="fx">Childhood and agency</span>
+          <h3>Responsive relationships, not a substitute parent</h3>
+          <p>Children benefit from responsive relationships, safe exploration, play and growing participation in decisions. AI may support learning resources, accessibility and coordination, but it should not replace a child's access to trustworthy people. <span class="src">WHO [8], WHO–UNICEF [10]</span></p>
+        </article>
+        <article class="reveal">
+          <span class="fx">Across generations</span>
+          <h3>Stories, knowledge and changing care needs</h3>
+          <p>Adults with usable capacity are better placed to preserve stories, assist ageing members and stay close across distance. These relationships still need appropriate paid care and public support where needs exceed what relatives can or should provide.</p>
+        </article>
+        <article class="reveal">
+          <span class="fx">Shared projects</span>
+          <h3>Contribution beyond the household</h3>
+          <p>Gardens, local environmental projects, neighbourhood mutual aid, community learning, practical making and shared creative work. A family that contributes beyond its immediate obligations strengthens community resilience, and communities support families in return.</p>
+        </article>
+        <article class="wide reveal">
+          <span class="fx">Rest</span>
+          <h3>Rest is a legitimate outcome</h3>
+          <p>Not every recovered hour should be repurposed into caregiving or structured contribution. Rest, solitude, leisure and friendships outside the family are legitimate uses of freedom.</p>
+        </article>
+      </div>
+      <p class="claim reveal">The goal is <em>more choice</em>, not a new demand that all available energy be productive at home.</p>
+    </div>
+  </section>
+
+  <!-- ============ §8 4Cs ============ -->
+  <section class="sec" id="fd-modes">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow"><a class="sec-ref" href="#fdp-s8">§8</a>The selfdriven 4Cs as a way to use the dividend</span>
+        <h2 class="title">The character of recovered capacity, not just its quantity.</h2>
+        <p class="lede narrow">Curious, Caring, Constructive and Chill support healthy social coordination in the <a href="/#modes" style="color:var(--curious)">original framework</a>. With abundant intelligence, they show what the freed capacity is being used for, and what has to stay human.</p>
+      </div>
+      <div class="modes">
+        <article class="mode m-c reveal" id="fd-mode-curious">
+          <div class="row"><span class="chip"><svg><use href="#ic-telescope"/></svg></span><span class="ess">explore · ask · learn</span></div>
+          <span class="name">Curious</span>
+          <h3>Space to explore</h3>
+          <p>Adults and children have room to explore questions, learn, investigate and develop independent judgement.</p>
+          <div class="task"><span>The line to hold</span><p>AI can help prepare resources. Dialogue, discernment and values stay human.</p></div>
+        </article>
+        <article class="mode m-k reveal" id="fd-mode-caring">
+          <div class="row"><span class="chip"><svg><use href="#ic-heart"/></svg></span><span class="ess">listen · hold space</span></div>
+          <span class="name">Caring</span>
+          <h3>Notice and respond</h3>
+          <p>People notice and respond to the needs of others, and support is fairly distributed instead of assumed.</p>
+          <div class="task"><span>The line to hold</span><p>AI can assist with logistics and access to information. Relational responsibility stays human.</p></div>
+        </article>
+        <article class="mode m-b reveal" id="fd-mode-constructive">
+          <div class="row"><span class="chip"><svg><use href="#ic-hammer"/></svg></span><span class="ess">build · ship · move</span></div>
+          <span class="name">Constructive</span>
+          <h3>Voluntary shared projects</h3>
+          <p>Family members take on voluntary shared projects and contributions that give practical form to their agency.</p>
+          <div class="task"><span>The line to hold</span><p>Intelligent systems reduce avoidable planning and administrative friction. The projects stay voluntary.</p></div>
+        </article>
+        <article class="mode m-l reveal" id="fd-mode-chill">
+          <div class="row"><span class="chip"><svg><use href="#ic-waves"/></svg></span><span class="ess">pause · breathe · reset</span></div>
+          <span class="name">Chill</span>
+          <h3>Protected recovery</h3>
+          <p>Time freed by automation is protected for recovery, play, contemplation and unstructured connection.</p>
+          <div class="task"><span>The line to hold</span><p>Freed time does not become another optimisation target.</p></div>
+        </article>
+      </div>
+      <p class="aside-line">A well-designed family dividend lets each person balance the modes differently over time. <strong>None should become a mandatory behavioural score.</strong></p>
+    </div>
+  </section>
+
+  <!-- ============ §9 INFRASTRUCTURE ============ -->
+  <section class="sec" id="fd-infrastructure">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow"><a class="sec-ref" href="#fdp-s9">§9</a>selfdriven.family as enabling infrastructure</span>
+        <h2 class="title">Technology that makes itself less necessary.</h2>
+        <span class="proposal-tag"><svg class="ic-sm"><use href="#ic-info"/></svg>Design proposal. Not a description of deployed selfdriven.family features.</span>
+      </div>
+      <div class="caps three">
+        <article class="cap reveal">
+          <div class="top"><span class="icw"><svg class="ic"><use href="#ic-user"/></svg></span><span class="k">9.1</span></div>
+          <h3>Person-first autonomy</h3>
+          <p>Each person controls their own information, preferences, boundaries and participation, with legal safeguarding and age-appropriate protections. Family membership does not imply access to another member's data or communications.</p>
+        </article>
+        <article class="cap reveal">
+          <div class="top"><span class="icw"><svg class="ic"><use href="#ic-bot"/></svg></span><span class="k">9.2</span></div>
+          <h3>Bounded personal assistance</h3>
+          <p>Household planning, comparing options, drafting communications, preparing learning activities, routine forms and voluntary care coordination.</p>
+          <div class="need"><span>Needs an authorised human decision</span><p>Anything that binds people financially, discloses information, affects medical decisions or changes legal responsibilities.</p></div>
+        </article>
+        <article class="cap reveal">
+          <div class="top"><span class="icw"><svg class="ic"><use href="#ic-shield-check"/></svg></span><span class="k">9.3</span></div>
+          <h3>Verified context, not family surveillance</h3>
+          <p>Verified Context Graphs (VCGs) separate verified facts from uncertain assertions and keep provenance. Verified and Validated Code Controllers (VCCs) constrain machine actions to approved purposes. Neither guarantees truth, safety or good judgement. Families can decline, export, delete or revoke access.</p>
+        </article>
+      </div>
+      <div class="rejects">
+        <span class="label-sm">The architecture rejects</span>
+        <ul>
+          <li><svg class="ic-sm"><use href="#ic-x"/></svg>Covert monitoring</li>
+          <li><svg class="ic-sm"><use href="#ic-x"/></svg>Behavioural ranking of children or partners</li>
+          <li><svg class="ic-sm"><use href="#ic-x"/></svg>Compulsory sentiment analysis</li>
+          <li><svg class="ic-sm"><use href="#ic-x"/></svg>Vulnerable relationships as data assets</li>
+        </ul>
+      </div>
+      <div class="flow-block">
+        <h3>A minimal workflow</h3>
+        <ol class="flow">
+          <li class="reveal"><span class="fn">1</span><div><h4>State an outcome</h4><p>A person names an intended outcome, for example simplifying family transport planning.</p></div></li>
+          <li class="reveal"><span class="fn">2</span><div><h4>Find safe reductions</h4><p>The system identifies administrative tasks that can safely be reduced.</p></div></li>
+          <li class="reveal"><span class="fn">3</span><div><h4>Consent, limit or opt out</h4><p>Every affected person has a way to consent, limit or opt out where appropriate.</p></div></li>
+          <li class="reveal"><span class="fn">4</span><div><h4>Act within bounds</h4><p>The autonomous system performs only bounded, reviewable actions.</p></div></li>
+          <li class="reveal"><span class="fn">5</span><div><h4>Check the effect</h4><p>The family assesses whether effort, stress and time pressure actually decreased.</p></div></li>
+          <li class="last reveal"><span class="fn">6</span><div><h4>Choose the use</h4><p>Participants decide what the saved capacity becomes. The system does not prescribe the answer.</p><div class="dest"><span>rest</span><span>care</span><span>exploration</span><span>something else</span></div></div></li>
+        </ol>
+      </div>
+      <p class="principle reveal">The purpose of the technology is to <em>make itself less necessary</em> where direct presence is more valuable than digital mediation.</p>
+    </div>
+  </section>
+
+  <!-- ============ §10 FUTURES ============ -->
+  <section class="sec" id="fd-futures">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow"><a class="sec-ref" href="#fdp-s10">§10</a>Three futures for the same technology</span>
+        <h2 class="title">The technology does not decide where the gains go.</h2>
+        <p class="lede narrow">These are scenarios, not forecasts. They describe institutional choices that can be studied and influenced.</p>
+      </div>
+      <div class="futures">
+        <article class="future a reveal">
+          <span class="badge">A</span>
+          <h3>Institutional capture</h3>
+          <p>Output targets rise as fast as productivity. Employment is more tightly measured, hours do not meaningfully fall and cognitive oversight expands. The technology strengthens the economic system's claim on attention.</p>
+          <p class="for"><b>For families</b>Some faster services, little discretionary time.</p>
+        </article>
+        <article class="future b reveal">
+          <span class="badge">B</span>
+          <h3>Unequal liberation</h3>
+          <p>Some highly paid or powerful workers turn efficiency into flexible schedules. Others face displacement, unpredictable income or expanded unpaid care. Aggregate productivity rises.</p>
+          <p class="for"><b>For families</b>An uneven dividend that may worsen existing inequalities.</p>
+        </article>
+        <article class="future c reveal">
+          <span class="badge">C</span>
+          <h3>Deliberate family dividend</h3>
+          <p>Workers, organisations, public institutions and households build explicit pathways to return productivity: less unnecessary work, predictable schedules, livelihood security, caregiver support and equitable care.</p>
+          <p class="for"><b>For families</b>Greater freedom to be present, without any one person sacrificing autonomy or opportunity.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ §11 PRECONDITIONS ============ -->
+  <section class="sec" id="fd-preconditions">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow"><a class="sec-ref" href="#fdp-s11">§11</a>Preconditions for a genuine family dividend</span>
+        <h2 class="title">Five commitments the model depends on.</h2>
+      </div>
+      <ul class="preconds">
+        <li class="reveal"><h3>Workplace and economic design</h3><p>Make a portion of productivity gains available as predictable time, flexible arrangements or greater security, instead of turning every saving into output targets. Support transitions and retraining. Test shorter weeks or reduced administrative burden in specific settings; <strong>none is a universal solution</strong>.</p></li>
+        <li class="reveal"><h3>Equitable caregiving</h3><p>Avoid designing family participation around the assumption that women, grandparents or young people will absorb more unpaid labour. Recognise caregivers' agency and limits. Keep paid care and public services accessible.</p></li>
+        <li class="reveal"><h3>Safety and individual rights</h3><p>The family can be a source of support, and also of coercion or harm. Protect privacy, autonomy, safeguarding, child rights and relationships beyond the family. <strong>Recovered time must never be used to compel someone to remain in an unsafe relationship.</strong></p></li>
+        <li class="reveal"><h3>Human judgement</h3><p>AI systems stay bounded, inspectable and reversible. Sensitive healthcare, legal, educational and safeguarding decisions need suitable human accountability. <strong>Confident machine output is not proof of correctness.</strong></p></li>
+        <li class="reveal"><h3>Choice in contribution</h3><p>Some people will use gained time for family; others for friendship, community work, education, recreation, creative practice or recovery. Supporting the family means respecting each person's freedom, not mandating an approved use of time.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ §12 PILOT ============ -->
+  <section class="sec" id="fd-pilot">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow"><a class="sec-ref" href="#fdp-s12">§12</a>A testable selfdriven.family pilot</span>
+        <h2 class="title">Measured by human experience, not AI interactions.</h2>
+        <p class="lede narrow">A small, opt-in pilot with diverse adult participants. Households with children or care responsibilities take part only where appropriate and with robust safeguards. Success is net improvement in human experience, not the number of AI interactions or completed tasks.</p>
+      </div>
+
+      <div class="weeks" aria-label="Pilot timeline: 16 weeks">
+        <span class="label-sm">Sixteen weeks, to scale</span>
+        <div class="weeks-strip" aria-hidden="true">
+          <span class="ws1"><b>1</b><em>Baseline</em></span>
+          <span class="ws2"><b>2</b><em>Bounded assistance</em></span>
+          <span class="ws3"><b>3</b><em>Follow-up</em></span>
+        </div>
+        <div class="weeks-axis" aria-hidden="true"><span>wk 0</span><span>4</span><span>8</span><span><i style="font-style:normal">12</i><i style="font-style:normal">16</i></span></div>
+      </div>
+
+      <ol class="phases three" aria-label="Pilot phases">
+        <li class="phase reveal"><span class="badge">1</span><span class="wk">4 weeks</span><h3>Baseline</h3><p>Voluntary diaries of paid work, domestic administration, unpaid care, free time, cognitive load, time pressure and relationship quality. A clear privacy agreement. No intimate disclosures, no continuous device monitoring.</p></li>
+        <li class="phase reveal"><span class="badge">2</span><span class="wk">8 weeks</span><h3>Bounded assistance</h3><p>Tools for low-risk tasks: calendar reconciliation, forms, household budgets, recurring communication, routine research. A comparison condition where feasible, ideally randomised or staggered. Record verification effort and errors, not only time saved.</p><span class="tagline">Comparison group · error log</span></li>
+        <li class="phase reveal"><span class="badge">3</span><span class="wk">4 weeks</span><h3>Follow-up</h3><p>Do effects persist? Has new work filled the space? Did burdens move between household members? Do participants report meaningful changes in wellbeing and autonomy?</p></li>
+      </ol>
+
+      <div class="pilot-block">
+        <h3>Proposed measures</h3>
+        <div class="table-scroll">
+          <table>
+            <thead><tr><th>Outcome</th><th>What to measure</th><th>Why it matters</th></tr></thead>
+            <tbody>
+              <tr><td>Net time gain</td><td>Work, administration, AI supervision and residual discretionary time</td><td>Separates task efficiency from actual time freedom</td></tr>
+              <tr><td>Cognitive recovery</td><td>Self-reported fatigue, attention, time pressure</td><td>Measures felt energy, not only hours</td></tr>
+              <tr><td>Relationship quality</td><td>Consensual self-reports of connection, listening and conflict repair</td><td>Tests the core social mechanism</td></tr>
+              <tr><td>Care equity</td><td>Distribution of paid and unpaid tasks by person</td><td>Detects shifts of burden inside a family</td></tr>
+              <tr><td>Material security</td><td>Income stability, unpredictable work, expenses</td><td>Detects the costs of displacement or access</td></tr>
+              <tr><td>Personal agency</td><td>Ability to decline, disconnect and choose activities</td><td>Protects self-direction</td></tr>
+              <tr><td>System safety</td><td>Error rates, unintended disclosure, opt-outs and adverse effects</td><td>Tests whether the technology is worth using</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="pilot-block">
+        <h3>Falsifiable hypotheses</h3>
+        <ul class="hyps">
+          <li class="reveal"><code>H1</code><div><span class="tag" style="color:var(--chill-bright)">Time conversion</span><p>Participants using bounded AI assistance and explicit workload protections gain more discretionary time than comparable participants using AI without those protections.</p></div></li>
+          <li class="reveal"><code>H2</code><div><span class="tag" style="color:var(--chill-bright)">Energy conversion</span><p>Reduced routine cognitive load predicts improved perceived presence and recovery, after accounting for paid hours and economic stress.</p></div></li>
+          <li class="reveal"><code>H3</code><div><span class="tag" style="color:var(--chill-bright)">Equity</span><p>Benefits are smaller, or negative, in households where new care obligations are redistributed disproportionately to one member.</p></div></li>
+          <li class="reveal"><code>H4</code><div><span class="tag" style="color:var(--chill-bright)">Relationship outcome</span><p>More discretionary time does not necessarily improve relationship quality unless participants experience agency, safety and willingness to engage.</p></div></li>
+          <li class="fail-crit reveal"><code>H5</code><div><span class="tag">Institutional capture</span><p>When performance expectations rise with AI productivity, observed task savings are offset by expanded workload, and less of the saving becomes discretionary time.</p></div></li>
+        </ul>
+        <p class="note">These are empirical questions, not established findings. The pilot should report negative and null results, use age-appropriate consent, provide safe withdrawal and avoid inferring causal impact from short-term self-reports without comparison groups. Where a family has safety or coercion concerns, participation should be assessed independently and may be inappropriate.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ §13 IMPLICATIONS ============ -->
+  <section class="sec" id="fd-implications">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow"><a class="sec-ref" href="#fdp-s13">§13</a>Implications for broader social architecture</span>
+        <h2 class="title">What organisations and policy would owe people.</h2>
+      </div>
+      <div class="functions">
+        <article class="reveal">
+          <span class="fx">13.1 · Value</span>
+          <h3>Reconsider how value is recognised</h3>
+          <p>A family dividend does not require putting a price on affection. It does require recognising that the wellbeing behind all economic activity depends on work and relationships that conventional performance accounts leave invisible. <span class="src">ILO [7]</span></p>
+        </article>
+        <article class="reveal">
+          <span class="fx">13.2 · Organisations</span>
+          <h3>Redefine what organisations owe people</h3>
+          <p>If institutions can reach equivalent outcomes with less human cognitive effort, should they still demand the same attention? Organisations can be judged partly by their time demand, predictability and compatibility with lives outside work.</p>
+        </article>
+        <article class="reveal">
+          <span class="fx">13.3 · Community</span>
+          <h3>Strengthen community without isolating families</h3>
+          <p>Schools, hospitals, carers, neighbourhood associations and public supports remain necessary. Capable families and care circles coordinate more independently while being able to ask for help without stigma.</p>
+        </article>
+        <article class="reveal">
+          <span class="fx">13.4 · AI companions</span>
+          <h3>Do not substitute AI relationships for human ones</h3>
+          <p>A policy whose apparent success comes from replacing human contact, instead of enabling it, fails the purpose. Digital assistance should strengthen real-world capacity and preserve the freedom to disconnect.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ §14 CONCLUSION ============ -->
+  <section class="sec closing-sec" id="fd-conclusion">
+    <div class="glow glow-soft" aria-hidden="true"><div class="gblob gb2"></div><div class="gblob gb3"></div></div>
+    <div class="wrap closing">
+      <span class="eyebrow"><a class="sec-ref" href="#fdp-s14">§14</a>The question is what we do with the intelligence</span>
+      <p class="big reveal">The decisive metric is whether people become <em>more able to choose, more present with those they care about, and better supported.</em></p>
+      <p class="body narrow">Society can use AI to produce more while keeping people equally busy, distribute the gains unequally, or make room for a different social rhythm. Family is not the only worthwhile destination for free time, and not every family is safe. It is one of the most consequential places where human energy can become meaningful across generations.</p>
+      <figure class="pull reveal" style="margin-top:8px">
+        <span class="label-sm" style="margin:0">The promise</span>
+        <blockquote>The promise of abundant intelligence is not simply that machines will think for us. It is that humans may regain the freedom to be there for one another.</blockquote>
+      </figure>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="#paper">Read the full paper<svg class="ic-sm"><use href="#ic-arrow-right"/></svg></a>
+        <a class="btn btn-ghost" href="/"><svg class="ic-sm"><use href="#ic-arrow-left"/></svg>The foundational paper</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ REFERENCES ============ -->
+  <section class="sec" id="fd-references">
+    <div class="wrap">
+      <div class="sec-head"><span class="eyebrow">References and research basis</span></div>
+      <div class="ref-grid">
+        <ol class="refs">
+          <li><span>International Labour Organization (2026). <em>The impact of GenAI on jobs, productivity and work organization: a review of the empirical evidence.</em> 1 June 2026. <a href="https://www.ilo.org/publications/impact-genai-jobs-productivity-and-work-organization-review-empirical" target="_blank" rel="noopener">ilo.org</a></span></li>
+          <li><span>International Labour Organization (2025). <em>Generative AI and jobs: A 2025 update.</em> 20 May 2025. <a href="https://www.ilo.org/publications/generative-ai-and-jobs-2025-update" target="_blank" rel="noopener">ilo.org</a></span></li>
+          <li><span>Australian Bureau of Statistics (2025). <em>How Australians use their time, 2024.</em> Released 17 December 2025. <a href="https://www.abs.gov.au/statistics/people/people-and-communities/how-australians-use-their-time/2024" target="_blank" rel="noopener">abs.gov.au</a></span></li>
+          <li><span>Dillon, E. W., Jaffe, S., Immorlica, N. &amp; Stanton, C. T. (2025). <em>Shifting Work Patterns with Generative AI.</em> NBER Working Paper 33795, revised November 2025. <a href="https://www.nber.org/papers/w33795" target="_blank" rel="noopener">nber.org</a></span></li>
+          <li><span>European Commission, DG ECFIN (2026). <em>The AI-adoption divide: Who benefits, who doesn't, and what it means for workers.</em> <a href="https://economy-finance.ec.europa.eu/economic-forecast-and-surveys/economic-forecasts/spring-2026-economic-forecast-slowdown-growth-energy-shock-drives-inflation/ai-adoption-divide-who-benefits-who-doesnt-and-what-it-means-workers_en" target="_blank" rel="noopener">economy-finance.ec.europa.eu</a></span></li>
+          <li><span>Ranganathan, A. &amp; Ye, X. M. (2026). <em>AI Doesn't Reduce Work—It Intensifies It.</em> Harvard Business Review, 9 February 2026. <a href="https://hbr.org/2026/02/ai-doesnt-reduce-work-it-intensifies-it" target="_blank" rel="noopener">hbr.org</a></span></li>
+          <li><span>International Labour Organization (2025). <em>Advancing decent work and the care economy: An essential component of social development.</em> 24 July 2025. <a href="https://www.ilo.org/publications/advancing-decent-work-and-care-economy-essential-component-social" target="_blank" rel="noopener">ilo.org</a></span></li>
+          <li><span>World Health Organization (2025). <em>The role of the health sector in supporting parents and caregivers to meet their parenting potential.</em> 17 December 2025. <a href="https://www.who.int/publications/i/item/B09582" target="_blank" rel="noopener">who.int</a></span></li>
+          <li><span>selfdriven.family (2026). <em>The Family as the Foundational Unit of Human Society</em>, version 1.0, 29 October 2026. <a href="/#paper">Read on selfdriven.family</a></span></li>
+          <li><span>World Health Organization &amp; UNICEF (2026). <em>Nurturing care for children with developmental delays and disabilities: thematic brief.</em> 2 March 2026. <a href="https://www.who.int/publications/i/item/B09617" target="_blank" rel="noopener">who.int</a></span></li>
+        </ol>
+        <div class="scope">
+          <span class="label-sm" style="margin:0">Scope and status</span>
+          <p>A normative research proposition and testable framework, not a claim that AI has already made most human cognitive work redundant.</p>
+          <p>Figures are sourced to named studies and do not establish the hypothetical family-dividend outcome. No features described for selfdriven.family should be assumed to exist without separate implementation and validation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ======================= FULL PAPER (#paper) ======================= -->
+<main id="fdpaper" hidden>
+  <div class="paper-top">
+    <div class="glow" aria-hidden="true"><div class="gblob gb1"></div><div class="gblob gb3"></div></div>
+    <div class="wrap">
+      <a class="back" href="#top"><svg class="ic-sm"><use href="#ic-arrow-left"/></svg>Companion overview</a>
+      <div><span class="hero-pill"><span class="dot"></span>Companion research paper 1.1 · v1.0</span></div>
+      <h1>From Cognitive Labour to Human Connection</h1>
+      <p class="paper-sub">How Abundant Intelligence Can Return Human Energy to the Family</p>
+      <dl class="paper-meta">
+        <div><dt>Version</dt><dd>1.0</dd></div>
+        <div><dt>Date</dt><dd>29 October 2026</dd></div>
+        <div><dt>Companion to</dt><dd><a href="/#paper">The Family as the Foundational Unit of Human Society</a></dd></div>
+        <div><dt>Status</dt><dd>Conceptual, evidence-informed position paper and testable framework proposal</dd></div>
+      </dl>
+      <p class="core"><b>Core proposition.</b> As autonomous intelligence takes on an increasing share of the cognitive labour that has occupied human working life, society can choose to return the resulting capacity to its foundational relationships. The goal is not merely more productivity per person. It is more human presence, care, freedom and mutual development within families and care networks.</p>
+      <p class="core qual"><b>Important qualification.</b> The proposition that AI will perform <em>most</em> economically useful cognitive tasks is a <strong>future scenario</strong>, not an established description of society in October 2026. The evidence so far establishes meaningful but uneven task-level gains; it does not establish a general reduction in paid work or an automatic increase in family time [1–5]. This paper explores what would have to change for that scenario to become a genuine benefit to people.</p>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="paper-layout">
+      <aside>
+        <details class="toc" id="fdToc" open>
+          <summary>Contents<svg class="ic-sm"><use href="#ic-chevron-down"/></svg></summary>
+          <ol><li><a href="#fdp-abstract">Abstract</a></li><li><a href="#fdp-s1">1. The historical inversion: life organised around work</a></li><li><a href="#fdp-s2">2. What changes when AI can do cognitive work?</a></li><li><a href="#fdp-s3">3. Human energy is more than a number of hours</a></li><li><a href="#fdp-s4">4. The Family Dividend Hypothesis</a></li><li><a href="#fdp-s5">5. The present evidence: opportunity and warning</a></li><li><a href="#fdp-s6">6. From the institution-first economy to a relationship-first society</a></li><li><a href="#fdp-s7">7. What human energy could return to the family?</a></li><li><a href="#fdp-s8">8. The selfdriven 4Cs as a way to use the dividend</a></li><li><a href="#fdp-s9">9. selfdriven.family as enabling infrastructure</a></li><li><a href="#fdp-s10">10. Three futures for the same technology</a></li><li><a href="#fdp-s11">11. Preconditions for a genuine family dividend</a></li><li><a href="#fdp-s12">12. A testable selfdriven.family pilot</a></li><li><a href="#fdp-s13">13. Implications for broader social architecture</a></li><li><a href="#fdp-s14">14. Conclusion: The question is what we do with the intelligence</a></li><li><a href="#fdp-references">References and research basis</a></li></ol>
+        </details>
+      </aside>
+      <article class="prose" id="fdPaperBody">
+<h2 id="fdp-abstract">Abstract</h2>
+<p>For much of the industrial and information eras, human cognitive capacity has been allocated through employment: analysing information, preparing documents, administering organisations, coordinating activities, solving routine problems and increasingly managing digital systems. Families have often received what remains after contracted work, commuting, household administration and recovery from occupational stress. This arrangement has presented time and attention as scarce private resources even while economic systems have expanded their capacity to consume them.</p>
+<p>Artificial intelligence changes the technical possibilities. Systems that can research, draft, plan, translate, reason across defined tasks and execute bounded workflows may reduce the cognitive labour necessary to deliver useful goods and services. Yet savings do not automatically create leisure or family wellbeing. Employers may demand more output, work may become more intense, AI supervision can add new burdens, displacement can reduce economic security, and unpaid care may remain distributed unfairly.</p>
+<p>This paper develops the <strong>Family Dividend Hypothesis</strong>: when the benefits of intelligent automation are translated into <strong>time sovereignty, cognitive recovery, material security and equitable care</strong>, people can invest more of their freely chosen energy in the family and the wider ecology of care. It connects the hypothesis to the selfdriven family model, sets out a causal framework and an illustrative time-allocation model, identifies risks and non-negotiable rights, and proposes a small pilot to test whether AI actually improves family life. The normative aim is not to prescribe domestic roles but to enlarge each person's capacity to choose how they contribute, care, connect, learn and rest.</p>
+<p><strong>Keywords:</strong> abundant intelligence; selfdriven.family; cognitive labour; time sovereignty; family dividend; human energy; unpaid care; human dignity; autonomous systems; regenerative communities.</p>
+<hr />
+<h2 id="fdp-s1">1. The historical inversion: life organised around work</h2>
+<p>A foundational human need is to form and sustain relationships: nurturing children, supporting partners and relatives, sharing knowledge, caring for people through illness and age, and creating a sense of belonging. The earlier companion paper describes the family as a <strong>foundational unit</strong> of care, trust, learning and continuity — not as an exclusive household shape or an authority superior to individual rights <a class="cite-link" href="#fdp-ref-9">[9]</a>.</p>
+<p>Modern economic arrangements often place a different unit at the centre: the <strong>job</strong>, the <strong>firm</strong> and the <strong>institutional schedule</strong>. Human time is allocated to paid economic activity, and relationships must be arranged around its residual windows. This is an analytical claim about how many systems are organised, not an assertion that employment is inherently degrading or that family relationships are always healthy. Work can provide purpose, income, friendship, competence and dignity. The problem is the presumption that <strong>economic demand has first claim on human attention</strong>, while the social work that sustains people is treated as secondary.</p>
+<p>The contemporary allocation is not only physical. A person can leave the workplace without leaving its cognitive demands: unfinished decisions, alerts, planning, context-switching and anticipatory anxiety can continue to occupy attention. Family time therefore competes not just with work <strong>hours</strong> but with the <strong>mental residue</strong> of work.</p>
+<p>If intelligence ceases to be the scarce resource behind many routine cognitive tasks, the assumptions supporting that allocation warrant review.</p>
+<h2 id="fdp-s2">2. What changes when AI can do cognitive work?</h2>
+<p>Cognitive labour includes interpreting information, writing, scheduling, forecasting, analysing, coding, reporting, searching, documenting and coordinating. AI systems already support or automate parts of these activities, although they vary sharply in reliability, cost, accountability and suitability for deployment.</p>
+<p>The International Labour Organization's 2025 global assessment estimated that <strong>one in four workers</strong> were in occupations with some potential exposure to generative AI; the organisation emphasised that most affected work was more likely to be <strong>transformed</strong> than eliminated <a class="cite-link" href="#fdp-ref-2">[2]</a>. A June 2026 ILO synthesis described productivity gains as real but uneven and noted that reported time savings had not yet produced broad measured gains in earnings or working hours <a class="cite-link" href="#fdp-ref-1">[1]</a>. An experiment across 66 firms and 7,137 knowledge workers found that, among treated workers who used an integrated generative AI tool in the second half of the study, email time fell by roughly two hours per week, alongside reduced work outside normal hours; the researchers did not detect broad task-composition changes from individual-level access alone <a class="cite-link" href="#fdp-ref-4">[4]</a>.</p>
+<p>The evidence supports a <strong>direction of change</strong>, not a fixed end state. Three distinct possibilities must remain separate:</p>
+<ol type="1">
+<li><strong>Task automation:</strong> a defined unit of cognitive labour needs less human effort.</li>
+<li><strong>Work transformation:</strong> people supervise, validate and orchestrate more output, sometimes doing just as much work.</li>
+<li><strong>Social time liberation:</strong> people can actually decide to work less, recover more, or spend newly available time with others without unacceptable losses of security or agency.</li>
+</ol>
+<p>Only the third directly delivers the opportunity at the heart of this paper. The first two are possible mechanisms, not proof that the third has occurred.</p>
+<h2 id="fdp-s3">3. Human energy is more than a number of hours</h2>
+<p>It is tempting to model the opportunity as a simple exchange: one hour of AI work replaces one hour of human work, so one hour becomes available to family. Human experience does not behave so mechanically.</p>
+<p>The relevant resources include:</p>
+<ul>
+<li><strong>Time:</strong> hours free of obligatory employment and administration.</li>
+<li><strong>Attention:</strong> capacity to listen, notice and remain mentally present.</li>
+<li><strong>Emotional availability:</strong> capacity for patience, responsiveness, affection and repair.</li>
+<li><strong>Physical capacity:</strong> freedom from excessive fatigue and unsustainable schedules.</li>
+<li><strong>Agency:</strong> the real ability to choose whether and how to use the available capacity.</li>
+<li><strong>Economic security:</strong> enough material stability that free time is not overwhelmed by financial anxiety.</li>
+</ul>
+<p>A family dividend can arise through any of these pathways. A caregiver may spend fewer minutes on medical paperwork yet gain a disproportionate amount of calm. A parent may finish work at the same time but no longer be distracted by unresolved professional administration. Conversely, a person who loses income because their job is displaced may gain nominal free hours while losing the security required to enjoy them.</p>
+<p><strong>The relevant outcome is not simply time at home. It is freely chosen, safe and meaningful capacity for relationship.</strong></p>
+<h2 id="fdp-s4">4. The Family Dividend Hypothesis</h2>
+<blockquote>
+<p><strong>Family Dividend Hypothesis:</strong> As AI reduces the human cognitive effort required for productive activity, family wellbeing can improve <strong>if</strong> the gains are converted into protected time, lower cognitive burden, secure livelihoods and fairly shared care, and <strong>if</strong> individuals retain the freedom to decide how to live.</p>
+</blockquote>
+<p>This hypothesis is conditional because an improvement in task efficiency can follow several competing routes.</p>
+<h3 id="fdp-s4-1">4.1 A causal model</h3>
+<p><strong>AI capability → reduced task effort → distribution of productivity gains → human time and energy → freely chosen family participation → relational wellbeing.</strong></p>
+<p>At each arrow there is a potential break:</p>
+<div class="table-scroll"><table>
+<thead>
+<tr class="header">
+<th>Link in the chain</th>
+<th>What can prevent the benefit?</th>
+<th>Design response</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>AI capability → useful savings</td>
+<td>Errors, oversight, unsuitable tasks</td>
+<td>Verify results; use bounded automation</td>
+</tr>
+<tr class="even">
+<td>Savings → available capacity</td>
+<td>Higher output quotas and workload creep</td>
+<td>Establish workload and availability limits</td>
+</tr>
+<tr class="odd">
+<td>Capacity → freedom to choose</td>
+<td>Income insecurity, coercion, unequal bargaining power</td>
+<td>Protect livelihoods and worker agency</td>
+</tr>
+<tr class="even">
+<td>Freedom → family participation</td>
+<td>Unfair care allocation, conflict, unmet needs</td>
+<td>Distribute care fairly and support caregivers</td>
+</tr>
+<tr class="odd">
+<td>Participation → wellbeing</td>
+<td>Surveillance, unsafe relationships, poor-quality time</td>
+<td>Prioritise consent, safety and relational quality</td>
+</tr>
+</tbody>
+</table></div>
+<p>The central policy and design question therefore changes from <strong>“How much work can AI do?”</strong> to <strong>“Who receives the liberated capacity, in what form, and with what control?”</strong></p>
+<h3 id="fdp-s4-2">4.2 An illustrative time model</h3>
+<p>For a person over a week, let:</p>
+<ul>
+<li><strong>S</strong> = hours of task effort saved through AI;</li>
+<li><strong>R</strong> = hours reclaimed by employers or self-imposed expansion of output;</li>
+<li><strong>V</strong> = added hours of review, verification, and AI coordination;</li>
+<li><strong>D</strong> = additional hours lost through disruption or transition.</li>
+</ul>
+<p>Then an illustrative <strong>net discretionary time gain</strong> is:</p>
+<p><strong>G = S − R − V − D</strong>.</p>
+<p>This is an accounting identity for thinking about time, <strong>not</strong> a validated economic model. Even a positive value of <strong>G</strong> does not guarantee a family benefit: income, wellbeing, personal choice, distribution within the household and relationship safety still matter.</p>
+<p>For example, if a person saves five hours weekly, receives three hours of new work, spends one hour supervising the system, and has no further transition burden, the gain is only <strong>one hour</strong>. These numbers are hypothetical. They demonstrate how institutional capture can consume most of an apparent efficiency gain.</p>
+<p>A more complete outcome can be framed as:</p>
+<p><strong>Family dividend = f(net discretionary time, cognitive recovery, security, equity, relationship quality, personal choice).</strong></p>
+<p>The function <strong>f</strong> is deliberately unspecified. The pilot proposed later in the paper would investigate its empirical shape instead of treating it as a known formula.</p>
+<h2 id="fdp-s5">5. The present evidence: opportunity and warning</h2>
+<p>Australia's <strong>2024 Time Use Survey</strong>, published in December 2025, shows that the constraint is already material. Among people participating in unpaid work, women averaged <strong>4 hours 53 minutes</strong> a day and men <strong>3 hours 52 minutes</strong>. Among parents of children under 15 participating in unpaid work, the survey reported <strong>7 hours 29 minutes</strong> a day for female parents and <strong>5 hours 2 minutes</strong> for male parents <a class="cite-link" href="#fdp-ref-3">[3]</a>. These are participant averages, not a description of every person or an estimate of all time available to redistribute. Survey-method changes also limit direct comparisons with previous cycles.</p>
+<p>A 2026 European Commission analysis reported that employed EU respondents who used AI perceived an average saving of <strong>7.4 work hours per month</strong>. Such survey estimates are useful early indicators but should not be treated as verified reductions in contracted hours <a class="cite-link" href="#fdp-ref-5">[5]</a>. At the same time, research reported by UC Berkeley researchers in 2026 described an eight-month study in one technology company in which AI use tended to <strong>intensify</strong> work: employees broadened tasks, worked faster and extended activity into more of the day <a class="cite-link" href="#fdp-ref-6">[6]</a>. A single-company study cannot establish a universal pattern, but it directly challenges the assumption that efficiency necessarily creates leisure.</p>
+<p>The emerging evidence is therefore mixed in a useful way: <strong>automation can release cognitive effort, but the social destination of that effort remains unsettled</strong>.</p>
+<p>The family also cannot be imagined as an unlimited reservoir for unpaid labour. The ILO has repeatedly documented large gender disparities in unpaid care and the resulting constraints on economic participation. Its 2025 care-economy brief argues for recognising, supporting and investing in care while addressing the inequalities borne by caregivers <a class="cite-link" href="#fdp-ref-7">[7]</a>. A family dividend that merely shifts more unpaid obligations onto women or other already-overloaded members is not a dividend at all.</p>
+<h2 id="fdp-s6">6. From the institution-first economy to a relationship-first society</h2>
+<p>The proposed transition is not the abolition of work, government, markets or public services. It is a change in <strong>priority and architecture</strong>.</p>
+<div class="table-scroll"><table>
+<thead>
+<tr class="header">
+<th>A work-centred allocation</th>
+<th>A relationship-centred allocation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>AI is used mainly to increase institutional throughput</td>
+<td>AI also reduces the human effort needed to sustain useful services</td>
+</tr>
+<tr class="even">
+<td>Working hours remain the default measure of contribution</td>
+<td>Paid work, care, learning and community contribution are all recognised</td>
+</tr>
+<tr class="odd">
+<td>Family life fits around organisational availability</td>
+<td>Organisations account for the need for care and reciprocal relationships</td>
+</tr>
+<tr class="even">
+<td>Workers are rewarded for permanent availability</td>
+<td>People are able to protect periods of non-availability</td>
+</tr>
+<tr class="odd">
+<td>Families outsource every coordination difficulty</td>
+<td>Families can obtain tools and support to self-actuate where they choose</td>
+</tr>
+<tr class="even">
+<td>Success is measured predominantly through output and income</td>
+<td>Success includes security, agency, relationships, resilience and wellbeing</td>
+</tr>
+</tbody>
+</table></div>
+<p>A relationship-centred society still depends on high-quality schools, health systems, public safety, disability services, transport and professional care. Its distinctive proposal is that these systems should <strong>serve human relationships</strong>, not demand that relationships permanently adapt to institutional convenience.</p>
+<p>The benefit is not confined to parenting. It can include more time to support ageing relatives, become present for a partner, maintain chosen family, reconnect with distant kin, participate in neighbourhood life, practise intergenerational learning or simply rest. No person should be required to have children or conform to a conventional household to participate in the gains of abundant intelligence.</p>
+<h2 id="fdp-s7">7. What human energy could return to the family?</h2>
+<h3 id="fdp-s7-1">7.1 Presence rather than mere proximity</h3>
+<p>Being physically at home is not equivalent to being available. Cognitive fatigue and attention fragmentation can undermine meaningful contact even where people share a space. Less administrative load may make room for conversation, conflict repair, play and noticing the needs of others. The hoped-for result is <em>presence</em>, not surveillance of how every free minute is spent.</p>
+<h3 id="fdp-s7-2">7.2 Childhood and the development of agency</h3>
+<p>Children benefit from responsive relationships, safe opportunities to explore, play and increasing participation in decisions. WHO's 2025 guidance emphasises supporting parents and caregivers through coordinated public systems, while 2026 WHO–UNICEF materials reiterate the value of nurturing care, including for children with disabilities <a class="cite-link" href="#fdp-ref-8">[8, 10]</a>. AI may support learning resources, accessibility and administrative coordination, but <strong>it should not become a substitute parent or replace a child's access to trustworthy people</strong>.</p>
+<h3 id="fdp-s7-3">7.3 Relationships across generations</h3>
+<p>If adults regain usable capacity, families may be better placed to preserve stories, share knowledge, assist ageing members, maintain relationships across distances and respond to changing care needs. These relationships are not reducible to economic productivity. They also require appropriate paid care and public support where needs exceed what relatives can or should provide.</p>
+<h3 id="fdp-s7-4">7.4 Shared projects and community contribution</h3>
+<p>Families can invest discretionary capacity in gardens, local environmental projects, neighbourhood mutual aid, community learning, practical making, recreation and shared creative work. A family that can contribute beyond its immediate obligations strengthens community resilience; communities in turn support families when individual households cannot meet needs alone.</p>
+<h3 id="fdp-s7-5">7.5 Rest as a legitimate outcome</h3>
+<p>Not every hour recovered from work should be repurposed into caregiving or structured contribution. Rest, solitude, leisure and friendships outside the family are legitimate uses of freedom. The goal is <strong>more choice</strong>, not a new demand that all available energy be productive at home.</p>
+<h2 id="fdp-s8">8. The selfdriven 4Cs as a way to use the dividend</h2>
+<p>The original selfdriven.family framework uses <strong>Curious, Caring, Constructive and Chill</strong> as modes that support healthy social coordination <a class="cite-link" href="#fdp-ref-9">[9]</a>. In the context of abundant intelligence they provide a way to notice the character, not merely the quantity, of recovered capacity.</p>
+<ul>
+<li><strong>Curious:</strong> adults and children have space to explore questions, learn, investigate and develop independent judgement. AI can help prepare resources; humans remain responsible for dialogue, discernment and values.</li>
+<li><strong>Caring:</strong> people notice and respond to the needs of others. AI can assist with logistics and access to information, while relational responsibility remains human and support is fairly distributed.</li>
+<li><strong>Constructive:</strong> family members engage in voluntary shared projects and contributions that give practical form to their agency. Intelligent systems reduce avoidable planning and administrative friction.</li>
+<li><strong>Chill:</strong> time freed by automation can be protected for recovery, play, contemplation and unstructured connection, without becoming another optimisation target.</li>
+</ul>
+<p>A well-designed family dividend would allow each person to balance the modes differently over time. None should become a mandatory behavioural score.</p>
+<h2 id="fdp-s9">9. selfdriven.family as enabling infrastructure</h2>
+<p>The following architecture is a <strong>proposal</strong>, not a description of existing deployed selfdriven.family features.</p>
+<h3 id="fdp-s9-1">9.1 Person-first autonomy</h3>
+<p>Each person should have control over their own information, preferences, boundaries and participation, subject to appropriate legal safeguarding and age-appropriate protections. Family membership must not imply unrestricted access to another member's data or communications.</p>
+<h3 id="fdp-s9-2">9.2 Bounded personal autonomous assistance</h3>
+<p>AI may assist with household planning, comparing options, drafting communications, preparing learning activities, navigating routine forms and coordinating voluntary care. Actions that bind people financially, disclose information, affect medical decisions or change legal responsibilities require appropriately authorised human decisions and, where needed, professional advice.</p>
+<h3 id="fdp-s9-3">9.3 Verified context, not family surveillance</h3>
+<p>Where useful, <strong>Verified Context Graphs (VCGs)</strong> can help separate verified facts from uncertain assertions and maintain provenance for permissions, commitments, appointments or shared resources. <strong>Verified and Validated Code Controllers (VCCs)</strong> can constrain machine actions to approved purposes. These techniques may improve auditability but cannot guarantee truth, safety or good judgement on their own. Families should be able to decline, export, delete or revoke access to information, subject to applicable legal obligations.</p>
+<p>The architecture must reject covert monitoring, automated behavioural ranking of children or partners, compulsory sentiment analysis, and the treatment of vulnerable relationships as exploitable data assets.</p>
+<h3 id="fdp-s9-4">9.4 A minimal workflow</h3>
+<ol type="1">
+<li>A person states an intended outcome: for example, simplifying family transport planning.</li>
+<li>The system identifies administrative tasks that can safely be reduced.</li>
+<li>Every affected person has a way to consent, limit or opt out where appropriate.</li>
+<li>The autonomous system performs only bounded, reviewable actions.</li>
+<li>The family assesses whether effort, stress and time pressure actually decreased.</li>
+<li>Participants decide whether the saved capacity should become rest, care, exploration or something else — <strong>without the system prescribing the answer</strong>.</li>
+</ol>
+<p>The purpose of the technology is to <strong>make itself less necessary</strong> in those aspects of human life where direct presence is more valuable than digital mediation.</p>
+<h2 id="fdp-s10">10. Three futures for the same technology</h2>
+<h3 id="fdp-scenario-a-institutional-capture">Scenario A — Institutional capture</h3>
+<p>AI productivity grows, but output targets increase just as quickly. Employment is more tightly measured, working hours do not meaningfully fall and cognitive oversight expands. Families receive some faster services but little discretionary time. The technology strengthens the economic system's claim on attention.</p>
+<h3 id="fdp-scenario-b-unequal-liberation">Scenario B — Unequal liberation</h3>
+<p>Some highly paid or powerful workers convert efficiency gains into flexible schedules, while others experience displacement, unpredictable income or expanded unpaid care. Aggregate productivity rises, but the family dividend is uneven and may worsen existing inequalities.</p>
+<h3 id="fdp-scenario-c-deliberate-family-dividend">Scenario C — Deliberate family dividend</h3>
+<p>Workers, organisations, public institutions and households establish explicit pathways to return productivity benefits through reduced unnecessary work, predictable schedules, livelihood security, support for caregivers and equitable care arrangements. Family members gain greater freedom to be present without requiring any one person to sacrifice autonomy or economic opportunity.</p>
+<p>These are <strong>scenarios</strong>, not forecasts. They describe institutional choices that can be studied and influenced.</p>
+<h2 id="fdp-s11">11. Preconditions for a genuine family dividend</h2>
+<p>The model implies several necessary commitments.</p>
+<p><strong>Workplace and economic design:</strong> Make a portion of productivity gains available as predictable time, flexible arrangements or greater security rather than automatically turning all savings into output targets. Support transitions and retraining for workers whose livelihoods are disrupted. Examine whether shorter working weeks, reduced administrative burdens or other agreements work in specific settings; none is a universal solution.</p>
+<p><strong>Equitable caregiving:</strong> Avoid designing family participation around the assumption that women, grandparents or young people will absorb more unpaid labour. Recognise the agency and limits of caregivers. Maintain accessible paid care and public services.</p>
+<p><strong>Safety and individual rights:</strong> The family can be a source of support, but also of coercion or harm. Protect privacy, autonomy, safeguarding, child rights and freedom to maintain relationships beyond the family. Recovered time must never be used to compel someone to remain in an unsafe relationship.</p>
+<p><strong>Human judgement:</strong> AI systems must remain bounded, inspectable and reversible. Sensitive healthcare, legal, educational and safeguarding decisions require suitable human accountability. Confident machine output is not proof of correctness.</p>
+<p><strong>Choice in contribution:</strong> Some people will use gained time for family, others for friendship, community work, education, recreation, creative practice or personal recovery. Supporting the family requires respecting the freedom of each person rather than mandating a socially approved use of time.</p>
+<h2 id="fdp-s12">12. A testable selfdriven.family pilot</h2>
+<p>The family dividend should be evaluated by <strong>net improvement in human experience</strong>, not by the number of AI interactions or completed tasks. A small, opt-in pilot could involve diverse adult participants and, only where appropriate and with robust safeguards, households with children or care responsibilities.</p>
+<h3 id="fdp-phase-1-baseline-four-weeks">Phase 1 — Baseline, four weeks</h3>
+<p>Record voluntary diaries of paid work, domestic administration, unpaid care, free time, perceived cognitive load, perceived time pressure and relationship quality. Establish a clear privacy agreement. Participants should not be required to disclose intimate conversations or provide continuous device monitoring.</p>
+<h3 id="fdp-phase-2-bounded-assistance-eight-weeks">Phase 2 — Bounded assistance, eight weeks</h3>
+<p>Introduce selected tools for low-risk tasks such as calendar reconciliation, forms, household budgets, recurring communication and routine research. Maintain a comparison condition if feasible, ideally through randomisation or staggered access. Record verification effort and errors, not only time allegedly saved.</p>
+<h3 id="fdp-phase-3-follow-up-four-weeks">Phase 3 — Follow-up, four weeks</h3>
+<p>Assess whether effects persist, whether new work has filled the space, whether burdens moved between household members, and whether participants themselves report meaningful changes in wellbeing and autonomy.</p>
+<h3 id="fdp-proposed-measures">Proposed measures</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr class="header">
+<th>Outcome</th>
+<th>What to measure</th>
+<th>Why it matters</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Net time gain</td>
+<td>Work, administration, AI supervision and residual discretionary time</td>
+<td>Separates task efficiency from actual time freedom</td>
+</tr>
+<tr class="even">
+<td>Cognitive recovery</td>
+<td>Self-reported fatigue, attention, time pressure</td>
+<td>Measures felt energy, not only hours</td>
+</tr>
+<tr class="odd">
+<td>Relationship quality</td>
+<td>Consensual self-reports of connection, listening and conflict repair</td>
+<td>Tests the core social mechanism</td>
+</tr>
+<tr class="even">
+<td>Care equity</td>
+<td>Distribution of paid and unpaid tasks by person</td>
+<td>Detects shifts of burden inside a family</td>
+</tr>
+<tr class="odd">
+<td>Material security</td>
+<td>Income stability, unpredictable work, expenses</td>
+<td>Detects the costs of displacement or access</td>
+</tr>
+<tr class="even">
+<td>Personal agency</td>
+<td>Ability to decline, disconnect and choose activities</td>
+<td>Protects self-direction</td>
+</tr>
+<tr class="odd">
+<td>System safety</td>
+<td>Error rates, unintended disclosure, opt-outs and adverse effects</td>
+<td>Tests whether the technology is worth using</td>
+</tr>
+</tbody>
+</table></div>
+<p>The pilot should report <strong>negative and null results</strong>, use age-appropriate consent processes, provide safe withdrawal, and avoid inferring causal impacts from short-term self-reports without comparison groups. Where families have safety or coercion concerns, participation should be assessed independently and may be inappropriate.</p>
+<h3 id="fdp-falsifiable-hypotheses">Falsifiable hypotheses</h3>
+<p><strong>H1 — Time conversion.</strong> Participants using bounded AI assistance and explicit workload protections will experience a greater increase in discretionary time than comparable participants using AI without those protections.</p>
+<p><strong>H2 — Energy conversion.</strong> Reduced routine cognitive load will predict improved perceived presence and recovery, after accounting for paid hours and economic stress.</p>
+<p><strong>H3 — Equity.</strong> Benefits will be smaller, or negative, in households where new care obligations are redistributed disproportionately to one member.</p>
+<p><strong>H4 — Relationship outcome.</strong> Increased discretionary time will not necessarily improve relationship quality unless participants experience agency, safety and willingness to engage.</p>
+<p><strong>H5 — Institutional capture.</strong> When performance expectations increase with AI productivity, observed task savings will be offset by expanded workload and less of the savings will become discretionary time.</p>
+<p>These hypotheses are empirical questions. They should not be treated as established findings.</p>
+<h2 id="fdp-s13">13. Implications for broader social architecture</h2>
+<h3 id="fdp-s13-1">13.1 Reconsider how value is recognised</h3>
+<p>Conventional economic measures reward market output more visibly than unpaid care, mutual aid and intergenerational support. A family dividend does not require putting a price on affection. It does require recognising that the wellbeing enabling all economic activity depends substantially on work and relationships that may be invisible in conventional performance accounts <a class="cite-link" href="#fdp-ref-7">[7]</a>.</p>
+<h3 id="fdp-s13-2">13.2 Redefine what organisations owe people</h3>
+<p>If institutions can accomplish equivalent outcomes with less required human cognitive effort, the normative question becomes whether they should still demand the same attention from workers. The answer cannot be predetermined for every industry, but organisations can be evaluated partly by their <strong>time demand</strong>, predictability and compatibility with lives outside work.</p>
+<h3 id="fdp-s13-3">13.3 Strengthen community through families without isolating them</h3>
+<p>A family-centred society should not privatise all caregiving. Schools, hospitals, carers, neighbourhood associations and public supports remain necessary. The shift is towards reciprocal systems where capable families and care circles can coordinate more independently <strong>while being able to ask for help without stigma</strong>.</p>
+<h3 id="fdp-s13-4">13.4 Resist substituting AI relationships for human relationships</h3>
+<p>An AI companion may sometimes help people reflect, communicate or access information, but a policy whose apparent success comes from replacing human contact rather than enabling it fails the paper's intended purpose. Digital assistance should strengthen real-world capacity and preserve the freedom to disconnect.</p>
+<h2 id="fdp-s14">14. Conclusion: The question is what we do with the intelligence</h2>
+<p>For generations, society has organised much of human life around the scarcity of cognitive labour. People traded time and attention for income, institutions coordinated large bodies of specialised knowledge, and families adjusted to the demands of work.</p>
+<p>Abundant intelligence may change that constraint. But it does not determine where the benefits will go. A society can use AI to produce more while keeping people equally busy; it can distribute the gains unequally; or it can make room for a different social rhythm.</p>
+<p><strong>The selfdriven.family proposition is to treat liberated human capacity as an opportunity to rebuild the conditions for care, connection, growth, rest and community self-actuation.</strong> Family is not the only worthwhile destination for free time, nor is every family safe. It is, however, one of the most consequential places where human energy can become meaningful across generations.</p>
+<p>The decisive metric is not how much cognitive work machines perform. It is whether people become <strong>more able to choose, more present with those they care about, and better supported in living lives of dignity and purpose</strong>.</p>
+<blockquote>
+<p><strong>The promise of abundant intelligence is not simply that machines will think for us. It is that humans may regain the freedom to be there for one another.</strong></p>
+</blockquote>
+<hr />
+<h2 id="fdp-references">References and research basis</h2>
+<p class="ref" id="fdp-ref-1">[1] International Labour Organization (2026). <em>The impact of GenAI on jobs, productivity and work organization: a review of the empirical evidence.</em> 1 June 2026. <a target="_blank" rel="noopener" href="https://www.ilo.org/publications/impact-genai-jobs-productivity-and-work-organization-review-empirical">https://www.ilo.org/publications/impact-genai-jobs-productivity-and-work-organization-review-empirical</a></p>
+<p class="ref" id="fdp-ref-2">[2] International Labour Organization (2025). <em>Generative AI and jobs: A 2025 update.</em> 20 May 2025. <a target="_blank" rel="noopener" href="https://www.ilo.org/publications/generative-ai-and-jobs-2025-update">https://www.ilo.org/publications/generative-ai-and-jobs-2025-update</a></p>
+<p class="ref" id="fdp-ref-3">[3] Australian Bureau of Statistics (2025). <em>How Australians use their time, 2024.</em> Released 17 December 2025. <a target="_blank" rel="noopener" href="https://www.abs.gov.au/statistics/people/people-and-communities/how-australians-use-their-time/2024">https://www.abs.gov.au/statistics/people/people-and-communities/how-australians-use-their-time/2024</a></p>
+<p class="ref" id="fdp-ref-4">[4] Dillon, E. W., Jaffe, S., Immorlica, N. &amp; Stanton, C. T. (2025). <em>Shifting Work Patterns with Generative AI.</em> NBER Working Paper 33795, revised November 2025. <a target="_blank" rel="noopener" href="https://www.nber.org/papers/w33795">https://www.nber.org/papers/w33795</a></p>
+<p class="ref" id="fdp-ref-5">[5] European Commission, Directorate-General for Economic and Financial Affairs (2026). <em>The AI-adoption divide: Who benefits, who doesn’t, and what it means for workers.</em> <a target="_blank" rel="noopener" href="https://economy-finance.ec.europa.eu/economic-forecast-and-surveys/economic-forecasts/spring-2026-economic-forecast-slowdown-growth-energy-shock-drives-inflation/ai-adoption-divide-who-benefits-who-doesnt-and-what-it-means-workers_en">https://economy-finance.ec.europa.eu/economic-forecast-and-surveys/economic-forecasts/spring-2026-economic-forecast-slowdown-growth-energy-shock-drives-inflation/ai-adoption-divide-who-benefits-who-doesnt-and-what-it-means-workers_en</a></p>
+<p class="ref" id="fdp-ref-6">[6] Ranganathan, A. &amp; Ye, X. M. (2026). <em>AI Doesn’t Reduce Work—It Intensifies It.</em> Harvard Business Review, 9 February 2026. <a target="_blank" rel="noopener" href="https://hbr.org/2026/02/ai-doesnt-reduce-work-it-intensifies-it">https://hbr.org/2026/02/ai-doesnt-reduce-work-it-intensifies-it</a></p>
+<p class="ref" id="fdp-ref-7">[7] International Labour Organization (2025). <em>Advancing decent work and the care economy: An essential component of social development.</em> 24 July 2025. <a target="_blank" rel="noopener" href="https://www.ilo.org/publications/advancing-decent-work-and-care-economy-essential-component-social">https://www.ilo.org/publications/advancing-decent-work-and-care-economy-essential-component-social</a></p>
+<p class="ref" id="fdp-ref-8">[8] World Health Organization (2025). <em>The role of the health sector in supporting parents and caregivers to meet their parenting potential.</em> 17 December 2025. <a target="_blank" rel="noopener" href="https://www.who.int/publications/i/item/B09582">https://www.who.int/publications/i/item/B09582</a></p>
+<p class="ref" id="fdp-ref-9">[9] selfdriven.family (2026). <em>The Family as the Foundational Unit of Human Society</em>, version 1.0, 29 October 2026. Conceptual companion paper (internal research series). <a href="/#paper">Read on selfdriven.family</a></p>
+<p class="ref" id="fdp-ref-10">[10] World Health Organization &amp; UNICEF (2026). <em>Nurturing care for children with developmental delays and disabilities: thematic brief.</em> 2 March 2026. <a target="_blank" rel="noopener" href="https://www.who.int/publications/i/item/B09617">https://www.who.int/publications/i/item/B09617</a></p>
+<hr />
+<p><em>This paper is a normative research proposition, not a claim that AI has already made most human cognitive work redundant. Figures are sourced to named studies and do not establish the hypothetical family-dividend outcome. No features described for selfdriven.family should be assumed to exist without separate implementation and validation.</em></p>
+      </article>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="brand" href="/"><span class="mark" aria-hidden="true"></span><span>selfdriven<em>.family</em></span></a>
+    <nav aria-label="Footer">
+      <a href="#paper"><svg class="ic-sm"><use href="#ic-file-text"/></svg>The companion paper</a>
+      <a href="/#paper">The foundational paper</a>
+      <a href="/#charter">Charter</a>
+      <a href="https://selfdriven.you/" target="_blank" rel="noopener">selfdriven.you<svg class="ic-sm"><use href="#ic-arrow-up-right"/></svg></a>
+      <a href="https://selfdriven.foundation/" target="_blank" rel="noopener">selfdriven Foundation<svg class="ic-sm"><use href="#ic-arrow-up-right"/></svg></a>
+    </nav>
+    <p class="fine">Companion paper 1.1 · Version 1.0 · 29 October 2026 · A research proposition and testable framework, not a claim that AI has already automated most cognitive work.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  /* ---- views: overview (default) and the full paper (#paper, #fdp-*) ---- */
+  var overview = document.getElementById('fd');
+  var paper = document.getElementById('fdpaper');
+
+  function narrow() { return window.matchMedia && window.matchMedia('(max-width: 900px)').matches; }
+  var toc = document.getElementById('fdToc');
+  var tocLinks = Array.prototype.slice.call(toc.querySelectorAll('a'));
+  var heads = tocLinks.map(function (a) { return document.getElementById(a.getAttribute('href').slice(1)); });
+  function markToc() {
+    var y = window.scrollY + 120, cur = 0;
+    for (var i = 0; i < heads.length; i++) { if (heads[i] && heads[i].getBoundingClientRect().top + window.scrollY <= y) cur = i; }
+    tocLinks.forEach(function (a, i) { a.classList.toggle('on', i === cur); });
+  }
+  if (narrow()) toc.open = false;
+  tocLinks.forEach(function (a) { a.addEventListener('click', function () { if (narrow()) toc.open = false; }); });
+
+  var roots = { '': 1, 'top': 1, 'paper': 1 };
+  var current = null;
+  function route(ev) {
+    var h = '';
+    try { h = decodeURIComponent((location.hash || '').slice(1)); } catch (e) { h = (location.hash || '').slice(1); }
+    var v = (h === 'paper' || h.indexOf('fdp-') === 0) ? 'paper' : 'overview';
+    var changed = v !== current;
+    overview.hidden = v !== 'overview';
+    paper.hidden = v !== 'paper';
+    var target = roots[h] ? null : document.getElementById(h);
+    var jump = (changed || !ev) ? 'instant' : 'smooth';
+    current = v;
+    if (target) {
+      requestAnimationFrame(function () { target.scrollIntoView({ block: 'start', behavior: jump }); if (v === 'paper') markToc(); });
+    } else if (changed || roots[h]) {
+      window.scrollTo({ top: 0, behavior: jump });
+    }
+    if (v === 'paper') markToc();
+  }
+  window.addEventListener('hashchange', route);
+  route();
+  window.addEventListener('scroll', function () { if (current === 'paper') markToc(); }, { passive: true });
+
+  /* ---- time ledger: G = S − R − V − D (illustrative, §4.2) ---- */
+  var KEYS = ['S', 'R', 'V', 'D'];
+  var DEF = { S: 5, R: 3, V: 1, D: 0 };
+  var MAXH = 40;
+  var L = { S: 5, R: 3, V: 1, D: 0 };
+  var out = {}, dec = {}, inc = {};
+  KEYS.forEach(function (k) {
+    out[k] = document.getElementById('lg-' + k);
+    dec[k] = document.getElementById('lg-' + k + '-dec');
+    inc[k] = document.getElementById('lg-' + k + '-inc');
+    dec[k].addEventListener('click', function () { if (L[k] > 0) { L[k]--; drawLedger(); } });
+    inc[k].addEventListener('click', function () { if (L[k] < MAXH) { L[k]++; drawLedger(); } });
+  });
+  var gOut = document.getElementById('lg-G');
+  var note = document.getElementById('lgNote');
+  var reset = document.getElementById('lgReset');
+  var mark = document.getElementById('lgMark');
+  var seg = { S: document.getElementById('seg-s'), R: document.getElementById('seg-r'), V: document.getElementById('seg-v'), D: document.getElementById('seg-d'), G: document.getElementById('seg-g') };
+  function hrs(n) { return n + ' h'; }
+  function setSeg(el, v, scale) { el.hidden = v <= 0; el.style.flexBasis = (v / scale * 100) + '%'; }
+  function drawLedger() {
+    var cost = L.R + L.V + L.D;
+    var G = L.S - cost;
+    var scale = Math.max(L.S, cost, 1);
+    out.S.textContent = L.S ? '+' + hrs(L.S) : hrs(0);
+    ['R', 'V', 'D'].forEach(function (k) { out[k].textContent = L[k] ? '−' + hrs(L[k]) : hrs(0); });
+    KEYS.forEach(function (k) { dec[k].disabled = L[k] <= 0; inc[k].disabled = L[k] >= MAXH; });
+    gOut.textContent = (G < 0 ? '−' : '') + hrs(Math.abs(G));
+    gOut.setAttribute('data-sign', G > 0 ? 'pos' : (G < 0 ? 'neg' : 'zero'));
+    setSeg(seg.S, L.S, scale);
+    setSeg(seg.R, L.R, scale);
+    setSeg(seg.V, L.V, scale);
+    setSeg(seg.D, L.D, scale);
+    setSeg(seg.G, Math.max(G, 0), scale);
+    mark.hidden = !(cost > L.S && L.S > 0);
+    mark.style.left = (L.S / scale * 100) + '%';
+    var isDef = KEYS.every(function (k) { return L[k] === DEF[k]; });
+    reset.disabled = isDef;
+    var msg;
+    if (L.S === 0 && cost === 0) msg = 'Nothing saved, nothing spent. Add the hours AI takes off a typical week.';
+    else if (G < 0) msg = 'The week got busier. New work, review and disruption outweigh the saving, the kind of <strong>intensification</strong> one 2026 single-company study reported [6]. The line marks where the saving ran out.';
+    else if (G === 0) msg = 'Every saved hour was absorbed before it reached the person. On paper the tool works; in the week, <strong>nothing came back</strong>.';
+    else if (G / L.S < 0.5) msg = 'Most of the apparent saving was absorbed before it reached the person.' + (isDef ? ' <strong>This is the paper’s hypothetical example: five hours saved, one hour returned.</strong>' : ' This is what <strong>institutional capture</strong> looks like at the scale of one week.');
+    else msg = 'Most of the saving reached the person. Whether it becomes a family dividend still depends on <strong>security, equity and choice</strong>.';
+    note.innerHTML = msg;
+  }
+  reset.addEventListener('click', function () { KEYS.forEach(function (k) { L[k] = DEF[k]; }); drawLedger(); });
+  drawLedger();
+
+  /* ---- custom cursor (desktop only) ---- */
+  var dot = document.getElementById('cdot'), ring = document.getElementById('cring');
+  if (window.matchMedia && window.matchMedia('(hover: hover)').matches) {
+    var rx = -100, ry = -100, dx = -100, dy = -100;
+    document.addEventListener('mousemove', function (e) { dx = e.clientX; dy = e.clientY; dot.style.left = dx + 'px'; dot.style.top = dy + 'px'; });
+    (function loop() { rx += (dx - rx) * .18; ry += (dy - ry) * .18; ring.style.left = rx + 'px'; ring.style.top = ry + 'px'; requestAnimationFrame(loop); })();
+    var modeColour = { 'm-c': 'rgba(245,200,66,.6)', 'm-k': 'rgba(255,95,126,.6)', 'm-b': 'rgba(0,229,160,.6)', 'm-l': 'rgba(155,143,255,.6)' };
+    document.querySelectorAll('a, button, summary, .task, .mode, .cap, .future').forEach(function (el) {
+      el.addEventListener('mouseenter', function () {
+        var c = 'rgba(245,200,66,.6)';
+        var m = el.closest('.mode');
+        if (m) { for (var k in modeColour) { if (m.classList.contains(k)) c = modeColour[k]; } }
+        ring.style.width = '52px'; ring.style.height = '52px'; ring.style.borderColor = c;
+      });
+      el.addEventListener('mouseleave', function () { ring.style.width = '34px'; ring.style.height = '34px'; ring.style.borderColor = 'rgba(240,238,255,.3)'; });
+    });
+  }
+})();
+</script>
+
+</body>
+</html>
