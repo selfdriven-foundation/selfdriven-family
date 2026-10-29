@@ -1,0 +1,1927 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>selfdriven.family</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="selfdriven.family — the family as the foundational unit of human society. The selfdriven 4Cs at family scale: Curious, Caring, Constructive, Chill.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* Layout: selfdriven.you dark 4Cs — glow-lit hero, then the paper moving outward from the person to the commons. Overview + full paper, routed on #paper. Single dark look by design. */
+:root {
+  --bg: #09090f;
+  --surface: #111118;
+  --surface2: #18181f;
+  --border: rgba(255,255,255,0.08);
+  --border2: rgba(255,255,255,0.14);
+  --text: #f0eeff;
+  --soft: #a9a5c2;
+  --muted: #7e7a9a;
+  --muted2: #3d3a55;
+
+  --curious: #f5c842;
+  --caring: #ff5f7e;
+  --constructive: #00e5a0;
+  --chill: #7b6cff;
+  --chill-bright: #9b8fff;
+  --curious-dim: rgba(245,200,66,0.13);
+  --caring-dim: rgba(255,95,126,0.13);
+  --constructive-dim: rgba(0,229,160,0.13);
+  --chill-dim: rgba(123,108,255,0.13);
+
+  --accent: #ff5f7e;
+  --accent-dim: rgba(255,95,126,0.13);
+  --accent-line: rgba(255,95,126,0.28);
+  --on-accent: #09090f;
+  --nav-bg: rgba(9,9,15,0.72);
+  --scrim: rgba(9,9,15,0.55);
+
+  --pill: 999px;
+  --radius: 22px;
+  --display: 'Bricolage Grotesque', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font: 'DM Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+  --nav-h: 68px;
+  --gutter-l: max(clamp(16px, 4vw, 40px), env(safe-area-inset-left, 0px));
+  --gutter-r: max(clamp(16px, 4vw, 40px), env(safe-area-inset-right, 0px));
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; background: var(--bg); }
+body {
+  background: var(--bg); color: var(--text);
+  font-family: var(--font); font-size: 16.5px; line-height: 1.6;
+  -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+  cursor: none;
+}
+a, button, summary, [tabindex] { cursor: none; }
+a { color: inherit; }
+::selection { background: rgba(255,95,126,.32); color: var(--text); }
+:focus-visible { outline: 2px solid var(--curious); outline-offset: 3px; border-radius: 8px; }
+.ic { width: 20px; height: 20px; flex: none; }
+.ic-sm { width: 16px; height: 16px; flex: none; }
+
+/* ---------- custom cursor ---------- */
+.cursor-dot  { position: fixed; top: -100px; left: -100px; width: 8px; height: 8px; border-radius: 50%; background: var(--curious); pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); transition: transform .12s ease, background .2s; }
+.cursor-ring { position: fixed; top: -100px; left: -100px; width: 34px; height: 34px; border-radius: 50%; border: 1.5px solid rgba(240,238,255,.3); pointer-events: none; z-index: 9998; transform: translate(-50%,-50%); transition: transform .18s ease, width .2s, height .2s, border-color .2s; }
+@media (hover: none) { body, a, button, summary, [tabindex] { cursor: auto; } .cursor-dot, .cursor-ring { display: none; } }
+
+.wrap { max-width: 1160px; margin: 0 auto; padding-left: var(--gutter-l); padding-right: var(--gutter-r); position: relative; z-index: 1; }
+.narrow { max-width: 64ch; }
+
+/* ---------- type ---------- */
+h1, h2, h3 { margin: 0; color: var(--text); font-family: var(--display); text-wrap: balance; }
+h2.title { font-size: clamp(32px, 4.6vw, 56px); font-weight: 800; letter-spacing: -0.04em; line-height: 1.02; }
+h3 { font-size: 20px; font-weight: 700; letter-spacing: -0.03em; line-height: 1.25; }
+p { margin: 0; }
+.eyebrow { display: inline-flex; align-items: center; gap: 10px; font-family: var(--mono); font-size: 11.5px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+.sec-ref { font-family: var(--mono); font-weight: 700; letter-spacing: 0.02em; text-decoration: none; padding: 4px 10px; border-radius: var(--pill); background: var(--accent-dim); color: var(--accent); border: 1px solid var(--accent-line); transition: transform .2s; }
+.sec-ref:hover { transform: translateY(-2px) rotate(-1.5deg); }
+.lede { font-size: clamp(17px, 1.6vw, 19.5px); color: var(--soft); line-height: 1.65; }
+.body { color: var(--soft); line-height: 1.75; }
+.note { font-size: 14px; color: var(--muted); line-height: 1.7; }
+.src { font-family: var(--mono); font-size: 11.5px; color: var(--muted); }
+.label-sm { display: block; font-family: var(--mono); font-size: 11px; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; }
+.hl { color: var(--accent); }
+.sec { position: relative; padding-block: clamp(72px, 10vw, 128px); scroll-margin-top: var(--nav-h); }
+.sec-head { display: grid; gap: 18px; margin-bottom: clamp(36px, 5vw, 60px); }
+.stack { display: grid; gap: 16px; }
+
+/* ---------- scroll reveal (visible at rest; animates in where scroll timelines exist) ---------- */
+@keyframes rv { from { transform: translateY(18px); } to { transform: none; } }
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal { animation: rv cubic-bezier(.34,1.56,.64,1) both; animation-timeline: view(); animation-range: entry 0% entry 45%; }
+    .reveal:nth-child(2) { animation-range: entry 5% entry 50%; }
+    .reveal:nth-child(3) { animation-range: entry 10% entry 55%; }
+    .reveal:nth-child(4) { animation-range: entry 15% entry 60%; }
+  }
+}
+
+/* ---------- glow blobs ---------- */
+.glow { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 0; }
+.gblob { position: absolute; border-radius: 50%; filter: blur(95px); opacity: .5; }
+.gb1 { width: 520px; height: 520px; background: var(--curious); top: -150px; left: -160px; animation: gb 15s ease-in-out infinite; }
+.gb2 { width: 440px; height: 440px; background: var(--caring); top: 40px; right: -130px; animation: gb 19s ease-in-out infinite reverse; }
+.gb3 { width: 360px; height: 360px; background: var(--constructive); bottom: -60px; left: 18%; animation: gb 23s ease-in-out infinite 3s; }
+.gb4 { width: 320px; height: 320px; background: var(--chill); bottom: 20px; right: 12%; animation: gb 17s ease-in-out infinite 8s; }
+@keyframes gb { 0%,100% { transform: translate(0,0) scale(1); } 40% { transform: translate(34px,-26px) scale(1.08); } 70% { transform: translate(-22px,30px) scale(.93); } }
+.glow-soft .gblob { opacity: .16; }
+.glow-soft { -webkit-mask-image: linear-gradient(to bottom, transparent, #000 22%, #000 70%, transparent); mask-image: linear-gradient(to bottom, transparent, #000 22%, #000 70%, transparent); }
+
+/* ---------- buttons & pills ---------- */
+.btn { display: inline-flex; align-items: center; gap: 10px; justify-content: center; padding: 13px 24px; border-radius: var(--pill); font-family: var(--display); font-size: 15px; font-weight: 600; text-decoration: none; border: 1.5px solid transparent; white-space: nowrap; transition: transform .2s, box-shadow .2s, border-color .2s, color .2s; }
+.btn:hover { transform: translateY(-4px) rotate(-1.5deg); box-shadow: 0 14px 36px rgba(0,0,0,.5); }
+.btn-primary { background: var(--accent); color: var(--on-accent); }
+.btn-ghost { background: rgba(240,238,255,.06); color: var(--text); border-color: var(--border2); }
+.btn-ghost:hover { border-color: rgba(240,238,255,.3); }
+
+.mode-pill { display: inline-flex; align-items: center; gap: 8px; padding: 11px 20px; border-radius: var(--pill); font-family: var(--display); font-size: 14px; font-weight: 600; text-decoration: none; border: 1.5px solid transparent; transition: transform .2s, box-shadow .2s; }
+.mode-pill:hover { transform: translateY(-4px) rotate(-1.5deg); box-shadow: 0 14px 36px rgba(0,0,0,.5); }
+.mode-pill svg { width: 16px; height: 16px; }
+.mp-c { background: var(--curious-dim); color: var(--curious); border-color: rgba(245,200,66,.28); }
+.mp-k { background: var(--caring-dim); color: var(--caring); border-color: rgba(255,95,126,.28); }
+.mp-b { background: var(--constructive-dim); color: var(--constructive); border-color: rgba(0,229,160,.28); }
+.mp-l { background: var(--chill-dim); color: var(--chill-bright); border-color: rgba(123,108,255,.28); }
+
+.hero-pill { display: inline-flex; align-items: center; gap: 8px; background: var(--scrim); border: 1px solid rgba(255,255,255,.22); border-radius: var(--pill); padding: 8px 18px; font-size: 12px; font-weight: 500; color: rgba(240,238,255,.7); letter-spacing: .08em; text-transform: uppercase; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); justify-self: start; }
+.hero-pill .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--constructive); animation: pulse 2s infinite; }
+@keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(0,229,160,.55); } 70% { box-shadow: 0 0 0 9px rgba(0,229,160,0); } 100% { box-shadow: 0 0 0 0 rgba(0,229,160,0); } }
+
+/* ---------- nav ---------- */
+.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 50; padding-top: env(safe-area-inset-top, 0px); background: var(--nav-bg); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); border-bottom: 1px solid var(--border); }
+.nav .wrap { display: flex; align-items: center; gap: 28px; height: var(--nav-h); }
+.brand { display: inline-flex; align-items: center; gap: 11px; text-decoration: none; font-family: var(--display); font-weight: 700; font-size: 18px; letter-spacing: -0.03em; color: var(--text); white-space: nowrap; }
+.brand em { font-style: normal; color: var(--caring); }
+.mark { width: 28px; height: 28px; border-radius: 50%; flex: none; background: conic-gradient(var(--curious) 0 25%, var(--caring) 0 50%, var(--constructive) 0 75%, var(--chill) 0 100%); -webkit-mask: radial-gradient(circle, transparent 7px, #000 7.5px); mask: radial-gradient(circle, transparent 7px, #000 7.5px); }
+.nav-links { display: flex; gap: 2px; margin: 0 0 0 auto; list-style: none; padding: 0; }
+.nav-links a { display: block; padding: 8px 12px; border-radius: var(--pill); font-size: 14px; font-weight: 500; color: var(--muted); text-decoration: none; transition: color .2s, background .2s; }
+.nav-links a:hover { color: var(--text); background: rgba(255,255,255,.05); }
+.nav .btn { padding: 10px 18px; font-size: 14px; }
+.nav .btn .sm { display: none; }
+@media (max-width: 980px) { .nav-links { display: none; } .nav .btn { margin-left: auto; } }
+@media (max-width: 520px) { .nav .btn .lg { display: none; } .nav .btn .sm { display: inline; } }
+
+/* ---------- hero ---------- */
+.hero { position: relative; overflow: hidden; padding-top: calc(var(--nav-h) + clamp(44px, 7vw, 96px)); padding-bottom: clamp(56px, 8vw, 96px); }
+.hero::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 180px; background: linear-gradient(to bottom, transparent, var(--bg)); z-index: 0; pointer-events: none; }
+.hero-grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: clamp(32px, 5vw, 64px); align-items: center; }
+.hero-copy { display: grid; gap: 26px; min-width: 0; }
+.hero h1 { font-size: clamp(46px, 6.8vw, 92px); font-weight: 800; letter-spacing: -0.045em; line-height: 0.94; }
+.hero h1 span { display: block; }
+.hero h1 em { font-style: normal; color: var(--caring); }
+.hero .lede { max-width: 54ch; color: rgba(240,238,255,.78); }
+.hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; }
+.jump-row { position: relative; display: flex; flex-wrap: wrap; gap: 10px; }
+.jump-row::before { content: ''; position: absolute; inset: -30px -10%; background: radial-gradient(ellipse at center, var(--scrim), transparent 72%); z-index: -1; pointer-events: none; }
+.meta-row { display: flex; flex-wrap: wrap; gap: 6px 16px; font-family: var(--mono); font-size: 12px; color: var(--muted); }
+.meta-row span { display: inline-flex; align-items: center; gap: 8px; }
+.meta-row span + span::before { content: ""; width: 4px; height: 4px; border-radius: 50%; background: var(--muted2); }
+.rings-fig { margin: 0; display: grid; gap: 14px; justify-items: center; min-width: 0; }
+.rings { width: 100%; max-width: 500px; height: auto; display: block; }
+.rings-fig figcaption { font-size: 13.5px; color: var(--soft); text-align: center; max-width: 40ch; line-height: 1.6; }
+.rings .r { transform-box: fill-box; transform-origin: center; animation: ringIn 1s cubic-bezier(.34,1.56,.64,1) both; }
+.rings .r1 { animation-delay: 0s; } .rings .r2 { animation-delay: .14s; } .rings .r3 { animation-delay: .28s; } .rings .r4 { animation-delay: .42s; }
+.rings .lbl { font-family: var(--mono); font-size: 11px; font-weight: 700; letter-spacing: 0.14em; fill: rgba(240,238,255,.62); }
+.rings .lbl-2 { fill: var(--caring); }
+.rings .lbl-c { font-family: var(--mono); font-size: 11px; font-weight: 700; letter-spacing: 0.14em; fill: var(--on-accent); }
+@keyframes ringIn { from { transform: scale(.82); opacity: .25; } to { transform: scale(1); opacity: 1; } }
+@media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; } .rings { max-width: 420px; } }
+.status { margin-top: clamp(44px, 5vw, 64px); display: flex; gap: 14px; align-items: flex-start; padding: 18px 22px; border: 1px dashed var(--border2); border-radius: 18px; background: var(--scrim); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); color: var(--soft); font-size: 14.5px; line-height: 1.65; }
+.status .ic { color: var(--curious); margin-top: 2px; }
+.status strong { color: var(--text); font-weight: 600; }
+
+/* ---------- definition ---------- */
+.definition { font-family: var(--display); font-size: clamp(24px, 3vw, 38px); font-weight: 700; letter-spacing: -0.03em; line-height: 1.18; color: var(--text); margin: 0; max-width: 28ch; text-wrap: balance; }
+.definition b { color: var(--caring); font-weight: 700; }
+.def-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(32px, 5vw, 72px); margin-top: clamp(36px, 4vw, 56px); align-items: start; }
+@media (max-width: 860px) { .def-grid { grid-template-columns: 1fr; } }
+.layers { list-style: none; padding: 0; margin: 0; display: grid; }
+.layers li { display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 16px; padding: 18px 0; border-top: 1px solid var(--border); }
+.layers li:last-child { border-bottom: 1px solid var(--border); }
+.layers svg { width: 36px; height: 36px; }
+.layers h3 { font-size: 17px; margin-bottom: 3px; }
+.layers p { color: var(--soft); font-size: 15px; line-height: 1.6; }
+.g-ring { fill: none; stroke: var(--border2); stroke-width: 1.5; }
+.g-on { fill: var(--caring-dim); stroke: var(--caring); stroke-width: 2; }
+.g-dot { fill: var(--caring); }
+.g-house { fill: none; stroke: var(--caring); stroke-width: 2; stroke-linejoin: round; }
+
+.data-panel { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: clamp(22px, 3vw, 32px); display: grid; gap: 22px; min-width: 0; }
+.big-n { font-family: var(--display); font-size: clamp(38px, 4.4vw, 52px); font-weight: 800; letter-spacing: -0.045em; line-height: 1; color: var(--text); font-variant-numeric: tabular-nums; }
+.big-n small { font-family: var(--font); font-size: 0.36em; font-weight: 500; letter-spacing: 0; color: var(--soft); margin-left: 8px; }
+.bar { display: flex; gap: 3px; height: 18px; border-radius: 6px; overflow: hidden; }
+.bar span { display: block; height: 100%; }
+.legend { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.legend li { display: grid; grid-template-columns: 12px minmax(0, 1fr) auto; gap: 12px; align-items: center; font-size: 14.5px; color: var(--soft); }
+.legend i { width: 12px; height: 12px; border-radius: 3px; display: block; }
+.legend b { font-family: var(--mono); font-weight: 500; font-size: 13px; color: var(--text); font-variant-numeric: tabular-nums; }
+.duo { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; padding-top: 22px; border-top: 1px solid var(--border); }
+.duo p { font-size: 14px; color: var(--soft); margin-top: 6px; line-height: 1.5; }
+.duo strong { color: var(--text); font-weight: 600; }
+
+/* ---------- functions ---------- */
+.functions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(28px, 3.5vw, 44px) clamp(32px, 5vw, 72px); }
+.functions article { display: grid; gap: 10px; align-content: start; }
+.functions .fx { display: inline-flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 11.5px; color: var(--muted); letter-spacing: 0.06em; text-transform: uppercase; }
+.functions .fx::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--caring); }
+.functions p { color: var(--soft); line-height: 1.75; font-size: 15.5px; }
+.functions .wide { grid-column: 1 / -1; max-width: calc(50% - clamp(16px, 2.5vw, 36px)); }
+@media (max-width: 760px) { .functions { grid-template-columns: 1fr; } .functions .wide { max-width: none; } }
+.claim { margin-top: clamp(40px, 4.5vw, 56px); font-family: var(--display); font-size: clamp(21px, 2.3vw, 27px); font-weight: 700; letter-spacing: -0.03em; line-height: 1.3; max-width: 40ch; color: var(--text); text-wrap: balance; }
+.claim em { font-style: normal; color: var(--caring); }
+
+/* ---------- rights band ---------- */
+.band { background: var(--surface); border-block: 1px solid var(--border); overflow: hidden; }
+.band .glow .gblob { opacity: .14; }
+.affirm { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.affirm article { border: 1px solid var(--border); background: rgba(9,9,15,.55); border-radius: var(--radius); padding: 24px; display: grid; gap: 10px; align-content: start; transition: border-color .2s, transform .2s; }
+.affirm article:hover { border-color: var(--accent-line); transform: translateY(-3px); }
+.affirm .n { font-family: var(--mono); font-size: 12px; color: var(--caring); }
+.affirm p { color: var(--soft); font-size: 15px; line-height: 1.65; }
+@media (max-width: 900px) { .affirm { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 600px) { .affirm { grid-template-columns: 1fr; } }
+.cites { display: flex; flex-wrap: wrap; gap: 8px; }
+.cite { font-family: var(--mono); font-size: 12px; padding: 6px 12px; border-radius: var(--pill); border: 1px solid var(--border2); color: var(--soft); background: rgba(9,9,15,.4); }
+
+/* ---------- shift ---------- */
+.shift { display: grid; border-top: 1px solid var(--border); }
+.shift-row { display: grid; grid-template-columns: minmax(0, 1fr) 48px minmax(0, 1fr); align-items: center; gap: 16px; padding: 20px 0; border-bottom: 1px solid var(--border); }
+.shift-row.head { padding: 12px 0; }
+.shift-row.head span { font-family: var(--mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.shift-row.head span:last-child { color: var(--constructive); }
+.shift .from { color: var(--muted); font-size: 16px; text-decoration: line-through; text-decoration-color: var(--muted2); text-decoration-thickness: 1.5px; }
+.shift .to { font-family: var(--display); color: var(--text); font-size: 18px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.35; }
+.shift .arr { color: var(--constructive); display: grid; place-items: center; }
+@media (max-width: 680px) {
+  .shift-row { grid-template-columns: 1fr; gap: 6px; }
+  .shift-row.head, .shift .arr { display: none; }
+}
+
+/* ---------- modes ---------- */
+.modes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.mode { position: relative; background: var(--surface); border: 1px solid var(--border); border-radius: 26px; padding: clamp(24px, 3vw, 34px); display: grid; gap: 16px; align-content: start; overflow: hidden; scroll-margin-top: calc(var(--nav-h) + 24px); transition: transform .25s, border-color .25s; }
+.mode::after { content: ""; position: absolute; width: 260px; height: 260px; border-radius: 50%; top: -120px; right: -100px; background: var(--mc); filter: blur(80px); opacity: .16; pointer-events: none; transition: opacity .3s; }
+.mode:hover { transform: translateY(-4px); border-color: var(--mline); }
+.mode:hover::after { opacity: .28; }
+.mode .row { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.mode .chip { width: 52px; height: 52px; border-radius: 16px; display: grid; place-items: center; background: var(--md); color: var(--mc); border: 1.5px solid var(--mline); }
+.mode .chip svg { width: 24px; height: 24px; }
+.mode .ess { font-family: var(--mono); font-size: 12px; color: var(--mc); letter-spacing: .06em; }
+.mode .name { font-family: var(--display); font-size: clamp(30px, 3.4vw, 40px); font-weight: 800; letter-spacing: -0.04em; line-height: 1; color: var(--mc); }
+.mode h3 { font-size: 22px; }
+.mode p { color: var(--soft); font-size: 15.5px; line-height: 1.7; }
+.task { display: grid; gap: 6px; padding: 16px 18px; border-radius: 16px; background: rgba(9,9,15,.6); border: 1px solid var(--border); }
+.task span { font-family: var(--mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--mc); }
+.task p { color: var(--text); font-size: 15px; }
+.m-c { --mc: var(--curious); --md: var(--curious-dim); --mline: rgba(245,200,66,.28); }
+.m-k { --mc: var(--caring); --md: var(--caring-dim); --mline: rgba(255,95,126,.28); }
+.m-b { --mc: var(--constructive); --md: var(--constructive-dim); --mline: rgba(0,229,160,.28); }
+.m-l { --mc: var(--chill-bright); --md: var(--chill-dim); --mline: rgba(123,108,255,.28); }
+@media (max-width: 760px) { .modes { grid-template-columns: 1fr; } }
+.aside-line { margin-top: 28px; font-size: 15.5px; color: var(--soft); max-width: 66ch; line-height: 1.7; }
+.aside-line strong { color: var(--text); font-weight: 600; }
+
+/* ---------- cycle ---------- */
+.cycle-grid { display: grid; grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr); gap: clamp(32px, 5vw, 72px); align-items: center; }
+@media (max-width: 880px) { .cycle-grid { grid-template-columns: 1fr; } }
+.cycle-svg { width: 100%; max-width: 460px; height: auto; display: block; margin: 0 auto; }
+.cycle-svg .track { fill: none; stroke: var(--border2); stroke-width: 2; }
+.cycle-svg .chev { fill: none; stroke: var(--muted); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.cycle-svg .pill rect { fill: var(--surface); stroke: var(--caring); stroke-width: 1.5; transition: fill .2s; }
+.cycle-svg .pill text { font-family: var(--display); font-size: 14.5px; font-weight: 600; fill: var(--text); transition: fill .2s; }
+.cycle-svg .pill .num { font-family: var(--mono); font-size: 11px; font-weight: 500; fill: var(--caring); }
+.cycle-svg .pill.on rect { fill: var(--caring); }
+.cycle-svg .pill.on text, .cycle-svg .pill.on .num { fill: var(--on-accent); }
+.cycle-svg .ctr1 { font-family: var(--display); font-size: 17px; font-weight: 700; fill: var(--text); letter-spacing: -0.02em; }
+.cycle-svg .ctr2 { font-family: var(--mono); font-size: 10.5px; fill: var(--muted); letter-spacing: 0.1em; }
+.cycle-svg .traveller { fill: var(--curious); }
+.steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
+.steps li { display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 14px; padding: 14px 16px; border-radius: 16px; border: 1px solid transparent; transition: background .2s, border-color .2s; }
+.steps li:hover, .steps li:focus-within, .steps li.on { background: var(--surface); border-color: var(--border); }
+.steps .n { font-family: var(--mono); font-size: 12px; color: var(--caring); padding-top: 4px; }
+.steps h3 { font-size: 17px; margin-bottom: 2px; }
+.steps p { color: var(--soft); font-size: 15px; line-height: 1.6; }
+.cycle-notes { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: clamp(32px, 4vw, 48px); }
+.cycle-notes > div { padding: 24px; border-radius: var(--radius); border: 1px solid var(--border); background: var(--surface); display: grid; gap: 10px; align-content: start; }
+.cycle-notes h3 { font-size: 17px; }
+.cycle-notes p { color: var(--soft); font-size: 14.5px; line-height: 1.65; }
+.chain { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; color: var(--text); margin-top: 4px; }
+.chain span.n { padding: 5px 11px; border-radius: var(--pill); background: var(--caring-dim); border: 1px solid var(--accent-line); }
+.chain .ic-sm { color: var(--muted); }
+@media (max-width: 700px) { .cycle-notes { grid-template-columns: 1fr; } }
+
+/* ---------- intelligence ---------- */
+.principle { font-family: var(--display); font-size: clamp(27px, 3.6vw, 46px); font-weight: 800; letter-spacing: -0.04em; line-height: 1.08; max-width: 24ch; margin: 18px 0 0; color: var(--text); text-wrap: balance; }
+.principle em { font-style: normal; color: var(--chill-bright); }
+.int-grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: clamp(32px, 5vw, 72px); margin-top: clamp(32px, 4vw, 48px); align-items: start; }
+@media (max-width: 860px) { .int-grid { grid-template-columns: 1fr; } }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; margin: 0; padding: 0; }
+.chips li { padding: 9px 15px; border-radius: var(--pill); border: 1px solid var(--border2); font-size: 14px; color: var(--soft); background: rgba(255,255,255,.02); }
+.tests { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.tests div { padding: 16px 18px; border-radius: 16px; background: var(--chill-dim); border: 1px solid rgba(123,108,255,.28); }
+.tests b { display: block; font-family: var(--display); font-size: 17px; font-weight: 700; letter-spacing: -0.02em; color: var(--text); }
+.tests span { font-size: 13.5px; color: var(--soft); }
+
+/* ---------- capabilities ---------- */
+.proposal-tag { display: inline-flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 12px; color: var(--soft); padding: 7px 14px; border-radius: var(--pill); border: 1px dashed var(--border2); justify-self: start; }
+.proposal-tag .ic-sm { color: var(--curious); }
+.caps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.cap { position: relative; border: 1px solid var(--border); border-radius: var(--radius); padding: 26px 24px; display: grid; gap: 12px; align-content: start; overflow: hidden; background: var(--surface); transition: border-color .25s, transform .25s; }
+.cap:hover { border-color: var(--accent-line); transform: translateY(-4px) rotate(-.4deg); }
+.cap .top { display: flex; align-items: center; justify-content: space-between; }
+.cap .icw { width: 44px; height: 44px; border-radius: 14px; background: var(--caring-dim); color: var(--caring); border: 1.5px solid var(--accent-line); display: grid; place-items: center; }
+.cap .k { font-family: var(--mono); font-size: 12px; color: var(--muted); }
+.cap p { color: var(--soft); font-size: 15px; line-height: 1.65; }
+@media (max-width: 960px) { .caps { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 600px) { .caps { grid-template-columns: 1fr; } }
+
+/* ---------- principles ---------- */
+.principles { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: clamp(32px, 5vw, 72px); }
+.principles li { display: grid; grid-template-columns: 40px minmax(0, 1fr); gap: 14px; padding: 20px 0; border-top: 1px solid var(--border); }
+.principles .n { font-family: var(--mono); font-size: 13px; font-weight: 500; color: var(--constructive); padding-top: 3px; }
+.principles h3 { font-size: 17px; margin-bottom: 4px; }
+.principles p { color: var(--soft); font-size: 15px; line-height: 1.65; }
+@media (max-width: 760px) { .principles { grid-template-columns: 1fr; } }
+
+/* ---------- failure ---------- */
+.fails { display: grid; border-top: 1px solid var(--border); }
+.fail { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 24px; padding: 22px 0; border-bottom: 1px solid var(--border); align-items: baseline; }
+.fail .a { font-size: clamp(17px, 1.8vw, 21px); font-weight: 500; color: var(--muted); text-decoration: line-through; text-decoration-color: var(--caring); text-decoration-thickness: 2px; }
+.fail .v { font-family: var(--display); font-size: clamp(18px, 1.9vw, 23px); font-weight: 700; letter-spacing: -0.025em; color: var(--text); line-height: 1.3; }
+@media (max-width: 680px) { .fail { grid-template-columns: 1fr; gap: 6px; } }
+
+/* ---------- policy / communities ---------- */
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 5vw, 72px); }
+.two-col > div { display: grid; gap: 14px; align-content: start; }
+.two-col h3 { font-size: clamp(22px, 2.2vw, 26px); letter-spacing: -0.035em; }
+.two-col strong { color: var(--text); font-weight: 600; }
+@media (max-width: 800px) { .two-col { grid-template-columns: 1fr; } }
+.pull { position: relative; overflow: hidden; margin: clamp(40px, 5vw, 64px) 0 0; padding: clamp(28px, 4vw, 48px); border-radius: 26px; background: var(--surface); border: 1px solid var(--border); display: grid; gap: 14px; }
+.pull::before { content: ""; position: absolute; width: 380px; height: 380px; border-radius: 50%; right: -120px; bottom: -200px; background: var(--constructive); filter: blur(90px); opacity: .14; }
+.pull > * { position: relative; }
+.pull blockquote { margin: 0; font-family: var(--display); font-size: clamp(23px, 2.9vw, 34px); font-weight: 700; letter-spacing: -0.035em; line-height: 1.2; color: var(--text); max-width: 34ch; text-wrap: balance; }
+
+/* ---------- pilot ---------- */
+.phases { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.phase { display: grid; gap: 10px; align-content: start; position: relative; padding-top: 60px; }
+.phase .badge { position: absolute; top: 0; left: 0; width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; font-family: var(--display); font-weight: 800; font-size: 18px; background: var(--surface); color: var(--text); border: 1.5px solid var(--border2); z-index: 1; }
+.phase:nth-child(2) .badge { border-color: var(--constructive); color: var(--constructive); }
+.phase::before { content: ""; position: absolute; top: 21px; left: 44px; right: -16px; height: 2px; background: var(--border2); }
+.phase:last-child::before { display: none; }
+.phase .wk { font-family: var(--mono); font-size: 12px; color: var(--curious); }
+.phase p { color: var(--soft); font-size: 14.5px; line-height: 1.6; }
+.phase .tagline { font-family: var(--mono); font-size: 11px; color: var(--constructive); }
+@media (max-width: 860px) {
+  .phases { grid-template-columns: 1fr; gap: 0; }
+  .phase { padding: 0 0 28px 64px; }
+  .phase::before { top: 44px; bottom: 0; left: 21px; right: auto; width: 2px; height: auto; }
+}
+.table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; border: 1px solid var(--border); border-radius: 18px; background: var(--surface); }
+table { width: 100%; border-collapse: collapse; font-size: 14.5px; min-width: 560px; }
+th, td { text-align: left; padding: 14px 18px; vertical-align: top; border-bottom: 1px solid var(--border); }
+th { font-family: var(--mono); font-size: 11px; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); background: var(--surface2); }
+tr:last-child td { border-bottom: 0; }
+td:first-child { font-weight: 600; color: var(--text); white-space: nowrap; }
+td { color: var(--soft); line-height: 1.55; }
+.pilot-block { margin-top: clamp(44px, 5vw, 64px); display: grid; gap: 18px; }
+.pilot-block > h3 { font-size: 22px; }
+.hyps { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.hyps li { display: grid; grid-template-columns: 52px minmax(0, 1fr); gap: 14px; align-items: start; padding: 16px 18px; border-radius: 16px; border: 1px solid var(--border); background: var(--surface); }
+.hyps code { font-family: var(--mono); font-size: 13px; font-weight: 700; color: var(--chill-bright); padding: 3px 0; }
+.hyps p { color: var(--soft); font-size: 15px; line-height: 1.6; }
+.hyps li.fail-crit { background: var(--caring-dim); border-color: var(--accent-line); }
+.hyps li.fail-crit code { color: var(--caring); }
+.hyps li.fail-crit p { color: var(--text); font-weight: 500; }
+.hyps .tag { display: inline-block; font-family: var(--mono); font-size: 11px; color: var(--caring); margin-bottom: 4px; letter-spacing: .08em; text-transform: uppercase; }
+
+/* ---------- charter ---------- */
+.charter-sec { overflow: hidden; }
+.charter-wrap { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: clamp(32px, 5vw, 72px); align-items: start; }
+@media (max-width: 860px) { .charter-wrap { grid-template-columns: 1fr; } }
+.charter-side { display: grid; gap: 18px; position: sticky; top: calc(var(--nav-h) + 32px); }
+@media (max-width: 860px) { .charter-side { position: static; } }
+.charter { list-style: none; margin: 0; padding: 0; display: grid; }
+.charter li { padding: 22px 0; border-top: 1px solid var(--border); display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 16px; align-items: baseline; }
+.charter li:last-child { border-bottom: 1px solid var(--border); }
+.charter b { font-family: var(--display); font-size: clamp(23px, 2.5vw, 30px); font-weight: 800; letter-spacing: -0.035em; line-height: 1.12; color: var(--text); }
+.charter span { grid-column: 1; color: var(--soft); font-size: 16px; line-height: 1.6; }
+.charter .mtag { grid-column: 2; grid-row: 1; justify-self: end; font-style: normal; display: inline-flex; align-items: center; gap: 6px; font-family: var(--mono); font-size: 11px; letter-spacing: .06em; padding: 4px 10px; border-radius: var(--pill); white-space: nowrap; }
+.charter .mtag svg { width: 13px; height: 13px; }
+.mt-c { background: var(--curious-dim); color: var(--curious); border: 1px solid rgba(245,200,66,.28); }
+.mt-k { background: var(--caring-dim); color: var(--caring); border: 1px solid rgba(255,95,126,.28); }
+.mt-b { background: var(--constructive-dim); color: var(--constructive); border: 1px solid rgba(0,229,160,.28); }
+.mt-l { background: var(--chill-dim); color: var(--chill-bright); border: 1px solid rgba(123,108,255,.28); }
+.copy-btn[data-done="1"] { border-color: var(--constructive); color: var(--constructive); }
+
+/* ---------- conclusion ---------- */
+.closing-sec { overflow: hidden; }
+.closing { display: grid; gap: 28px; }
+.closing p.big { font-family: var(--display); font-size: clamp(30px, 4.6vw, 60px); font-weight: 800; letter-spacing: -0.045em; line-height: 1.02; max-width: 22ch; color: var(--text); text-wrap: balance; }
+.closing p.big em { font-style: normal; color: var(--caring); }
+.five { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; margin: 0; }
+.five li { padding: 10px 18px; border-radius: var(--pill); background: rgba(255,255,255,.05); border: 1px solid var(--border2); color: var(--text); font-family: var(--display); font-weight: 600; font-size: 15px; }
+
+/* ---------- references ---------- */
+.refs { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; counter-reset: r; }
+.refs li { display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 10px; font-size: 14.5px; color: var(--soft); line-height: 1.6; counter-increment: r; }
+.refs li::before { content: "[" counter(r) "]"; font-family: var(--mono); font-size: 12px; color: var(--caring); padding-top: 2px; }
+.refs a { color: var(--text); word-break: break-word; text-decoration-color: var(--muted2); text-underline-offset: 3px; }
+.refs a:hover { color: var(--curious); }
+.ref-grid { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 0.8fr); gap: clamp(32px, 5vw, 72px); align-items: start; }
+@media (max-width: 860px) { .ref-grid { grid-template-columns: 1fr; } }
+.scope { padding: 24px; border-radius: var(--radius); border: 1px dashed var(--border2); display: grid; gap: 10px; align-content: start; }
+.scope p { font-size: 14px; color: var(--soft); line-height: 1.7; }
+
+/* ---------- footer ---------- */
+footer { border-top: 1px solid var(--border); padding-block: 44px calc(44px + env(safe-area-inset-bottom, 0px)); }
+footer .wrap { display: flex; flex-wrap: wrap; gap: 20px 40px; align-items: center; justify-content: space-between; }
+footer nav { display: flex; flex-wrap: wrap; gap: 8px; }
+footer nav a { display: inline-flex; align-items: center; gap: 6px; padding: 9px 16px; border-radius: var(--pill); border: 1px solid var(--border2); font-size: 14px; font-weight: 500; color: var(--soft); text-decoration: none; transition: transform .2s, color .2s, border-color .2s; }
+footer nav a:hover { color: var(--text); border-color: rgba(240,238,255,.3); transform: translateY(-3px) rotate(-1.5deg); }
+footer .fine { font-family: var(--mono); font-size: 12px; color: var(--muted); width: 100%; }
+
+/* ---------- paper view ---------- */
+.paper-top { position: relative; overflow: hidden; padding-top: calc(var(--nav-h) + clamp(36px, 5vw, 72px)); padding-bottom: clamp(36px, 4vw, 56px); border-bottom: 1px solid var(--border); }
+.paper-top .glow .gblob { opacity: .2; }
+.back { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 500; color: var(--soft); text-decoration: none; margin-bottom: 26px; padding: 8px 14px 8px 10px; border-radius: var(--pill); border: 1px solid var(--border2); background: var(--scrim); }
+.back:hover { color: var(--text); }
+.paper-top h1 { font-size: clamp(36px, 5.6vw, 72px); font-weight: 800; letter-spacing: -0.045em; line-height: 0.98; margin-top: 18px; max-width: 16ch; }
+.paper-meta { display: grid; grid-template-columns: repeat(4, minmax(0, auto)); justify-content: start; gap: 12px 40px; margin: 28px 0 0; }
+.paper-meta dt { font-family: var(--mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.paper-meta dd { margin: 4px 0 0; font-size: 14.5px; color: var(--text); font-weight: 500; }
+@media (max-width: 760px) { .paper-meta { grid-template-columns: 1fr 1fr; } }
+.core { margin: 30px 0 0; padding: 22px 26px; border-radius: 18px; background: var(--scrim); border: 1px solid var(--accent-line); max-width: 72ch; font-size: 16.5px; line-height: 1.7; color: var(--text); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+.core b { color: var(--caring); }
+.paper-layout { display: grid; grid-template-columns: 250px minmax(0, 1fr); gap: clamp(32px, 5vw, 72px); padding-block: clamp(32px, 5vw, 56px) clamp(64px, 8vw, 104px); }
+@media (max-width: 900px) { .paper-layout { grid-template-columns: 1fr; } }
+.toc { position: sticky; top: calc(var(--nav-h) + env(safe-area-inset-top, 0px) + 24px); max-height: calc(100vh - var(--nav-h) - 48px); overflow: auto; }
+@media (max-width: 900px) { .toc { position: static; max-height: none; border: 1px solid var(--border2); border-radius: 18px; padding: 4px 16px; background: var(--surface); } }
+.toc summary { font-family: var(--mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); padding: 12px 0; list-style: none; display: flex; align-items: center; justify-content: space-between; }
+.toc summary::-webkit-details-marker { display: none; }
+.toc ol { list-style: none; margin: 0 0 12px; padding: 0; display: grid; gap: 2px; }
+.toc a { display: block; padding: 7px 11px; border-radius: 12px; font-size: 13.5px; line-height: 1.4; color: var(--muted); text-decoration: none; transition: background .2s, color .2s; }
+.toc a:hover { background: var(--surface); color: var(--text); }
+.toc a.on { color: var(--caring); background: var(--caring-dim); }
+.prose { max-width: 70ch; min-width: 0; color: #c9c6dc; font-size: 17px; line-height: 1.8; }
+.prose > * + * { margin-top: 1.05em; }
+.prose h2 { font-size: clamp(25px, 2.8vw, 32px); font-weight: 800; letter-spacing: -0.035em; line-height: 1.12; margin-top: 2.3em; scroll-margin-top: calc(var(--nav-h) + 24px); }
+.prose h2:first-child { margin-top: 0; }
+.prose h3 { font-size: 20px; margin-top: 1.9em; scroll-margin-top: calc(var(--nav-h) + 24px); }
+.prose strong { color: var(--text); font-weight: 600; }
+.prose a { color: var(--curious); text-underline-offset: 3px; word-break: break-word; }
+.prose ul, .prose ol { padding-left: 1.3em; }
+.prose li + li { margin-top: .45em; }
+.prose li::marker { color: var(--caring); }
+.prose blockquote { margin-left: 0; margin-right: 0; padding: 18px 24px; border-radius: 0 18px 18px 0; border-left: 3px solid var(--caring); background: var(--caring-dim); color: var(--text); }
+.prose blockquote p + p { margin-top: .8em; }
+.prose hr { border: 0; border-top: 1px solid var(--border); margin: 2.4em 0; }
+.prose .table-scroll { margin-top: 1.4em; }
+.prose table { font-size: 14.5px; line-height: 1.55; }
+.prose td:first-child { white-space: normal; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .cycle-svg .traveller { display: none; }
+}
+</style>
+
+<!-- selfdriven.you mode icons + Lucide icons -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="ic-telescope" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="17" cy="13" r="3"/><path d="M3 7l5.5 2.5"/><path d="M3 7l2-4 14.5 6.5-2 4"/><path d="M8.5 9.5L6 20h5l1.5-4"/><path d="M17 16v4"/></symbol>
+  <symbol id="ic-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></symbol>
+  <symbol id="ic-hammer" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 12-8.5 8.5c-.83.83-2.17.83-3 0 0 0 0 0 0 0a2.12 2.12 0 0 1 0-3L12 9"/><path d="M17.64 15 22 10.64"/><path d="m20.91 11.7-1.25-1.25c-.6-.6-.93-1.4-.93-2.25v-.86L16.01 4.6a5.56 5.56 0 0 0-3.94-1.64H9l.92.82A6.18 6.18 0 0 1 12 8.4v1.56l2 2h2.47l2.26 1.91"/></symbol>
+  <symbol id="ic-waves" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 18c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/></symbol>
+  <symbol id="ic-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+  <symbol id="ic-arrow-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></symbol>
+  <symbol id="ic-arrow-up-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></symbol>
+  <symbol id="ic-file-text" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></symbol>
+  <symbol id="ic-info" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></symbol>
+  <symbol id="ic-compass" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></symbol>
+  <symbol id="ic-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></symbol>
+  <symbol id="ic-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></symbol>
+  <symbol id="ic-sprout" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 20h10"/><path d="M10 20c5.5-2.5.8-6.4 3-10"/><path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z"/><path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z"/></symbol>
+  <symbol id="ic-lifebuoy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24"/><path d="m14.83 9.17 4.24-4.24"/><path d="m14.83 14.83 4.24 4.24"/><path d="m9.17 14.83-4.24 4.24"/><circle cx="12" cy="12" r="4"/></symbol>
+  <symbol id="ic-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol>
+  <symbol id="ic-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></symbol>
+  <symbol id="ic-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="ic-chevron-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></symbol>
+</svg>
+
+<div class="cursor-dot" id="cdot" aria-hidden="true"></div>
+<div class="cursor-ring" id="cring" aria-hidden="true"></div>
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="selfdriven.family home"><span class="mark" aria-hidden="true"></span><span>selfdriven<em>.family</em></span></a>
+    <ul class="nav-links">
+      <li><a href="#definition">Definition</a></li>
+      <li><a href="#rights">Rights</a></li>
+      <li><a href="#modes">Modes</a></li>
+      <li><a href="#cycle">Cycle</a></li>
+      <li><a href="#principles">Principles</a></li>
+      <li><a href="#pilot">Pilot</a></li>
+      <li><a href="#charter">Charter</a></li>
+    </ul>
+    <a class="btn btn-primary" href="#paper"><svg class="ic-sm"><use href="#ic-file-text"/></svg><span class="lg">Read the paper</span><span class="sm">Paper</span></a>
+  </div>
+</header>
+
+<main id="home">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="top">
+    <div class="glow" aria-hidden="true"><div class="gblob gb1"></div><div class="gblob gb2"></div><div class="gblob gb3"></div><div class="gblob gb4"></div></div>
+    <div class="wrap">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <span class="hero-pill"><span class="dot"></span>selfdriven.family · framework v1.0</span>
+          <h1><span>Society</span><span>begins in</span><span><em>relationship.</em></span></h1>
+          <p class="lede">The family is humanity's foundational system for care, learning, trust, identity and continuity. In an age of abundant intelligence, our task is not to automate the family away, but to strengthen its ability to self-actuate while protecting the autonomy and wellbeing of every person within it.</p>
+          <div class="hero-ctas">
+            <a class="btn btn-primary" href="#paper">Read the paper<svg class="ic-sm"><use href="#ic-arrow-right"/></svg></a>
+            <a class="btn btn-ghost" href="#charter">The charter</a>
+          </div>
+          <div class="jump-row" aria-label="The four modes at family scale">
+            <a class="mode-pill mp-c" href="#mode-curious"><svg><use href="#ic-telescope"/></svg>Curious</a>
+            <a class="mode-pill mp-k" href="#mode-caring"><svg><use href="#ic-heart"/></svg>Caring</a>
+            <a class="mode-pill mp-b" href="#mode-constructive"><svg><use href="#ic-hammer"/></svg>Constructive</a>
+            <a class="mode-pill mp-l" href="#mode-chill"><svg><use href="#ic-waves"/></svg>Chill</a>
+          </div>
+          <div class="meta-row" aria-label="Paper details"><span>Version 1.0</span><span>29 October 2026</span><span>A proposed application of the selfdriven framework</span></div>
+        </div>
+
+        <figure class="rings-fig">
+          <svg class="rings" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 520 520" role="img" aria-labelledby="ringsTitle">
+            <title id="ringsTitle">Four nested levels: a person at the centre, within a family or care circle, within community networks, within institutions and commons.</title>
+            <defs>
+              <path id="arc2" d="M 179 260 A 81 81 0 0 1 341 260"/>
+              <path id="arc3" d="M 112 260 A 148 148 0 0 1 408 260"/>
+              <path id="arc4" d="M 45 260 A 215 215 0 0 1 475 260"/>
+            </defs>
+            <g class="r r4">
+              <circle cx="260" cy="260" r="252" fill="rgba(9,9,15,0.55)" stroke="rgba(255,255,255,0.22)" stroke-width="1.5" stroke-dasharray="3 7"/>
+              <text class="lbl"><textPath href="#arc4" xlink:href="#arc4" startOffset="50%" text-anchor="middle">INSTITUTIONS AND COMMONS</textPath></text>
+              <g fill="#111118" stroke="rgba(240,238,255,0.35)" stroke-width="1.5">
+                <rect x="439.8" y="146.4" width="18" height="18" rx="4"/>
+                <rect x="449.6" y="343.6" width="18" height="18" rx="4"/>
+                <rect x="251" y="470" width="18" height="18" rx="4"/>
+                <rect x="52.4" y="343.6" width="18" height="18" rx="4"/>
+                <rect x="62.2" y="146.4" width="18" height="18" rx="4"/>
+              </g>
+            </g>
+            <g class="r r3">
+              <circle cx="260" cy="260" r="186" fill="rgba(17,17,24,0.82)" stroke="rgba(255,255,255,0.08)"/>
+              <text class="lbl"><textPath href="#arc3" xlink:href="#arc3" startOffset="50%" text-anchor="middle">COMMUNITY NETWORKS</textPath></text>
+              <g fill="rgba(255,95,126,0.10)" stroke="rgba(255,95,126,0.55)" stroke-width="1.5">
+                <circle cx="391.6" cy="184" r="13"/>
+                <circle cx="412" cy="260" r="13"/>
+                <circle cx="367.5" cy="367.5" r="13"/>
+                <circle cx="260" cy="412" r="13"/>
+                <circle cx="152.5" cy="367.5" r="13"/>
+                <circle cx="108" cy="260" r="13"/>
+                <circle cx="128.4" cy="184" r="13"/>
+              </g>
+              <g fill="#f0eeff" fill-opacity="0.75">
+                <circle cx="387.6" cy="182" r="2.6"/><circle cx="395.6" cy="182" r="2.6"/><circle cx="391.6" cy="189" r="2.6"/>
+                <circle cx="408" cy="257" r="2.6"/><circle cx="416" cy="257" r="2.6"/><circle cx="412" cy="264" r="2.6"/>
+                <circle cx="363.5" cy="365.5" r="2.6"/><circle cx="371.5" cy="365.5" r="2.6"/><circle cx="367.5" cy="372.5" r="2.6"/>
+                <circle cx="256" cy="409" r="2.6"/><circle cx="264" cy="409" r="2.6"/><circle cx="260" cy="416" r="2.6"/>
+                <circle cx="148.5" cy="365.5" r="2.6"/><circle cx="156.5" cy="365.5" r="2.6"/><circle cx="152.5" cy="372.5" r="2.6"/>
+                <circle cx="104" cy="257" r="2.6"/><circle cx="112" cy="257" r="2.6"/><circle cx="108" cy="264" r="2.6"/>
+                <circle cx="124.4" cy="182" r="2.6"/><circle cx="132.4" cy="182" r="2.6"/><circle cx="128.4" cy="189" r="2.6"/>
+              </g>
+            </g>
+            <g class="r r2">
+              <circle cx="260" cy="260" r="118" fill="#22121c" stroke="rgba(255,95,126,0.35)"/>
+              <text class="lbl lbl-2"><textPath href="#arc2" xlink:href="#arc2" startOffset="50%" text-anchor="middle">FAMILY · CARE CIRCLE</textPath></text>
+              <g stroke="#ff5f7e" stroke-width="1.2" stroke-opacity=".45">
+                <line x1="260" y1="260" x2="343.7" y2="238.5"/>
+                <line x1="260" y1="260" x2="337" y2="295.9"/>
+                <line x1="260" y1="260" x2="289.1" y2="339.9"/>
+                <line x1="260" y1="260" x2="230.9" y2="339.9"/>
+                <line x1="260" y1="260" x2="183" y2="295.9"/>
+                <line x1="260" y1="260" x2="176.3" y2="238.5"/>
+              </g>
+              <g fill="#ff5f7e" stroke="#22121c" stroke-width="3">
+                <circle cx="343.7" cy="238.5" r="7"/>
+                <circle cx="337" cy="295.9" r="7"/>
+                <circle cx="289.1" cy="339.9" r="7"/>
+                <circle cx="230.9" cy="339.9" r="7"/>
+                <circle cx="183" cy="295.9" r="7"/>
+                <circle cx="176.3" cy="238.5" r="7"/>
+              </g>
+            </g>
+            <g class="r r1">
+              <circle cx="260" cy="260" r="52" fill="#ff5f7e"/>
+              <text class="lbl-c" x="260" y="264" text-anchor="middle">PERSON</text>
+            </g>
+          </svg>
+          <figcaption>Person, family or care circle, community networks, institutions and commons. Support and information should move in both directions.</figcaption>
+        </figure>
+      </div>
+
+      <div class="status" role="note">
+        <svg class="ic"><use href="#ic-info"/></svg>
+        <p><strong>A conceptual research and framework proposal.</strong> The hypotheses here have not been empirically validated, and the capabilities described are design proposals, not features available today.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ DEFINITION ============ -->
+  <section class="sec" id="definition">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow"><a class="sec-ref" href="#paper-s2">§2</a>Defined by function, not by a fixed shape</span>
+        <p class="definition reveal">A family is an enduring network of people who recognise <b>mutual bonds of care, responsibility, belonging or intergenerational commitment</b>, subject to the rights and freely developing agency of each member.</p>
+        <p class="body narrow">This describes a social relationship, not a legal entitlement. Statutory definitions of family, guardianship, parental responsibility and consent continue to govern where law applies. A family need not include children, biological kinship or co-residence.</p>
+      </div>
+
+      <div class="def-grid">
+        <div>
+          <span class="label-sm">Layered language</span>
+          <ul class="layers">
+            <li class="reveal">
+              <svg viewBox="0 0 36 36" aria-hidden="true"><circle class="g-ring" cx="18" cy="18" r="16"/><circle class="g-ring" cx="18" cy="18" r="11"/><circle class="g-dot" cx="18" cy="18" r="5.5"/></svg>
+              <div><h3>Person</h3><p>The irreducible bearer of dignity, rights, aspirations and agency.</p></div>
+            </li>
+            <li class="reveal">
+              <svg viewBox="0 0 36 36" aria-hidden="true"><circle class="g-ring" cx="18" cy="18" r="16"/><circle class="g-on" cx="18" cy="18" r="11"/><circle class="g-dot" cx="18" cy="18" r="3"/></svg>
+              <div><h3>Family</h3><p>A durable network of care, belonging and shared responsibility.</p></div>
+            </li>
+            <li class="reveal">
+              <svg viewBox="0 0 36 36" aria-hidden="true"><path class="g-house" d="M7 16 18 7l11 9v12a1.5 1.5 0 0 1-1.5 1.5h-19A1.5 1.5 0 0 1 7 28z"/></svg>
+              <div><h3>Household</h3><p>People sharing a dwelling and some resources, who may or may not constitute a family.</p></div>
+            </li>
+            <li class="reveal">
+              <svg viewBox="0 0 36 36" aria-hidden="true"><circle class="g-on" cx="18" cy="18" r="11" stroke-dasharray="3 3"/><circle class="g-dot" cx="18" cy="7" r="2.6"/><circle class="g-dot" cx="27.5" cy="23.5" r="2.6"/><circle class="g-dot" cx="8.5" cy="23.5" r="2.6"/></svg>
+              <div><h3>Care circle</h3><p>A consensual network of trusted people who provide support where a conventional family is absent, dispersed or unsafe.</p></div>
+            </li>
+            <li class="reveal">
+              <svg viewBox="0 0 36 36" aria-hidden="true"><circle class="g-on" cx="18" cy="18" r="16"/><circle class="g-ring" cx="12" cy="14" r="4.5"/><circle class="g-ring" cx="24" cy="14" r="4.5"/><circle class="g-ring" cx="18" cy="24" r="4.5"/></svg>
+              <div><h3>Community</h3><p>Interconnected families, persons and care circles cooperating around place, purpose or practice.</p></div>
+            </li>
+          </ul>
+        </div>
+
+        <aside class="data-panel reveal" aria-label="Australian family data">
+          <div class="stack" style="gap:10px">
+            <span class="label-sm" style="margin:0">Australia · 2021 Census</span>
+            <div class="big-n">6.73<small>million families</small></div>
+          </div>
+          <div class="bar" role="img" aria-label="Family composition: couples with children 43.7%, couples without children 38.8%, one-parent families 15.9%, other family forms 1.6%">
+            <span style="width:43.7%;background:var(--curious)"></span>
+            <span style="width:38.8%;background:var(--caring)"></span>
+            <span style="width:15.9%;background:var(--constructive)"></span>
+            <span style="width:1.6%;background:var(--chill)"></span>
+          </div>
+          <ul class="legend">
+            <li><i style="background:var(--curious)"></i>Couples with children in the household<b>43.7%</b></li>
+            <li><i style="background:var(--caring)"></i>Couples without children<b>38.8%</b></li>
+            <li><i style="background:var(--constructive)"></i>One-parent families<b>15.9%</b></li>
+            <li><i style="background:var(--chill)"></i>Other family forms<b>1.6%</b></li>
+          </ul>
+          <p class="note">Household categories are useful administratively, but do not capture every extended or chosen relationship. <span class="src">ABS [4]</span></p>
+          <div class="duo">
+            <div><div class="big-n">95%</div><p>rated <strong>love</strong> important or very important to what makes a family</p></div>
+            <div><div class="big-n">92%</div><p>rated <strong>unconditional, non-judgemental support</strong> the same</p></div>
+          </div>
+          <p class="note">Survey participants' reported values, not a universal definition or a population estimate. <span class="src">AIFS [3]</span></p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOUNDATIONS ============ -->
+  <section class="sec" id="foundations">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow"><a class="sec-ref" href="#paper-s3">§3</a>Why the family is foundational</span>
+        <h2 class="title">Five coordination problems every society has to solve.</h2>
+        <p class="lede narrow">The family is foundational not because it is always good or universally sufficient, but because it addresses recurring problems that no human society can avoid.</p>
+      </div>
+      <div class="functions">
+        <article class="reveal">
+          <span class="fx">Care and survival</span>
+          <h3>A supported ecology of care</h3>
+          <p>Human infancy involves sustained dependence. WHO guidance identifies families as the primary providers of nurturing care in the earliest years, and emphasises that parents and caregivers themselves require support.</p>
+        </article>
+        <article class="reveal">
+          <span class="fx">Learning and the formation of agency</span>
+          <h3>Children as developing participants</h3>
+          <p>Language, habits, emotional regulation and expectations about relationships are learned through observation and participation. Families remain sites of learning throughout life, from practical skills to financial judgement and health literacy.</p>
+        </article>
+        <article class="reveal">
+          <span class="fx">Trust, reciprocity and conflict repair</span>
+          <h3>Agreements made visible</h3>
+          <p>Repeated relationships show who can be relied upon and how failures are repaired. Kinship alone is not proof of trustworthiness. Healthy family governance permits disagreement and repairs breaches without normalising manipulation or abuse.</p>
+        </article>
+        <article class="reveal">
+          <span class="fx">Shared resources and resilience</span>
+          <h3>Informal resilience, with its risks</h3>
+          <p>Families pool time, space, skills, savings, transport and caregiving, and redistribute them in crisis. The same pooling can hide unrecognised or unequally distributed labour, especially when care is assumed to belong to particular members.</p>
+        </article>
+        <article class="wide reveal">
+          <span class="fx">Continuity and the transmission of meaning</span>
+          <h3>Stories, language and responsibilities across generations</h3>
+          <p>In Aboriginal and Torres Strait Islander contexts, kinship networks may extend far beyond the Western nuclear household and connect caregiving, social obligations and wellbeing. These systems are diverse and should not be compressed into a single generalisation.</p>
+        </article>
+      </div>
+      <p class="claim reveal">The family is a <em>primary social coordination layer</em>, even where the state, market and civil society provide essential additional capabilities.</p>
+    </div>
+  </section>
+
+  <!-- ============ RIGHTS ============ -->
+  <section class="sec band" id="rights">
+    <div class="glow" aria-hidden="true"><div class="gblob gb2"></div><div class="gblob gb4"></div></div>
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow"><a class="sec-ref" href="#paper-s4">§4</a>A critical distinction</span>
+        <h2 class="title">Foundational does not mean sovereign over persons.</h2>
+        <p class="lede narrow">Human rights attach to persons. A child's rights do not disappear inside the home. Any family-centred system is legitimate only when grounded in consent, safeguarding, equity and meaningful freedom to leave.</p>
+        <div class="cites">
+          <span class="cite">UDHR Art. 16 · family as the fundamental group unit</span>
+          <span class="cite">CRC Art. 12 · the right to be heard</span>
+          <span class="cite">CRC Art. 19 · protection from violence, abuse and neglect</span>
+        </div>
+      </div>
+      <div class="affirm">
+        <article class="reveal"><span class="n">01</span><h3>Dignity before belonging</h3><p>No person forfeits their rights by being part of a family.</p></article>
+        <article class="reveal"><span class="n">02</span><h3>Safety before cohesion</h3><p>Preserving an appearance of unity must never take precedence over protection from harm.</p></article>
+        <article class="reveal"><span class="n">03</span><h3>Agency grows with capability</h3><p>Decisions should increasingly include the people affected by them, including children.</p></article>
+        <article class="reveal"><span class="n">04</span><h3>Care is mutual, not compulsory servitude</h3><p>Roles and responsibilities must be fairly negotiated and revisable.</p></article>
+        <article class="reveal"><span class="n">05</span><h3>Leaving can be legitimate</h3><p>Separation, boundaries and safe exits may be necessary forms of self-direction.</p></article>
+        <article class="reveal"><span class="n">06</span><h3>Institutions remain essential</h3><p>Safeguarding, health services, schools, disability supports and the justice system cannot simply be delegated to families.</p></article>
+      </div>
+      <p class="claim reveal">A successful family-centred framework must be able to <em>recognise when family governance is failing</em>, rather than romanticising family authority.</p>
+    </div>
+  </section>
+
+  <!-- ============ SHIFT ============ -->
+  <section class="sec" id="shift">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow"><a class="sec-ref" href="#paper-s5">§5</a>The selfdriven shift</span>
+        <h2 class="title">From managed households to self-actuating families.</h2>
+        <p class="lede narrow"><strong style="color:var(--text);font-weight:600">Self-actuation</strong> is the ability of a person or group to define its own direction, mobilise its strengths, learn through action and adapt through feedback.</p>
+      </div>
+      <div class="shift" role="table" aria-label="Institutional default compared with the selfdriven.family proposition">
+        <div class="shift-row head" role="row"><span role="columnheader">Institutional default</span><span aria-hidden="true"></span><span role="columnheader">selfdriven.family proposition</span></div>
+        <div class="shift-row reveal" role="row"><span class="from" role="cell">Family as a passive recipient of services</span><span class="arr" aria-hidden="true"><svg class="ic"><use href="#ic-arrow-right"/></svg></span><span class="to" role="cell">Family as an active participant and co-designer</span></div>
+        <div class="shift-row reveal" role="row"><span class="from" role="cell">Standardised pathways</span><span class="arr" aria-hidden="true"><svg class="ic"><use href="#ic-arrow-right"/></svg></span><span class="to" role="cell">Context-sensitive choices and diverse family forms</span></div>
+        <div class="shift-row reveal" role="row"><span class="from" role="cell">Children as subjects of management</span><span class="arr" aria-hidden="true"><svg class="ic"><use href="#ic-arrow-right"/></svg></span><span class="to" role="cell">Children as developing agents with rights and voice</span></div>
+        <div class="shift-row reveal" role="row"><span class="from" role="cell">Care as invisible private labour</span><span class="arr" aria-hidden="true"><svg class="ic"><use href="#ic-arrow-right"/></svg></span><span class="to" role="cell">Care as recognised, shared and supported contribution</span></div>
+        <div class="shift-row reveal" role="row"><span class="from" role="cell">Success measured primarily by income or compliance</span><span class="arr" aria-hidden="true"><svg class="ic"><use href="#ic-arrow-right"/></svg></span><span class="to" role="cell">Success considered through safety, agency, relationships and resilience</span></div>
+        <div class="shift-row reveal" role="row"><span class="from" role="cell">Technology collects and optimises family behaviour</span><span class="arr" aria-hidden="true"><svg class="ic"><use href="#ic-arrow-right"/></svg></span><span class="to" role="cell">Technology serves people under consent and human control</span></div>
+      </div>
+      <p class="aside-line">The goal is not to eliminate professional expertise or public institutions. It is to reverse the presumption that families must conform to systems, so that <strong>systems adapt to people's actual relationships, needs and capacities.</strong></p>
+    </div>
+  </section>
+
+  <!-- ============ MODES ============ -->
+  <section class="sec" id="modes">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow"><a class="sec-ref" href="#paper-s6">§6</a>The four selfdriven modes at family scale</span>
+        <h2 class="title">A sustainable rhythm for family life.</h2>
+        <p class="lede narrow">The <a href="https://selfdriven.you/" target="_blank" rel="noopener" style="color:var(--curious)">selfdriven.you</a> modes, Curious, Caring, Constructive and Chill, become a shared language for noticing imbalance and making room to adjust.</p>
+      </div>
+      <div class="modes">
+        <article class="mode m-c reveal" id="mode-curious">
+          <div class="row"><span class="chip"><svg><use href="#ic-telescope"/></svg></span><span class="ess">explore · ask · learn</span></div>
+          <span class="name">Curious</span>
+          <h3>Learn together</h3>
+          <p>Create room for questions, differences of opinion, experimentation and exploration. A family need not share every belief to be cohesive. Curiosity lets children and adults reconsider inherited assumptions and navigate an uncertain future.</p>
+          <div class="task"><span>Try this as a family</span><p>Each week, every willing member shares one question worth exploring, with no expectation that the group already has the answer.</p></div>
+        </article>
+        <article class="mode m-k reveal" id="mode-caring">
+          <div class="row"><span class="chip"><svg><use href="#ic-heart"/></svg></span><span class="ess">listen · hold space</span></div>
+          <span class="name">Caring</span>
+          <h3>Make relationships real</h3>
+          <p>Care is expressed in attention, reliability, listening and protection, not merely a statement of loyalty. It includes a fair share of practical tasks and a willingness to notice unspoken needs.</p>
+          <div class="task"><span>Try this as a family</span><p>Ask who currently carries the emotional and practical load, and agree on one concrete way to rebalance it.</p></div>
+        </article>
+        <article class="mode m-b reveal" id="mode-constructive">
+          <div class="row"><span class="chip"><svg><use href="#ic-hammer"/></svg></span><span class="ess">build · ship · move</span></div>
+          <span class="name">Constructive</span>
+          <h3>Contribute and build</h3>
+          <p>A selfdriven family creates things together: meals, gardens, learning projects, mutual-aid networks, improvements to the home or contributions to its wider community. Shared activity makes agency tangible.</p>
+          <div class="task"><span>Try this as a family</span><p>Select a small family or community project, assign voluntary roles and reflect on the result rather than on individual status.</p></div>
+        </article>
+        <article class="mode m-l reveal" id="mode-chill">
+          <div class="row"><span class="chip"><svg><use href="#ic-waves"/></svg></span><span class="ess">pause · breathe · reset</span></div>
+          <span class="name">Chill</span>
+          <h3>Sustain the system</h3>
+          <p>Rest, play, quiet and unstructured time are not inefficiencies to eliminate. They sustain relationships, recovery and learning. A family operating permanently in crisis mode cannot keep the capacity to choose thoughtfully.</p>
+          <div class="task"><span>Try this as a family</span><p>Protect a recurring period free from performance expectations and digital demands.</p></div>
+        </article>
+      </div>
+      <p class="aside-line"><strong>The four modes are not a scorecard for judging families.</strong> They are a language for noticing imbalance and creating space to adjust.</p>
+    </div>
+  </section>
+
+  <!-- ============ CYCLE ============ -->
+  <section class="sec" id="cycle">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow"><a class="sec-ref" href="#paper-s7">§7</a>Family as a distributed coordination system</span>
+        <h2 class="title">A minimal family coordination cycle.</h2>
+        <p class="lede narrow">A family is a small, evolving system of people, relationships, commitments, resources, decisions and feedback. The engineering analogy is useful as long as it never reduces people to components.</p>
+      </div>
+      <div class="cycle-grid">
+        <svg class="cycle-svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 460 460" role="img" aria-labelledby="cycleTitle" id="cycleSvg">
+          <title id="cycleTitle">A six-step cycle: Observe, Listen, Compose, Conduct, Learn, Renew or stop, then back to Observe.</title>
+          <path id="cyclePath" class="track" d="M230 70 A160 160 0 0 1 230 390 A160 160 0 0 1 230 70"/>
+          <g>
+            <path class="chev" d="M-4 -5 L3 0 L-4 5" transform="translate(310 91.4) rotate(30)"/>
+            <path class="chev" d="M-4 -5 L3 0 L-4 5" transform="translate(390 230) rotate(90)"/>
+            <path class="chev" d="M-4 -5 L3 0 L-4 5" transform="translate(310 368.6) rotate(150)"/>
+            <path class="chev" d="M-4 -5 L3 0 L-4 5" transform="translate(150 368.6) rotate(210)"/>
+            <path class="chev" d="M-4 -5 L3 0 L-4 5" transform="translate(70 230) rotate(270)"/>
+            <path class="chev" d="M-4 -5 L3 0 L-4 5" transform="translate(150 91.4) rotate(330)"/>
+          </g>
+          <circle class="traveller" r="5">
+            <animateMotion dur="14s" repeatCount="indefinite"><mpath href="#cyclePath" xlink:href="#cyclePath"/></animateMotion>
+          </circle>
+          <text class="ctr1" x="230" y="226" text-anchor="middle">Voluntary coordination</text>
+          <text class="ctr2" x="230" y="248" text-anchor="middle">FAIR · REVISABLE · SHARED</text>
+          <g class="pill" data-step="0"><rect x="166" y="49" width="128" height="42" rx="21"/><text x="230" y="75" text-anchor="middle"><tspan class="num">01 </tspan>Observe</text></g>
+          <g class="pill" data-step="1"><rect x="304.6" y="129" width="128" height="42" rx="21"/><text x="368.6" y="155" text-anchor="middle"><tspan class="num">02 </tspan>Listen</text></g>
+          <g class="pill" data-step="2"><rect x="304.6" y="289" width="128" height="42" rx="21"/><text x="368.6" y="315" text-anchor="middle"><tspan class="num">03 </tspan>Compose</text></g>
+          <g class="pill" data-step="3"><rect x="166" y="369" width="128" height="42" rx="21"/><text x="230" y="395" text-anchor="middle"><tspan class="num">04 </tspan>Conduct</text></g>
+          <g class="pill" data-step="4"><rect x="27.4" y="289" width="128" height="42" rx="21"/><text x="91.4" y="315" text-anchor="middle"><tspan class="num">05 </tspan>Learn</text></g>
+          <g class="pill" data-step="5"><rect x="19.4" y="129" width="144" height="42" rx="21"/><text x="91.4" y="155" text-anchor="middle"><tspan class="num">06 </tspan>Renew or stop</text></g>
+        </svg>
+
+        <ol class="steps" id="steps">
+          <li data-step="0" tabindex="0"><span class="n">01</span><div><h3>Observe</h3><p>Notice needs, strengths, pressures, opportunities and possible harm.</p></div></li>
+          <li data-step="1" tabindex="0"><span class="n">02</span><div><h3>Listen</h3><p>Allow each affected person to express a view, with reasonable support for age or disability.</p></div></li>
+          <li data-step="2" tabindex="0"><span class="n">03</span><div><h3>Compose</h3><p>Propose a shared intention, plan or commitment.</p></div></li>
+          <li data-step="3" tabindex="0"><span class="n">04</span><div><h3>Conduct</h3><p>Coordinate voluntary, fair and age-appropriate action.</p></div></li>
+          <li data-step="4" tabindex="0"><span class="n">05</span><div><h3>Learn</h3><p>Review what happened, who benefited, whose needs were overlooked and what should change.</p></div></li>
+          <li data-step="5" tabindex="0"><span class="n">06</span><div><h3>Renew or stop</h3><p>Adjust the plan, seek outside help or discontinue an arrangement that is unsafe or no longer appropriate.</p></div></li>
+        </ol>
+      </div>
+
+      <div class="cycle-notes">
+        <div class="reveal">
+          <h3>Composing and conducting are not command</h3>
+          <p>They are tools for voluntary coordination, not a justification for one person directing every other person. A family can have distributed leadership, rotating responsibilities and different cadences for different needs.</p>
+        </div>
+        <div class="reveal">
+          <h3>A relationship graph of permissions, not ownership</h3>
+          <p>A representation could include people, trusted relationships, capabilities, projects and shared agreements. Sensitive relationships must not be inferred, published, ranked or exposed merely because a system can model them.</p>
+          <div class="chain" aria-label="Conceptual architecture">
+            <span class="n">Person</span><svg class="ic-sm"><use href="#ic-arrow-right"/></svg><span class="n">Family / care circle</span><svg class="ic-sm"><use href="#ic-arrow-right"/></svg><span class="n">Community networks</span><svg class="ic-sm"><use href="#ic-arrow-right"/></svg><span class="n">Institutions and commons</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ INTELLIGENCE ============ -->
+  <section class="sec" id="intelligence">
+    <div class="wrap">
+      <span class="eyebrow"><a class="sec-ref" href="#paper-s8">§8</a>The age of abundant intelligence</span>
+      <p class="principle reveal">Abundant intelligence should increase a family's capacity to <em>care, choose, learn and contribute</em>, without making the family dependent on surveillance, opaque automation or a single provider.</p>
+      <div class="int-grid">
+        <div class="stack">
+          <p class="body">Intelligent systems may reduce the effort needed to access specialist knowledge, plan meals, manage budgets, navigate health information, support learning, translate between languages or coordinate care. This can return capacity to families, especially those facing time, distance, disability or economic constraints.</p>
+          <p class="body">Intelligence does not substitute for relational accountability. A system may produce suggestions; it does not thereby acquire the moral standing of a parent, guardian or trusted friend. Nor should a model become the default interpreter of every disagreement, a monitor of children's behaviour or an invisible broker of household power.</p>
+        </div>
+        <div>
+          <span class="label-sm">Potential applications</span>
+          <ul class="chips">
+            <li>Family learning plans</li>
+            <li>Accessible communication</li>
+            <li>Voluntary coordination of care</li>
+            <li>Intergenerational knowledge preservation</li>
+            <li>Emergency preparedness</li>
+            <li>Community collaboration</li>
+          </ul>
+          <span class="label-sm" style="margin-top:30px">The strongest first applications are</span>
+          <div class="tests">
+            <div><b>Narrow</b><span>one job, clearly scoped</span></div>
+            <div><b>Reversible</b><span>easy to undo or leave</span></div>
+            <div><b>Human-led</b><span>people decide</span></div>
+            <div><b>Demonstrably useful</b><span>shown, not assumed</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CAPABILITIES ============ -->
+  <section class="sec" id="capabilities">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow"><a class="sec-ref" href="#paper-s9">§9</a>A proposed capability framework</span>
+        <h2 class="title">Six capabilities, built on consent.</h2>
+        <span class="proposal-tag"><svg class="ic-sm"><use href="#ic-info"/></svg>Design proposal. Not yet available at selfdriven.family.</span>
+      </div>
+      <div class="caps">
+        <article class="cap reveal"><div class="top"><span class="icw"><svg class="ic"><use href="#ic-compass"/></svg></span><span class="k">C1</span></div><h3>Shared purpose without forced consensus</h3><p>Members say what matters to them individually, then identify any genuinely shared intentions. The priorities of the oldest, richest or most technically capable person never become the family's default identity.</p></article>
+        <article class="cap reveal"><div class="top"><span class="icw"><svg class="ic"><use href="#ic-book"/></svg></span><span class="k">C2</span></div><h3>Family and individual learning</h3><p>Voluntary learning projects, skill sharing, mentoring and intergenerational collaboration. A pathway into wider educational ecosystems, not a substitute for qualified teaching.</p></article>
+        <article class="cap reveal"><div class="top"><span class="icw"><svg class="ic"><use href="#ic-calendar"/></svg></span><span class="k">C3</span></div><h3>Care and support coordination</h3><p>Consenting adults coordinate practical responsibilities, appointments and support. Health information is protected, and no one is required to disclose confidential circumstances to other members.</p></article>
+        <article class="cap reveal"><div class="top"><span class="icw"><svg class="ic"><use href="#ic-sprout"/></svg></span><span class="k">C4</span></div><h3>Shared projects and regenerative contribution</h3><p>Families and care circles join local projects: mentoring, environmental restoration, food resilience, neighbourhood support and cultural activity.</p></article>
+        <article class="cap reveal"><div class="top"><span class="icw"><svg class="ic"><use href="#ic-lifebuoy"/></svg></span><span class="k">C5</span></div><h3>Personal and collective resilience</h3><p>Emergency contacts, preparedness plans, continuity of caregiving, and contingency planning for separation, illness, disability, disaster and loss, with legal and professional pathways where appropriate.</p></article>
+        <article class="cap reveal"><div class="top"><span class="icw"><svg class="ic"><use href="#ic-lock"/></svg></span><span class="k">C6</span></div><h3>Rights-aware digital trust</h3><p>Local-first or minimally disclosed records, member-controlled permissions, purpose limitation, deletion and portability. Delegated assistants follow explicit authority boundaries.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PRINCIPLES ============ -->
+  <section class="sec" id="principles">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow"><a class="sec-ref" href="#paper-s10">§10</a>Design principles for implementation</span>
+        <h2 class="title">Ten requirements for any platform or program.</h2>
+      </div>
+      <ol class="principles">
+        <li><span class="n">01</span><div><h3>Plurality</h3><p>Recognise many family and kinship configurations without grading them against one preferred structure.</p></div></li>
+        <li><span class="n">02</span><div><h3>Individual agency</h3><p>Preserve personal boundaries, independent identity and the ability to decline participation.</p></div></li>
+        <li><span class="n">03</span><div><h3>Child-centred safeguarding</h3><p>Apply best-interests principles, age-appropriate participation and escalation to trained human services when needed.</p></div></li>
+        <li><span class="n">04</span><div><h3>Consent and proportionality</h3><p>Collect only data necessary for a stated purpose; avoid bundled or coercive consent.</p></div></li>
+        <li><span class="n">05</span><div><h3>No surveillance business model</h3><p>Do not monetise intimate household profiles or optimise people for engagement.</p></div></li>
+        <li><span class="n">06</span><div><h3>Equitable participation</h3><p>Accessible interfaces, low-bandwidth and offline alternatives, and support for people with limited digital literacy.</p></div></li>
+        <li><span class="n">07</span><div><h3>Shared but limited governance</h3><p>Roles, delegations, expiry and challenge mechanisms are understandable; no member has unrestricted digital control over others.</p></div></li>
+        <li><span class="n">08</span><div><h3>Open exit and portability</h3><p>People can leave, withdraw access and retrieve their own information, subject to lawful safeguarding and retention obligations.</p></div></li>
+        <li><span class="n">09</span><div><h3>Human accountability</h3><p>AI outputs are advisory, contestable and traceable; consequential decisions remain with authorised humans and relevant institutions.</p></div></li>
+        <li><span class="n">10</span><div><h3>Interoperability</h3><p>Work with communities, educators, health services and social supports through voluntary, minimum-necessary connections.</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============ FAILURE ============ -->
+  <section class="sec" id="failure">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow"><a class="sec-ref" href="#paper-s11">§11</a>Where family-centred models can fail</span>
+        <h2 class="title">Support without idealisation.</h2>
+        <p class="lede narrow">Families can reproduce inequity, exclude outsiders, constrain individuality, concentrate power, transmit harmful norms, undervalue unpaid care or conceal abuse. Some people have no reliable family network, and some are safer creating distance from relatives. A rigorous model rejects five flawed assumptions.</p>
+      </div>
+      <div class="fails">
+        <div class="fail reveal"><span class="a">Biological connection guarantees trust.</span><span class="v">It does not.</span></div>
+        <div class="fail reveal"><span class="a">A stable household is necessarily a safe household.</span><span class="v">It is not.</span></div>
+        <div class="fail reveal"><span class="a">Family self-governance can replace the law or professional safeguarding.</span><span class="v">It cannot.</span></div>
+        <div class="fail reveal"><span class="a">Every person wants family reconciliation.</span><span class="v">They may not, and should not be forced into it.</span></div>
+        <div class="fail reveal"><span class="a">More family coordination is always beneficial.</span><span class="v">Coordination may become control if participation is not genuinely voluntary.</span></div>
+      </div>
+      <p class="aside-line">A family-centred infrastructure should make appropriate care easier to provide, <strong>while ensuring independent support pathways for people who need them.</strong></p>
+    </div>
+  </section>
+
+  <!-- ============ POLICY + COMMUNITIES ============ -->
+  <section class="sec" id="communities">
+    <div class="wrap">
+      <div class="two-col">
+        <div class="reveal">
+          <span class="eyebrow"><a class="sec-ref" href="#paper-s12">§12</a>Public policy</span>
+          <h3>Support families without making them carry society alone.</h3>
+          <p class="body">A society that relies on family care while failing to provide affordable housing, healthcare, disability support, time to care, early education and safety services is transferring costs to those least able to bear them.</p>
+          <p class="body">The implication is <strong>subsidiarity with capacity</strong>: decisions are made as close as is sensible to affected people, and higher-level institutions supply resources, rights protection and specialist services where local capacity is insufficient. Families are not mini-states; communities and states are not optional extras.</p>
+        </div>
+        <div class="reveal">
+          <span class="eyebrow"><a class="sec-ref" href="#paper-s13">§13</a>Regenerative communities</span>
+          <h3>From self-actuating families to self-actuating communities.</h3>
+          <p class="body">Networks of households and care circles can exchange skills, coordinate elder support, mentor young people, steward local environments and share tools. A family is less vulnerable when it has trusted connections beyond itself.</p>
+          <p class="body">A community is not simply a larger family. It needs norms of inclusion, fair access, conflict resolution and respect for strangers who are not kin. Strong families and strong civic institutions complement each other; nepotism and insularity are the risk when they do not.</p>
+        </div>
+      </div>
+      <figure class="pull reveal">
+        <span class="label-sm" style="margin:0">The systemic design question</span>
+        <blockquote>How can we build institutions and digital infrastructure that increase the capacity of people to care for one another, without capturing the relationships themselves?</blockquote>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ PILOT ============ -->
+  <section class="sec" id="pilot">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow"><a class="sec-ref" href="#paper-s14">§14</a>A falsifiable pilot and evaluation model</span>
+        <h2 class="title">Tested, not accepted as a premise.</h2>
+        <p class="lede narrow">A pilot would recruit diverse, voluntary family groups and care circles, including adults without children, multigenerational networks and single-parent families. Participants co-design only the capabilities they find useful. No one is required to disclose private conflict, health information or children's records to a platform.</p>
+      </div>
+
+      <ol class="phases" aria-label="Illustrative pilot sequence">
+        <li class="phase reveal"><span class="badge">A</span><span class="wk">4–6 weeks</span><h3>Discovery</h3><p>Structured interviews and participatory design focused on unmet coordination needs, boundaries and inclusion.</p></li>
+        <li class="phase reveal"><span class="badge">B</span><span class="wk">8–12 weeks</span><h3>Lightweight practices</h3><p>Trial non-digital 4C routines, optional shared-project templates and individual reflection mechanisms.</p><span class="tagline">Curious · Caring · Constructive · Chill</span></li>
+        <li class="phase reveal"><span class="badge">C</span><span class="wk">8–12 weeks</span><h3>Minimum viable tools</h3><p>Opt-in coordination features with explicit permissions, accessibility testing and independent safeguarding review.</p></li>
+        <li class="phase reveal"><span class="badge">D</span><span class="wk">After C</span><h3>Evaluation</h3><p>Compare outcomes with baseline measures and, where feasible, a matched or randomised comparison design.</p></li>
+      </ol>
+
+      <div class="pilot-block">
+        <h3>Proposed outcome indicators</h3>
+        <div class="table-scroll">
+          <table>
+            <thead><tr><th>Domain</th><th>Possible measure</th><th>Essential guardrail</th></tr></thead>
+            <tbody>
+              <tr><td>Agency</td><td>Self-reported ability to influence decisions</td><td>Collect privately; no household-level coercion</td></tr>
+              <tr><td>Care</td><td>Fairness and sustainability of shared responsibilities</td><td>Do not equate care with unpaid workload</td></tr>
+              <tr><td>Learning</td><td>Voluntary learning and participation</td><td>No rankings of children or families</td></tr>
+              <tr><td>Trust</td><td>Perceived reliability and conflict repair</td><td>Safety measures override cohesion scores</td></tr>
+              <tr><td>Resilience</td><td>Ability to obtain support in disruption</td><td>Include connections beyond the household</td></tr>
+              <tr><td>Digital autonomy</td><td>Ease of revoking access, exporting or deleting data</td><td>Audit permissions and security independently</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="pilot-block">
+        <h3>Testable hypotheses</h3>
+        <ul class="hyps">
+          <li class="reveal"><code>H1</code><p>Families using voluntary, rights-aware coordination practices report improved perceived agency relative to baseline or comparison groups.</p></li>
+          <li class="reveal"><code>H2</code><p>A carefully designed shared-care practice improves perceived fairness without increasing total unpaid care burdens.</p></li>
+          <li class="reveal"><code>H3</code><p>Connection to trusted community care networks improves reported capacity to respond to disruption.</p></li>
+          <li class="reveal"><code>H4</code><p>A privacy-preserving assistant can reduce coordination effort without reducing perceived control over private information.</p></li>
+          <li class="fail-crit reveal"><code>H5</code><div><span class="tag">Failure criterion</span><p>If any intervention increases coercion, surveillance, conflict or exclusion, it fails regardless of aggregate engagement or productivity gains.</p></div></li>
+        </ul>
+        <p class="note">These are hypotheses, not established benefits. Outcomes must be disaggregated carefully, reviewed for unintended harm, and interpreted without treating survey signals as causal proof.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CHARTER ============ -->
+  <section class="sec charter-sec" id="charter">
+    <div class="glow glow-soft" aria-hidden="true"><div class="gblob gb1"></div><div class="gblob gb3"></div></div>
+    <div class="wrap">
+      <div class="charter-wrap">
+        <div class="charter-side">
+          <span class="eyebrow"><a class="sec-ref" href="#paper-s15">§15</a>An initial selfdriven.family charter</span>
+          <h2 class="title">A human starting point.</h2>
+          <p class="body">A starting proposal for discussion and adaptation, not a universal rulebook. Take it to your own family or care circle and change what doesn't fit.</p>
+          <div><button type="button" class="btn btn-ghost copy-btn" id="copyCharter"><svg class="ic-sm"><use id="copyUse" href="#ic-copy"/></svg><span id="copyLabel">Copy the charter</span></button></div>
+        </div>
+        <ol class="charter" id="charterList">
+          <li class="reveal"><b>We are people first.</b><span>Each person has dignity, rights, boundaries and a voice.</span></li>
+          <li class="reveal"><b>We care for one another.</b><span>Care is demonstrated through respectful action and shared responsibility.</span><em class="mtag mt-k"><svg><use href="#ic-heart"/></svg>Caring</em></li>
+          <li class="reveal"><b>We stay curious.</b><span>We make room for learning, differences and changing minds.</span><em class="mtag mt-c"><svg><use href="#ic-telescope"/></svg>Curious</em></li>
+          <li class="reveal"><b>We build together.</b><span>We contribute to our shared wellbeing and to the communities around us.</span><em class="mtag mt-b"><svg><use href="#ic-hammer"/></svg>Constructive</em></li>
+          <li class="reveal"><b>We make room to rest.</b><span>Our relationships are not productivity projects.</span><em class="mtag mt-l"><svg><use href="#ic-waves"/></svg>Chill</em></li>
+          <li class="reveal"><b>We respect autonomy and safety.</b><span>Nobody is required to accept harm in the name of family unity.</span></li>
+          <li class="reveal"><b>We seek help when needed.</b><span>Family strength includes reaching beyond the family.</span></li>
+          <li class="reveal"><b>We keep the future open.</b><span>Our responsibility is to equip the next generation to make meaningful choices of its own.</span></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONCLUSION ============ -->
+  <section class="sec closing-sec" id="conclusion">
+    <div class="wrap closing">
+      <span class="eyebrow"><a class="sec-ref" href="#paper-s16">§16</a>Strengthen the smallest durable networks of care</span>
+      <p class="big reveal">The future of society should not be designed only from its largest institutions downward. It should also be cultivated from its <em>smallest durable networks of care outward.</em></p>
+      <p class="body narrow">The right response is not to defend one family form, expand family authority or transfer public obligations onto private households. It is to develop the conditions under which different families and care circles can be:</p>
+      <ul class="five" aria-label="Conditions">
+        <li>Safe</li><li>Autonomous</li><li>Capable</li><li>Connected</li><li>Regenerative</li>
+      </ul>
+      <div class="hero-ctas"><a class="btn btn-primary" href="#paper">Read the full paper<svg class="ic-sm"><use href="#ic-arrow-right"/></svg></a></div>
+    </div>
+  </section>
+
+  <!-- ============ REFERENCES ============ -->
+  <section class="sec" id="references">
+    <div class="wrap">
+      <div class="sec-head"><span class="eyebrow">References and source notes</span></div>
+      <div class="ref-grid">
+        <ol class="refs">
+          <li><span>United Nations (1948). <em>Universal Declaration of Human Rights</em>, especially Articles 1, 12 and 16. <a href="https://www.un.org/en/about-us/universal-declaration-of-human-rights/" target="_blank" rel="noopener">un.org</a></span></li>
+          <li><span>Ember, C. R., Droe, A., &amp; Russell, D. (2022). <em>Residence and Kinship</em>. Human Relations Area Files, Yale University. <a href="https://hraf.yale.edu/ehc/summaries/residence-and-kinship" target="_blank" rel="noopener">hraf.yale.edu</a></span></li>
+          <li><span>Budinski, M., &amp; Gahan, L. (2023). <em>What is family? Australian views on what makes a family</em>. Australian Institute of Family Studies. <a href="https://aifs.gov.au/all-research/research-reports/what-family" target="_blank" rel="noopener">aifs.gov.au</a></span></li>
+          <li><span>Australian Bureau of Statistics (2022). <em>Household and families: Census, 2021</em>. <a href="https://www.abs.gov.au/statistics/people/people-and-communities/household-and-families-census/latest-release" target="_blank" rel="noopener">abs.gov.au</a></span></li>
+          <li><span>World Health Organization (2020). <em>Improving early childhood development: WHO guideline</em>. <a href="https://www.who.int/publications/i/item/97892400020986" target="_blank" rel="noopener">who.int</a></span></li>
+          <li><span>Australian Indigenous HealthInfoNet. <em>Family, kinship and community</em>. <a href="https://healthinfonet.ecu.edu.au/learn/health-topics/social-and-emotional-wellbeing/family-kinship-community/" target="_blank" rel="noopener">healthinfonet.ecu.edu.au</a></span></li>
+          <li><span>United Nations (1989). <em>Convention on the Rights of the Child</em>, especially Articles 12, 18 and 19. <a href="https://www.unicef.org/child-rights-convention/convention-text" target="_blank" rel="noopener">unicef.org</a></span></li>
+          <li><span>selfdriven.you. <em>A Human OS for the Age of Intelligence: Curious, Caring, Constructive, Chill</em>. <a href="https://selfdriven.you/" target="_blank" rel="noopener">selfdriven.you</a></span></li>
+          <li><span>selfdriven Foundation. <em>Helping communities self-actuate</em>. <a href="https://selfdriven.foundation/" target="_blank" rel="noopener">selfdriven.foundation</a></span></li>
+          <li><span>OpenStax. <em>Introduction to Anthropology</em>, Chapter 11 Summary (kinship, marriage and family). <a href="https://openstax.org/books/introduction-anthropology/pages/11-summary" target="_blank" rel="noopener">openstax.org</a></span></li>
+        </ol>
+        <div class="scope">
+          <span class="label-sm" style="margin:0">Scope and limitations</span>
+          <p>A conceptual and normative paper informed by selected anthropological, public-health, demographic and human-rights references. It is not a systematic review, a statement of legal advice or a claim that a digital intervention has been shown to improve family wellbeing.</p>
+          <p>The selfdriven.family architecture, practices and hypotheses are original proposals and have not been empirically validated.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ======================= PAPER VIEW ======================= -->
+<main id="paper" hidden>
+  <div class="paper-top">
+    <div class="glow" aria-hidden="true"><div class="gblob gb2"></div><div class="gblob gb4"></div></div>
+    <div class="wrap">
+      <a class="back" href="#top"><svg class="ic-sm"><use href="#ic-arrow-left"/></svg>Overview</a>
+      <div><span class="hero-pill"><span class="dot"></span>Research and framework paper · v1.0</span></div>
+      <h1>The Family as the Foundational Unit of Human Society</h1>
+      <dl class="paper-meta">
+        <div><dt>Version</dt><dd>1.0</dd></div>
+        <div><dt>Date</dt><dd>29 October 2026</dd></div>
+        <div><dt>Initiative</dt><dd>A proposed application of the selfdriven framework</dd></div>
+        <div><dt>Status</dt><dd>Conceptual research paper and implementation proposal</dd></div>
+      </dl>
+      <p class="core"><b>Core proposition.</b> The family is humanity's foundational system for care, learning, trust, identity and continuity. In an age of abundant intelligence, our task is not to automate the family away, but to strengthen its ability to self-actuate while protecting the autonomy and wellbeing of every person within it.</p>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="paper-layout">
+      <aside>
+        <details class="toc" id="toc" open>
+          <summary>Contents<svg class="ic-sm"><use href="#ic-chevron-down"/></svg></summary>
+          <ol><li><a href="#paper-abstract">Abstract</a></li>
+          <li><a href="#paper-s1">1. Introduction: Society begins in relationship</a></li>
+          <li><a href="#paper-s2">2. Defining the family by function, not by a fixed shape</a></li>
+          <li><a href="#paper-s3">3. Why the family is foundational</a></li>
+          <li><a href="#paper-s4">4. A critical distinction: Foundational does not mean sovereign over persons</a></li>
+          <li><a href="#paper-s5">5. The selfdriven shift: From managed households to self-actuating families</a></li>
+          <li><a href="#paper-s6">6. The four selfdriven modes at family scale</a></li>
+          <li><a href="#paper-s7">7. Family as a distributed coordination system</a></li>
+          <li><a href="#paper-s8">8. The age of abundant intelligence changes the opportunity</a></li>
+          <li><a href="#paper-s9">9. selfdriven.family: A proposed capability framework</a></li>
+          <li><a href="#paper-s10">10. Design principles for implementation</a></li>
+          <li><a href="#paper-s11">11. Where family-centred models can fail</a></li>
+          <li><a href="#paper-s12">12. Public policy: Support families without making them carry society alone</a></li>
+          <li><a href="#paper-s13">13. From families to regenerative communities</a></li>
+          <li><a href="#paper-s14">14. A falsifiable pilot and evaluation model</a></li>
+          <li><a href="#paper-s15">15. An initial selfdriven.family charter</a></li>
+          <li><a href="#paper-s16">16. Conclusion: Strengthen the smallest durable networks of care</a></li>
+          <li><a href="#paper-references">References and source notes</a></li></ol>
+        </details>
+      </aside>
+      <article class="prose" id="paperBody">
+<h2 id="paper-abstract">Abstract</h2>
+<p>Human societies are commonly described through their visible
+large-scale structures: states, markets, corporations, schools,
+religions and civic institutions. Yet the everyday foundations of
+society are often relational rather than institutional. Families and
+wider kinship networks provide care, nurture children, share resources,
+transmit knowledge, respond to illness and loss, and connect
+generations. Their form varies substantially across cultures and lives;
+their underlying role as a locus of durable mutual responsibility is
+remarkably persistent.</p>
+<p>This paper proposes <strong>selfdriven.family</strong> as a framework
+for strengthening the capacity of families and chosen care networks to
+govern their own affairs, learn together, coordinate resources, support
+individual agency and contribute to regenerative communities. The claim
+that the family is a <em>foundational unit</em> is functional, not an
+argument that every person must belong to a conventional household or
+that family authority overrides individual rights. Families can also be
+places of harm, coercion and exclusion. Family-centred systems are
+legitimate only when grounded in consent, safeguarding, equity and
+meaningful freedom to leave.</p>
+<p>The paper develops a model of the family as a small-scale social
+coordination system, connects that model to the selfdriven 4Cs —
+Curious, Caring, Constructive and Chill — and proposes practical
+principles, enabling infrastructure, pilot designs and falsifiable
+measures. It argues that human flourishing and social resilience are
+better served when institutions <strong>support the agency of family and
+care networks</strong> instead of treating them merely as units of
+consumption, compliance or service delivery.</p>
+<p><strong>Keywords:</strong> family; kinship; self-direction; care;
+social coordination; agency; intergenerational learning; regenerative
+communities; abundant intelligence; selfdriven.</p>
+<hr />
+<h2 id="paper-s1">1.
+Introduction: Society begins in relationship</h2>
+<p>A person is not born into a corporation, a market or a school. A
+person is born into dependence on others. Long before formal
+participation in public institutions, human development requires food,
+shelter, attention, language, attachment, protection and learning. These
+are provided by people in relationships: sometimes parents, sometimes
+grandparents, relatives, guardians, foster carers, adoptive families,
+community members or other trusted adults.</p>
+<p>This is the operational reason to begin with the family. The family
+is a recurring place where society is continuously reproduced — not only
+biologically, but socially, culturally and ethically. It is where people
+encounter their first examples of cooperation, responsibility, conflict,
+repair and reciprocity.</p>
+<p>The Universal Declaration of Human Rights recognises the family as
+the "natural and fundamental group unit of society" and entitles it to
+societal and state protection (Article 16). The same declaration
+protects individual dignity, equality, privacy and freedom; its
+recognition of family does <strong>not</strong> license coercion within
+families [1]. Anthropology likewise identifies kinship principles as
+central to social organisation across much of the anthropological
+record, while demonstrating great variation in residence and kinship
+systems [2].</p>
+<p>Thus the proposition of this paper is neither nostalgia nor a rigid
+ideal of the nuclear household. It is an architectural observation:
+<strong>human societies depend on small, persistent networks of
+reciprocal care, and families are among the most important forms of
+those networks.</strong></p>
+<h2 id="paper-s2">2.
+Defining the family by function, not by a fixed shape</h2>
+<p>An exclusive definition of family — for example, two married
+biological parents and their children in one residence — fails both
+descriptively and ethically. Social reality includes single-parent
+households, couples without children, extended and multigenerational
+families, blended families, adoptive and foster families, shared-care
+arrangements, same-sex-parent families and chosen families. Some
+meaningful family relationships span households and countries.</p>
+<p>The Australian Institute of Family Studies reports that Australians'
+understandings of family are shaped by culture, lived experience and
+chosen relationships. In its survey, 95% of respondents rated love, and
+92% rated unconditional non-judgemental support, as important or very
+important to what makes a family [3]. These figures reflect survey
+participants' reported values, not a universal definition or a
+population estimate.</p>
+<p>The 2021 Australian Census counted approximately 6.73 million
+families: 43.7% were couples with children in the household, 38.8%
+couples without children, 15.9% one-parent families and 1.6% other
+family forms. Such household categories are useful administratively, but
+do not capture every extended or chosen relationship [4].</p>
+<p>For the purposes of <strong>selfdriven.family</strong>, a working
+definition is:</p>
+<blockquote>
+<p><strong>A family is an enduring network of people who recognise
+mutual bonds of care, responsibility, belonging or intergenerational
+commitment, subject to the rights and freely developing agency of each
+member.</strong></p>
+</blockquote>
+<p>This definition describes a social relationship, not a legal
+entitlement. Statutory definitions of family, guardianship, parental
+responsibility and consent continue to govern where law applies. It also
+does not imply that a family must include children, biological kinship
+or co-residence.</p>
+<h3 id="paper-family-household-and-care-circle">Family, household and
+care circle</h3>
+<ul>
+<li><strong>Person:</strong> The irreducible bearer of dignity, rights,
+aspirations and agency.</li>
+<li><strong>Family:</strong> A durable network of care, belonging and
+shared responsibility.</li>
+<li><strong>Household:</strong> People sharing a dwelling and some
+resources, who may or may not constitute a family.</li>
+<li><strong>Care circle:</strong> A consensual network of trusted people
+who provide support where a conventional family is absent, dispersed or
+unsafe.</li>
+<li><strong>Community:</strong> Interconnected families, persons and
+care circles cooperating around place, purpose or practice.</li>
+</ul>
+<p>This layered language allows institutions to support family-centred
+outcomes without forcing people into a single social template.</p>
+<h2 id="paper-s3">3. Why the family is
+foundational</h2>
+<p>The family is foundational not because it is always good or
+universally sufficient, but because it addresses recurring coordination
+problems that no human society can avoid.</p>
+<h3 id="paper-31-care-and-survival">3.1 Care and survival</h3>
+<p>Human infancy involves sustained dependence. Responsive caregiving,
+adequate nutrition, safety, health and opportunities to learn are
+central to early childhood development. WHO guidance identifies families
+as the primary providers of nurturing care during the earliest years
+while emphasising that parents and caregivers themselves require support
+[5]. The important unit is therefore not the isolated parent but a
+supported ecology of care.</p>
+<h3 id="paper-32-learning-and-the-formation-of-agency">3.2 Learning and
+the formation of agency</h3>
+<p>Before formal schooling, children acquire language, habits, social
+understanding, emotional regulation and expectations about relationships
+through observation and participation. Families remain sites of learning
+throughout life: practical skills, ethical reasoning, financial
+judgement, health literacy, cultural knowledge and the ability to
+respond to uncertainty. The selfdriven perspective treats children as
+developing participants with increasing autonomy, not merely recipients
+of instructions.</p>
+<h3 id="paper-33-trust-reciprocity-and-conflict-repair">3.3 Trust,
+reciprocity and conflict repair</h3>
+<p>Repeated relationships enable people to learn who can be relied upon,
+how commitments are kept and how failures are repaired. Trust is never
+automatic; kinship alone is not proof of trustworthiness. Healthy family
+governance makes agreements visible, permits disagreement and repairs
+breaches without normalising manipulation or abuse.</p>
+<h3 id="paper-34-shared-resources-and-resilience">3.4 Shared resources
+and resilience</h3>
+<p>Families often pool time, space, skills, savings, transport and
+caregiving. They redistribute resources when a member is very young,
+elderly, unwell, unemployed or facing a crisis. This creates a form of
+informal resilience. It also creates risks of unrecognised or unequally
+distributed labour, especially when care is assumed to be the
+responsibility of particular members.</p>
+<h3 id="paper-35-continuity-and-the-transmission-of-meaning">3.5
+Continuity and the transmission of meaning</h3>
+<p>Families carry stories, language, practices, memories,
+responsibilities to place and relationships across generations. In
+Aboriginal and Torres Strait Islander contexts, kinship networks may
+extend far beyond the Western nuclear household and connect caregiving,
+social obligations and wellbeing. Such systems are diverse and should
+not be compressed into a single generalisation [6].</p>
+<p>Together these functions support the paper's central architectural
+claim: <strong>the family is a primary social coordination layer, even
+where the state, market and civil society provide essential additional
+capabilities.</strong></p>
+<h2 id="paper-s4">4.
+A critical distinction: Foundational does not mean sovereign over
+persons</h2>
+<p>Calling the family a basic social unit can become dangerous if it
+turns into a claim that family interests always outrank individual
+interests. That conclusion does not follow.</p>
+<p>Human rights attach to persons. A child's rights do not disappear
+inside the home. The Convention on the Rights of the Child recognises a
+child's right to be heard in matters affecting them, appropriate to age
+and maturity (Article 12), and protection from violence, abuse and
+neglect (Article 19). It recognises parental responsibilities alongside
+the child's developing capacities and best interests [7].</p>
+<p>Accordingly, a selfdriven.family model must affirm:</p>
+<ol type="1">
+<li><strong>Dignity before belonging:</strong> No person forfeits their
+rights by being part of a family.</li>
+<li><strong>Safety before cohesion:</strong> Preserving an appearance of
+unity must never take precedence over protection from harm.</li>
+<li><strong>Agency grows with capability:</strong> Decisions should
+increasingly include the people who are affected by them, including
+children.</li>
+<li><strong>Care is mutual but not compulsory servitude:</strong> Roles
+and responsibilities must be fairly negotiated and revisable.</li>
+<li><strong>Leaving can be legitimate:</strong> Separation, boundaries
+and safe exits may be necessary forms of self-direction.</li>
+<li><strong>Community and public institutions remain essential:</strong>
+Safeguarding, health services, schools, disability supports and the
+justice system cannot simply be delegated to families.</li>
+</ol>
+<p>A successful family-centred framework must be able to recognise when
+family governance is failing, rather than romanticising family
+authority.</p>
+<h2 id="paper-s5">5.
+The selfdriven shift: From managed households to self-actuating
+families</h2>
+<p>Many contemporary systems interact with families as administrative
+objects: an address, a tax unit, a demographic segment, a client record,
+a borrowing household or a consumer category. These representations are
+useful for narrow purposes but incomplete as models of human
+capability.</p>
+<p><strong>Self-actuation</strong> means the ability of a person or
+group to define its own direction, mobilise its strengths, learn through
+action and adapt through feedback. Applied to families, the shift
+is:</p>
+<div class="table-scroll"><table>
+<thead>
+<tr class="header">
+<th>Institutional default</th>
+<th>selfdriven.family proposition</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Family as a passive recipient of services</td>
+<td>Family as an active participant and co-designer</td>
+</tr>
+<tr class="even">
+<td>Standardised pathways</td>
+<td>Context-sensitive choices and diverse family forms</td>
+</tr>
+<tr class="odd">
+<td>Children as subjects of management</td>
+<td>Children as developing agents with rights and voice</td>
+</tr>
+<tr class="even">
+<td>Care as invisible private labour</td>
+<td>Care as recognised, shared and supported contribution</td>
+</tr>
+<tr class="odd">
+<td>Success measured primarily by income or compliance</td>
+<td>Success considered through safety, agency, relationships and
+resilience</td>
+</tr>
+<tr class="even">
+<td>Technology collects and optimises family behaviour</td>
+<td>Technology serves people under consent and human control</td>
+</tr>
+</tbody>
+</table></div>
+<p>The goal is not to eliminate professional expertise or public
+institutions. It is to reverse the presumption that families must
+conform to systems instead of systems adapting to people's actual
+relationships, needs and capacities.</p>
+<h2 id="paper-s6">6. The four
+selfdriven modes at family scale</h2>
+<p>The selfdriven.you framework describes four human modes:
+<strong>Curious, Caring, Constructive and Chill</strong> [8]. These can
+serve as an accessible operating rhythm for family life.</p>
+<h3 id="paper-curious--learn-together">Curious — Learn together</h3>
+<p>Create room for questions, differences of opinion, experimentation
+and exploration. A family need not share every belief to be cohesive.
+Curiosity permits children and adults to reconsider inherited
+assumptions and navigate an uncertain future.</p>
+<p><strong>Example practice:</strong> Each week, every willing member
+shares one question worth exploring, with no expectation that the group
+already has the answer.</p>
+<h3 id="paper-caring--make-relationships-real">Caring — Make
+relationships real</h3>
+<p>Care is expressed in attention, reliability, listening and
+protection, not merely a statement of loyalty. It includes equitable
+distribution of practical tasks and a willingness to notice unspoken
+needs.</p>
+<p><strong>Example practice:</strong> Ask who currently carries the
+emotional and practical load, and agree on one concrete way to rebalance
+it.</p>
+<h3 id="paper-constructive--contribute-and-build">Constructive —
+Contribute and build</h3>
+<p>A selfdriven family creates things together: meals, gardens, learning
+projects, mutual-aid networks, improvements to the home or contributions
+to its wider community. Shared activity allows agency to become
+tangible.</p>
+<p><strong>Example practice:</strong> Select a small family or community
+project, assign voluntary roles and reflect on the result rather than on
+individual status.</p>
+<h3 id="paper-chill--sustain-the-system">Chill — Sustain the system</h3>
+<p>Rest, play, quiet and unstructured time are not inefficiencies to
+eliminate. They sustain relationships, recovery and learning. A family
+operating permanently in crisis-management mode cannot maintain the
+capacity to choose thoughtfully.</p>
+<p><strong>Example practice:</strong> Protect a recurring period free
+from performance expectations and digital demands.</p>
+<p>The four modes are not a scorecard for judging families. They are a
+language for noticing imbalance and creating space to adjust.</p>
+<h2 id="paper-s7">7. Family
+as a distributed coordination system</h2>
+<p>A family can be understood as a small, evolving system with people,
+relationships, commitments, resources, decisions and feedback. This is a
+useful engineering analogy, but it must not reduce humans to components
+or private life to an optimisation problem.</p>
+<p>The conceptual architecture has four levels:</p>
+<p><strong>Person → Family / care circle → Community networks →
+Institutions and commons</strong></p>
+<p>Information and support should move in both directions. Families
+should be able to obtain help from schools, healthcare services and
+communities; public systems should learn from lived needs without
+extracting unnecessary personal data.</p>
+<h3 id="paper-a-minimal-family-coordination-cycle">A minimal family
+coordination cycle</h3>
+<ol type="1">
+<li><strong>Observe:</strong> Notice needs, strengths, pressures,
+opportunities and possible harm.</li>
+<li><strong>Listen:</strong> Allow each affected person to express a
+view, with reasonable support for age or disability.</li>
+<li><strong>Compose:</strong> Propose a shared intention, plan or
+commitment.</li>
+<li><strong>Conduct:</strong> Coordinate voluntary, fair and
+age-appropriate action.</li>
+<li><strong>Learn:</strong> Review what happened, who benefited, whose
+needs were overlooked and what should change.</li>
+<li><strong>Renew or stop:</strong> Adjust the plan, seek outside help
+or discontinue an arrangement that is unsafe or no longer
+appropriate.</li>
+</ol>
+<p>The language of composing and conducting is a tool for voluntary
+coordination, not a justification for one person directing every other
+person. A family can have distributed leadership, rotating
+responsibilities and different cadences for different needs.</p>
+<h3 id="paper-a-possible-relationship-graph">A possible relationship
+graph</h3>
+<p>A selfdriven.family representation could include people, trusted
+relationships, capabilities, projects, shared agreements and contextual
+links. Such a graph should represent <strong>permissions and
+responsibilities, not ownership of people</strong>. Sensitive
+relationships must not be inferred, published, ranked or exposed merely
+because a system can model them.</p>
+<h2 id="paper-s8">8.
+The age of abundant intelligence changes the opportunity</h2>
+<p>Intelligent systems may reduce the effort needed to access specialist
+knowledge, plan meals, manage budgets, navigate health information,
+support learning, translate between languages or coordinate care. This
+can return capacity to families, especially those facing time, distance,
+disability or economic constraints.</p>
+<p>But intelligence does not substitute for relational accountability.
+An autonomous system may produce suggestions; it does not thereby
+acquire the moral standing of a parent, guardian or trusted friend. Nor
+should a model become the default interpreter of every disagreement, a
+monitor of children's behaviour or an invisible broker of household
+power.</p>
+<p>For selfdriven.family, the principle is:</p>
+<blockquote>
+<p><strong>Abundant intelligence should increase a family's capacity to
+care, choose, learn and contribute — without making the family dependent
+on surveillance, opaque automation or a single provider.</strong></p>
+</blockquote>
+<p>Potential applications include family learning plans, accessible
+communication, voluntary coordination of care, intergenerational
+knowledge preservation, emergency preparedness and community
+collaboration. The strongest initial applications are narrow,
+reversible, human-led and demonstrably useful.</p>
+<h2 id="paper-s9">9.
+selfdriven.family: A proposed capability framework</h2>
+<p>The following is a <strong>design proposal</strong>, not a claim that
+these features are already available at selfdriven.family.</p>
+<h3
+id="paper-capability-1--shared-purpose-without-forced-consensus">Capability
+1 — Shared purpose without forced consensus</h3>
+<p>Let members express what matters to them individually, then identify
+any genuinely shared intentions. Disagreement is normal. The system
+should not turn the priorities of the oldest, richest or technically
+most capable person into the family's default identity.</p>
+<h3 id="paper-capability-2--family-and-individual-learning">Capability 2
+— Family and individual learning</h3>
+<p>Enable voluntary learning projects, skill sharing, mentoring and
+intergenerational collaboration. The family should be a pathway into
+broader educational and community ecosystems, not a substitute for
+qualified teaching or an instrument of compulsory conformity.</p>
+<h3 id="paper-capability-3--care-and-support-coordination">Capability 3
+— Care and support coordination</h3>
+<p>Help consenting adults coordinate practical responsibilities,
+appointments and support. Use accessible design; protect health
+information; and never require disclosure of confidential personal
+circumstances to other family members.</p>
+<h3
+id="paper-capability-4--shared-projects-and-regenerative-contribution">Capability
+4 — Shared projects and regenerative contribution</h3>
+<p>Allow families and care circles to join local projects: mentoring,
+environmental restoration, food resilience, neighbourhood support,
+cultural activities and community improvement. Families can participate
+in the wider selfdriven community network without becoming isolated
+units.</p>
+<h3
+id="paper-capability-5--personal-and-collective-resilience">Capability 5
+— Personal and collective resilience</h3>
+<p>Support emergency contacts, preparedness plans, continuity of
+caregiving and practical knowledge. This includes contingency planning
+for separation, illness, disability, disaster and loss, with legal and
+professional pathways where appropriate.</p>
+<h3 id="paper-capability-6--rights-aware-digital-trust">Capability 6 —
+Rights-aware digital trust</h3>
+<p>Prefer local-first or minimally disclosed records, member-controlled
+permissions, purpose limitation, deletion and portability. Any verified
+context graphs or delegated digital assistants must follow explicit
+authority boundaries. A guardian's access to a child-related record
+should be justified by safety, legal responsibility and evolving
+capacity, not by unlimited technical privilege.</p>
+<h2 id="paper-s10">10. Design
+principles for implementation</h2>
+<p>A viable selfdriven.family platform or community program should
+satisfy ten requirements.</p>
+<ol type="1">
+<li><strong>Plurality:</strong> Recognise many family and kinship
+configurations without grading them against one preferred
+structure.</li>
+<li><strong>Individual agency:</strong> Preserve personal boundaries,
+independent identity and the ability to decline participation.</li>
+<li><strong>Child-centred safeguarding:</strong> Apply best-interests
+principles, age-appropriate participation and escalation to trained
+human services when needed.</li>
+<li><strong>Consent and proportionality:</strong> Collect only data
+necessary for a stated purpose; avoid bundled or coercive consent.</li>
+<li><strong>No surveillance business model:</strong> Do not monetise
+intimate household profiles or optimise people for engagement.</li>
+<li><strong>Equitable participation:</strong> Provide accessible
+interfaces, low-bandwidth and offline alternatives, and support for
+people with limited digital literacy.</li>
+<li><strong>Shared but limited governance:</strong> Make roles,
+delegations, expiry and challenge mechanisms understandable; no member
+should have unrestricted digital control over others.</li>
+<li><strong>Open exit and portability:</strong> Permit people to leave,
+withdraw access and retrieve their own information, subject to lawful
+safeguarding and retention obligations.</li>
+<li><strong>Human accountability:</strong> AI outputs are advisory,
+contestable and traceable; consequential decisions remain with
+authorised humans and relevant institutions.</li>
+<li><strong>Interoperability:</strong> Work with communities, educators,
+health services and social supports through voluntary, minimum-necessary
+connections.</li>
+</ol>
+<h2 id="paper-s11">11. Where
+family-centred models can fail</h2>
+<p>Any family-based thesis must acknowledge the counterexamples.
+Families can reproduce inequity, exclude outsiders, constrain
+individuality, concentrate power, transmit harmful norms, undervalue
+unpaid care or conceal abuse. Some people have no reliable family
+network, and some are safer creating distance from relatives.</p>
+<p>A rigorous model therefore has to reject five flawed assumptions:</p>
+<ul>
+<li><strong>Biological connection guarantees trust.</strong> It does
+not.</li>
+<li><strong>A stable household is necessarily a safe household.</strong>
+It is not.</li>
+<li><strong>Family self-governance can replace the law or professional
+safeguarding.</strong> It cannot.</li>
+<li><strong>Every person wants family reconciliation.</strong> They may
+not, and should not be forced into it.</li>
+<li><strong>More family coordination is always beneficial.</strong>
+Coordination may become control if participation is not genuinely
+voluntary.</li>
+</ul>
+<p>The appropriate response is <strong>support without
+idealisation</strong>. A family-centred infrastructure should make
+appropriate care easier to provide, while ensuring independent support
+pathways for people who need them.</p>
+<h2 id="paper-s12">12.
+Public policy: Support families without making them carry society
+alone</h2>
+<p>Treating families as foundational should lead to better institutional
+design, not to the withdrawal of public responsibility. A society that
+relies on family care while failing to provide affordable housing,
+healthcare, disability support, time to care, early education and safety
+services is transferring costs to those least able to bear them.</p>
+<p>The policy implication is one of <strong>subsidiarity with
+capacity</strong>: decisions should be made as close as is sensible to
+affected people, but higher-level institutions must supply resources,
+rights protection and specialist services where local capacity is
+insufficient. Families are not mini-states; communities and states are
+not optional extras.</p>
+<p>This also changes the measure of social success. Economic output and
+school attainment matter, but so do care availability, security, freedom
+from violence, relational trust, agency, participation and the capacity
+to face disruption.</p>
+<h2 id="paper-s13">13. From
+families to regenerative communities</h2>
+<p>Self-actuating families can become contributors to self-actuating
+communities. A network of households and care circles can exchange
+skills, coordinate elder support, mentor young people, steward local
+environments or share tools and facilities. Such networks can create
+redundancy: a family is less vulnerable when it has trusted connections
+beyond itself.</p>
+<p>A community is not simply a larger family. Community participation
+requires norms of inclusion, fair access, conflict resolution and
+respect for strangers who are not kin. Strong families and strong civic
+institutions can complement each other; nepotism and insularity are
+risks when they do not.</p>
+<p>The systemic design question is:</p>
+<blockquote>
+<p>How can we build institutions and digital infrastructure that
+increase the capacity of people to care for one another, without
+capturing the relationships themselves?</p>
+</blockquote>
+<p>This makes selfdriven.family a potential entry point into wider
+selfdriven learning, health, community and autonomous-system frameworks
+— beginning with real human relationships, not with software
+architecture.</p>
+<h2 id="paper-s14">14. A
+falsifiable pilot and evaluation model</h2>
+<p>The proposal should be tested rather than accepted as an ideological
+premise. A pilot could recruit diverse, voluntary family groups and care
+circles, including adults without children, multigenerational networks
+and single-parent families. Participants would co-design only the
+capabilities they find useful. No one would be required to disclose
+private conflict, health information or children's personal records to a
+technology platform.</p>
+<p><strong>Pilot sequence (illustrative):</strong></p>
+<ul>
+<li><strong>Phase A — Discovery (4–6 weeks):</strong> Structured
+interviews and participatory design focused on unmet coordination needs,
+boundaries and inclusion.</li>
+<li><strong>Phase B — Lightweight practices (8–12 weeks):</strong> Trial
+non-digital 4C routines, optional shared-project templates and
+individual reflection mechanisms.</li>
+<li><strong>Phase C — Minimum viable tools (8–12 weeks):</strong> Offer
+opt-in coordination features with explicit permissions, accessibility
+testing and independent safeguarding review.</li>
+<li><strong>Phase D — Evaluation:</strong> Compare suitable outcomes
+with baseline measures and, where feasible, a matched or randomised
+comparison design.</li>
+</ul>
+<h3 id="paper-proposed-outcome-indicators">Proposed outcome
+indicators</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr class="header">
+<th>Domain</th>
+<th>Possible measure</th>
+<th>Essential guardrail</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Agency</td>
+<td>Self-reported ability to influence decisions</td>
+<td>Collect privately; no household-level coercion</td>
+</tr>
+<tr class="even">
+<td>Care</td>
+<td>Fairness and sustainability of shared responsibilities</td>
+<td>Do not equate care with unpaid workload</td>
+</tr>
+<tr class="odd">
+<td>Learning</td>
+<td>Voluntary learning and participation</td>
+<td>No rankings of children or families</td>
+</tr>
+<tr class="even">
+<td>Trust</td>
+<td>Perceived reliability and conflict repair</td>
+<td>Safety measures override cohesion scores</td>
+</tr>
+<tr class="odd">
+<td>Resilience</td>
+<td>Ability to obtain support in disruption</td>
+<td>Include connections beyond the household</td>
+</tr>
+<tr class="even">
+<td>Digital autonomy</td>
+<td>Ease of revoking access, exporting or deleting data</td>
+<td>Audit permissions and security independently</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="paper-testable-hypotheses">Testable hypotheses</h3>
+<ul>
+<li><strong>H1:</strong> Families using voluntary, rights-aware
+coordination practices report improved perceived agency relative to
+baseline or comparison groups.</li>
+<li><strong>H2:</strong> A carefully designed shared-care practice
+improves perceived fairness without increasing total unpaid care
+burdens.</li>
+<li><strong>H3:</strong> Connection to trusted community care networks
+improves reported capacity to respond to disruption.</li>
+<li><strong>H4:</strong> A privacy-preserving assistant can reduce
+coordination effort without reducing perceived control over private
+information.</li>
+<li><strong>H5 (failure criterion):</strong> If any intervention
+increases coercion, surveillance, conflict or exclusion, it fails
+regardless of aggregate engagement or productivity gains.</li>
+</ul>
+<p>These are <strong>hypotheses</strong>, not established benefits.
+Outcomes must be disaggregated carefully, reviewed for unintended harm,
+and interpreted without treating survey signals as causal proof.</p>
+<h2 id="paper-s15">15. An initial
+selfdriven.family charter</h2>
+<p>A simple charter could serve as the human starting point for further
+development:</p>
+<blockquote>
+<p><strong>We are people first.</strong> Each person has dignity,
+rights, boundaries and a voice.</p>
+<p><strong>We care for one another.</strong> Care is demonstrated
+through respectful action and shared responsibility.</p>
+<p><strong>We stay curious.</strong> We make room for learning,
+differences and changing minds.</p>
+<p><strong>We build together.</strong> We contribute to our shared
+wellbeing and to the communities around us.</p>
+<p><strong>We make room to rest.</strong> Our relationships are not
+productivity projects.</p>
+<p><strong>We respect autonomy and safety.</strong> Nobody is required
+to accept harm in the name of family unity.</p>
+<p><strong>We seek help when needed.</strong> Family strength includes
+reaching beyond the family.</p>
+<p><strong>We keep the future open.</strong> Our responsibility is to
+equip the next generation to make meaningful choices of its own.</p>
+</blockquote>
+<p>This charter is a starting proposal for discussion and adaptation,
+not a universal rulebook.</p>
+<h2 id="paper-s16">16.
+Conclusion: Strengthen the smallest durable networks of care</h2>
+<p>Modern systems frequently begin with abstractions — citizens,
+customers, patients, students, employees or users — and then attempt to
+optimise the lives of the people those categories represent.
+selfdriven.family begins elsewhere: with people who are already
+connected by care, history, dependency, shared purpose or deliberate
+commitment.</p>
+<p>The family is foundational because much of human life is sustained
+through these intimate and enduring networks. But the correct response
+is not to defend one family form, expand family authority or transfer
+public obligations onto private households. It is to develop the
+conditions under which different families and care circles can be
+<strong>safe, autonomous, capable, connected and
+regenerative</strong>.</p>
+<p>In the age of abundant intelligence, we can make services and
+knowledge more accessible. What we cannot afford to make disposable are
+the human relationships through which care, meaning and responsibility
+become real.</p>
+<p><strong>The future of society should not be designed only from its
+largest institutions downward. It should also be cultivated from its
+smallest durable networks of care outward.</strong></p>
+<hr />
+<h2 id="paper-references">References and source
+notes</h2>
+<p>The references below support the descriptive and rights-based
+foundations. The selfdriven.family architecture, practices and
+hypotheses are original proposals in this paper and have not been
+empirically validated.</p>
+<ol type="1">
+<li>United Nations. (1948). <em>Universal Declaration of Human
+Rights</em>, especially Articles 1, 12 and 16. <a href="https://www.un.org/en/about-us/universal-declaration-of-human-rights/" target="_blank" rel="noopener">https://www.un.org/en/about-us/universal-declaration-of-human-rights/</a></li>
+<li>Ember, C. R., Droe, A., &amp; Russell, D. (2022). <em>Residence and
+Kinship</em>. Human Relations Area Files, Yale University. <a href="https://hraf.yale.edu/ehc/summaries/residence-and-kinship" target="_blank" rel="noopener">https://hraf.yale.edu/ehc/summaries/residence-and-kinship</a></li>
+<li>Budinski, M., &amp; Gahan, L. (2023). <em>What is family? Australian
+views on what makes a family</em>. Australian Institute of Family
+Studies. <a href="https://aifs.gov.au/all-research/research-reports/what-family" target="_blank" rel="noopener">https://aifs.gov.au/all-research/research-reports/what-family</a></li>
+<li>Australian Bureau of Statistics. (2022). <em>Household and families:
+Census, 2021</em>. <a href="https://www.abs.gov.au/statistics/people/people-and-communities/household-and-families-census/latest-release" target="_blank" rel="noopener">https://www.abs.gov.au/statistics/people/people-and-communities/household-and-families-census/latest-release</a></li>
+<li>World Health Organization. (2020). <em>Improving early childhood
+development: WHO guideline</em>. <a href="https://www.who.int/publications/i/item/97892400020986" target="_blank" rel="noopener">https://www.who.int/publications/i/item/97892400020986</a></li>
+<li>Australian Indigenous HealthInfoNet. <em>Family, kinship and
+community</em>. <a href="https://healthinfonet.ecu.edu.au/learn/health-topics/social-and-emotional-wellbeing/family-kinship-community/" target="_blank" rel="noopener">https://healthinfonet.ecu.edu.au/learn/health-topics/social-and-emotional-wellbeing/family-kinship-community/</a></li>
+<li>United Nations. (1989). <em>Convention on the Rights of the
+Child</em>, especially Articles 12, 18 and 19. <a href="https://www.unicef.org/child-rights-convention/convention-text" target="_blank" rel="noopener">https://www.unicef.org/child-rights-convention/convention-text</a></li>
+<li>selfdriven.you. <em>A Human OS for the Age of Intelligence: Curious,
+Caring, Constructive, Chill</em>. <a href="https://selfdriven.you/" target="_blank" rel="noopener">https://selfdriven.you/</a></li>
+<li>selfdriven Foundation. <em>Helping communities self-actuate</em>. <a href="https://selfdriven.foundation/" target="_blank" rel="noopener">https://selfdriven.foundation/</a></li>
+<li>OpenStax. <em>Introduction to Anthropology</em>, Chapter 11 Summary
+(kinship, marriage and family). <a href="https://openstax.org/books/introduction-anthropology/pages/11-summary" target="_blank" rel="noopener">https://openstax.org/books/introduction-anthropology/pages/11-summary</a></li>
+</ol>
+<h3 id="paper-scope-and-limitations">Scope and limitations</h3>
+<p>This is a conceptual and normative paper informed by selected
+anthropological, public-health, demographic and human-rights references.
+It is not a systematic review, a statement of legal advice or a claim
+that a digital intervention has been shown to improve family wellbeing.
+The website <strong>selfdriven.family</strong> is treated as the
+proposed home or identity for the framework; its current live
+functionality was not independently verified when this version was
+prepared.</p>
+
+      </article>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="brand" href="#top"><span class="mark" aria-hidden="true"></span><span>selfdriven<em>.family</em></span></a>
+    <nav aria-label="Footer">
+      <a href="#paper"><svg class="ic-sm"><use href="#ic-file-text"/></svg>The paper</a>
+      <a href="#charter">Charter</a>
+      <a href="https://selfdriven.you/" target="_blank" rel="noopener">selfdriven.you<svg class="ic-sm"><use href="#ic-arrow-up-right"/></svg></a>
+      <a href="https://selfdriven.foundation/" target="_blank" rel="noopener">selfdriven Foundation<svg class="ic-sm"><use href="#ic-arrow-up-right"/></svg></a>
+    </nav>
+    <p class="fine">Version 1.0 · 29 October 2026 · A conceptual research and framework proposal. Not legal advice.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var home = document.getElementById('home');
+  var paper = document.getElementById('paper');
+
+  /* ---- paper contents ---- */
+  var toc = document.getElementById('toc');
+  var tocLinks = Array.prototype.slice.call(toc.querySelectorAll('a'));
+  var heads = tocLinks.map(function (a) { return document.getElementById(a.getAttribute('href').slice(1)); });
+  function markToc() {
+    var y = window.scrollY + 120, cur = 0;
+    for (var i = 0; i < heads.length; i++) { if (heads[i] && heads[i].getBoundingClientRect().top + window.scrollY <= y) cur = i; }
+    tocLinks.forEach(function (a, i) { a.classList.toggle('on', i === cur); });
+  }
+  function narrow() { return window.matchMedia && window.matchMedia('(max-width: 900px)').matches; }
+  if (narrow()) toc.open = false;
+  tocLinks.forEach(function (a) { a.addEventListener('click', function () { if (narrow()) toc.open = false; }); });
+
+  /* ---- view routing: #paper and #paper-* show the paper, anything else the overview ---- */
+  function route(ev) {
+    var h = '';
+    try { h = decodeURIComponent((location.hash || '').slice(1)); } catch (e) { h = (location.hash || '').slice(1); }
+    var isPaper = h === 'paper' || h.indexOf('paper-') === 0;
+    var wasPaper = !paper.hidden;
+    home.hidden = isPaper;
+    paper.hidden = !isPaper;
+    var target = (h && h !== 'paper' && h !== 'top') ? document.getElementById(h) : null;
+    var jump = (isPaper !== wasPaper || !ev) ? 'instant' : 'smooth';
+    if (target) {
+      requestAnimationFrame(function () { target.scrollIntoView({ block: 'start', behavior: jump }); if (isPaper) markToc(); });
+    } else if (h === 'top' || isPaper !== wasPaper || !h) {
+      window.scrollTo({ top: 0, behavior: jump });
+    }
+    if (isPaper) markToc();
+  }
+  window.addEventListener('hashchange', route);
+  route();
+  window.addEventListener('scroll', function () { if (!paper.hidden) markToc(); }, { passive: true });
+
+  /* ---- coordination cycle: hover/focus highlights the step ---- */
+  var pills = document.querySelectorAll('#cycleSvg .pill');
+  var steps = document.querySelectorAll('#steps li');
+  function setStep(i) {
+    pills.forEach(function (p) { p.classList.toggle('on', p.getAttribute('data-step') === String(i)); });
+    steps.forEach(function (s) { s.classList.toggle('on', s.getAttribute('data-step') === String(i)); });
+  }
+  steps.forEach(function (s) {
+    var i = s.getAttribute('data-step');
+    s.addEventListener('mouseenter', function () { setStep(i); });
+    s.addEventListener('focus', function () { setStep(i); });
+    s.addEventListener('mouseleave', function () { setStep(-1); });
+    s.addEventListener('blur', function () { setStep(-1); });
+  });
+  pills.forEach(function (p) {
+    var i = p.getAttribute('data-step');
+    p.addEventListener('mouseenter', function () { setStep(i); });
+    p.addEventListener('mouseleave', function () { setStep(-1); });
+  });
+
+  /* ---- copy the charter ---- */
+  var btn = document.getElementById('copyCharter');
+  var label = document.getElementById('copyLabel');
+  var use = document.getElementById('copyUse');
+  function charterText() {
+    var lines = ['selfdriven.family charter (v1.0)', ''];
+    document.querySelectorAll('#charterList li').forEach(function (li) {
+      lines.push(li.querySelector('b').textContent + ' ' + li.querySelector('span').textContent);
+    });
+    return lines.join('\n');
+  }
+  function done(msg) {
+    label.textContent = msg; btn.setAttribute('data-done', '1'); use.setAttribute('href', '#ic-check');
+    setTimeout(function () { label.textContent = 'Copy the charter'; btn.removeAttribute('data-done'); use.setAttribute('href', '#ic-copy'); }, 2200);
+  }
+  function selectFallback() {
+    var r = document.createRange(); r.selectNodeContents(document.getElementById('charterList'));
+    var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+    done('Selected. Press Ctrl/Cmd+C');
+  }
+  btn.addEventListener('click', function () {
+    var t = charterText();
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) { navigator.clipboard.writeText(t).then(function () { done('Copied'); }, selectFallback); }
+      else { selectFallback(); }
+    } catch (e) { selectFallback(); }
+  });
+
+  /* ---- custom cursor (desktop only) ---- */
+  var dot = document.getElementById('cdot'), ring = document.getElementById('cring');
+  if (window.matchMedia && window.matchMedia('(hover: hover)').matches) {
+    var rx = -100, ry = -100, dx = -100, dy = -100;
+    document.addEventListener('mousemove', function (e) { dx = e.clientX; dy = e.clientY; dot.style.left = dx + 'px'; dot.style.top = dy + 'px'; });
+    (function loop() { rx += (dx - rx) * .18; ry += (dy - ry) * .18; ring.style.left = rx + 'px'; ring.style.top = ry + 'px'; requestAnimationFrame(loop); })();
+    var modeColour = { 'm-c': 'rgba(245,200,66,.6)', 'm-k': 'rgba(255,95,126,.6)', 'm-b': 'rgba(0,229,160,.6)', 'm-l': 'rgba(155,143,255,.6)' };
+    document.querySelectorAll('a, button, summary, .task, .mode, .cap, #steps li').forEach(function (el) {
+      el.addEventListener('mouseenter', function () {
+        var c = 'rgba(245,200,66,.6)';
+        var m = el.closest('.mode');
+        if (m) { for (var k in modeColour) { if (m.classList.contains(k)) c = modeColour[k]; } }
+        ring.style.width = '52px'; ring.style.height = '52px'; ring.style.borderColor = c;
+      });
+      el.addEventListener('mouseleave', function () { ring.style.width = '34px'; ring.style.height = '34px'; ring.style.borderColor = 'rgba(240,238,255,.3)'; });
+    });
+  }
+})();
+</script>
+
+</body></html>
