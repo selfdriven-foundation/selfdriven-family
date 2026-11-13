@@ -61,19 +61,13 @@ body {
   background: var(--bg); color: var(--text);
   font-family: var(--font); font-size: 16.5px; line-height: 1.6;
   -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
-  cursor: none;
 }
-a, button, summary, [tabindex] { cursor: none; }
+button, summary { cursor: pointer; }
 a { color: inherit; }
 ::selection { background: rgba(255,95,126,.32); color: var(--text); }
 :focus-visible { outline: 2px solid var(--curious); outline-offset: 3px; border-radius: 8px; }
 .ic { width: 20px; height: 20px; flex: none; }
 .ic-sm { width: 16px; height: 16px; flex: none; }
-
-/* ---------- custom cursor ---------- */
-.cursor-dot  { position: fixed; top: -100px; left: -100px; width: 8px; height: 8px; border-radius: 50%; background: var(--curious); pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); transition: transform .12s ease, background .2s; }
-.cursor-ring { position: fixed; top: -100px; left: -100px; width: 34px; height: 34px; border-radius: 50%; border: 1.5px solid rgba(240,238,255,.3); pointer-events: none; z-index: 9998; transform: translate(-50%,-50%); transition: transform .18s ease, width .2s, height .2s, border-color .2s; }
-@media (hover: none) { body, a, button, summary, [tabindex] { cursor: auto; } .cursor-dot, .cursor-ring { display: none; } }
 
 .wrap { max-width: 1160px; margin: 0 auto; padding-left: var(--gutter-l); padding-right: var(--gutter-r); position: relative; z-index: 1; }
 .narrow { max-width: 64ch; }
@@ -519,9 +513,6 @@ footer .fine { font-family: var(--mono); font-size: 12px; color: var(--muted); w
   <symbol id="ic-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></symbol>
   <symbol id="ic-chevron-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></symbol>
 </svg>
-
-<div class="cursor-dot" id="cdot" aria-hidden="true"></div>
-<div class="cursor-ring" id="cring" aria-hidden="true"></div>
 
 <header class="nav" id="nav">
   <div class="wrap">
@@ -1941,24 +1932,6 @@ prepared.</p>
       else { selectFallback(); }
     } catch (e) { selectFallback(); }
   });
-
-  /* ---- custom cursor (desktop only) ---- */
-  var dot = document.getElementById('cdot'), ring = document.getElementById('cring');
-  if (window.matchMedia && window.matchMedia('(hover: hover)').matches) {
-    var rx = -100, ry = -100, dx = -100, dy = -100;
-    document.addEventListener('mousemove', function (e) { dx = e.clientX; dy = e.clientY; dot.style.left = dx + 'px'; dot.style.top = dy + 'px'; });
-    (function loop() { rx += (dx - rx) * .18; ry += (dy - ry) * .18; ring.style.left = rx + 'px'; ring.style.top = ry + 'px'; requestAnimationFrame(loop); })();
-    var modeColour = { 'm-c': 'rgba(245,200,66,.6)', 'm-k': 'rgba(255,95,126,.6)', 'm-b': 'rgba(0,229,160,.6)', 'm-l': 'rgba(155,143,255,.6)' };
-    document.querySelectorAll('a, button, summary, .task, .mode, .cap, #steps li').forEach(function (el) {
-      el.addEventListener('mouseenter', function () {
-        var c = 'rgba(245,200,66,.6)';
-        var m = el.closest('.mode');
-        if (m) { for (var k in modeColour) { if (m.classList.contains(k)) c = modeColour[k]; } }
-        ring.style.width = '52px'; ring.style.height = '52px'; ring.style.borderColor = c;
-      });
-      el.addEventListener('mouseleave', function () { ring.style.width = '34px'; ring.style.height = '34px'; ring.style.borderColor = 'rgba(240,238,255,.3)'; });
-    });
-  }
 })();
 </script>
 
